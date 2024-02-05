@@ -15,7 +15,7 @@
                         <div class='position-relative'>
                             <img src='/assets/img/closeup-of-snail-eating-lettuce.jpg' alt="snail-feeding"/>
                             <div class='container'>
-                                <h1 class='page-hero-header'>Learn all there is to snail farming.</h1>
+                                <h1 class='page-hero-header'>{{ __('Learn all there is to snail farming.') }}</h1>
                             </div>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                         <div class='position-relative'>
                             <img src='/assets/img/media12-1-scaled.jpg' alt="snail-feeding"/>
                             <div class='container'>
-                                <h1 class='page-hero-header'>Learn Farm management.</h1>
+                                <h1 class='page-hero-header'>{{ __('Learn Farm management.') }}</h1>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                         <div class='position-relative'>
                             <img src='/assets/img/UNDP_GH_Snails_Design_Felix_1-1-scaled.jpg' alt="snail-feeding"/>
                             <div class='container'>
-                                <h1 class='page-hero-header'>Learn from Experts.</h1>
+                                <h1 class='page-hero-header'>{{ __('Learn from Experts.') }}</h1>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
            <div class='container'>
 
               <div class='position-relative featured-courses-wrapper d-flex flex-column'>
-                <h3 class='page-header'>Featured Courses</h3>
+                <h3 class='page-header'>{{ __('Featured Courses') }}</h3>
 
                 <div class='swiper featured-courses'>
 
@@ -71,7 +71,7 @@
                                                 <p>{{ $featured_course->course->description }}</p>
                                             </div>
                                             
-                                            <button class='btn btn-success w-auto'>View Course</button>
+                                            <button class='btn btn-success w-auto'>{{ __('View Course') }}</button>
                     
                                         </div>
                                     </div>
@@ -106,7 +106,7 @@
            <div class='container flex-column'>
 
               <div class='position-relative explore-by-category-wrapper'>
-                <h3 class='page-header'>Explore By Category</h3>
+                <h3 class='page-header'>{{ __('Explore By Category') }}</h3>
                 <div class='swiper explore-by-category'>
 
                 <div class="swiper-wrapper">
@@ -152,7 +152,7 @@
         <section>
           <div class='container flex-column'>
               <div class='position-relative testimonials-wrapper'>
-                    <h3 class='page-header'>Testimonials</h3>
+                    <h3 class='page-header'>{{ __('Testimonials') }}</h3>
                     <div class='swiper testimonials'>
 
                         <div class="swiper-wrapper">
@@ -288,16 +288,14 @@
                   </div>
                   <div class='col d-flex flex-column justify-content-center'>
                     <h1>
-                      Take the next step 
-                      toward your personal 
-                      and professional goals 
-                      with Trisolace.
+                        {{
+                            __('Take the next step toward your personal and professional goals with Trisolace.')
+                        }}
                     </h1>
                     <p>
-                      Join now to receive personalized 
-                      recommendations from the full Trisolace catalog.
+                      {{ __('Join now to receive personalized recommendations from the full Trisolace catalog.') }}
                     </p>
-                    <button class='btn btn-success max-content' data-bs-toggle="modal" data-bs-target="#registerModal">Join for Free</button>
+                    <button class='btn btn-success max-content' data-bs-toggle="modal" data-bs-target="#registerModal">{{ __('Join for Free') }}</button>
                   </div>
               </div>
 
@@ -342,6 +340,27 @@
             nextEl: '.explore-by-category-wrapper .swiper-button-next',
             prevEl: '.explore-by-category-wrapper .swiper-button-prev',
             
+        },
+        breakpoints: {
+            // when window width is >= 320px
+            100: {
+            slidesPerView: 1,
+            spaceBetween: 20
+            },
+            // when window width is >= 480px
+            480: {
+            slidesPerView: 2,
+            spaceBetween: 30
+            },
+            // when window width is >= 640px
+            640: {
+            slidesPerView: 3,
+            spaceBetween: 40
+            },
+            1200: {
+                spaceBetween: 26,
+                slidesPerView: 4, 
+            }
         }
 
     });
@@ -356,6 +375,27 @@
             nextEl: '.featured-courses-wrapper .swiper-button-next',
             prevEl: '.featured-courses-wrapper .swiper-button-prev',
             
+        },
+        breakpoints: {
+            // when window width is >= 320px
+            100: {
+            slidesPerView: 1,
+            spaceBetween: 20
+            },
+            // when window width is >= 480px
+            480: {
+            slidesPerView: 2,
+            spaceBetween: 30
+            },
+            // when window width is >= 640px
+            640: {
+            slidesPerView: 2,
+            spaceBetween: 40
+            },
+            1200: {
+                spaceBetween: 26,
+                slidesPerView: 4, 
+            }
         }
 
     });

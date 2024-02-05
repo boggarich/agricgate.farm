@@ -14,7 +14,7 @@
                         'btn-black',
                         'me-3',
                         'active' => !Route::current()->hasParameter('course_category_id')
-                    ])>All</a>
+                    ])>{{ __('All') }}</a>
 
                     @foreach($course_categories as $course_category)
 
@@ -54,11 +54,11 @@
                                 </div>
                                 <div class='card-footer d-flex flex-column align-items-end'>
                                     <div class='course-details'>
-                                        <p>{{ $course->title }} </p>
-                                        <p>{{ $course->description }}</p>
+                                        <p>{{ __($course->title) }} </p>
+                                        <p>{{ __($course->description) }}</p>
                                     </div>
                                     
-                                    <button class='btn btn-success w-auto'>View Course</button>
+                                    <button class='btn btn-success w-auto'>{{ __('View Course') }}</button>
             
                                 </div>
                             </div>

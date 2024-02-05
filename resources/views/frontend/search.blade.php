@@ -7,17 +7,17 @@
 
             @if( !empty($courses[0] ))
 
-                <h3 class='mt-5 mb-4 fw-bold text-black ms-4 mb-5'>Search Results for “{{ $search_query }}”</h3>
+                <h3 class='mt-5 mb-4 fw-bold text-black ms-4 mb-5'>{{ __('Search Results for') }} “{{ __($search_query) }}”</h3>
 
             @else
 
-                <h3 class='mt-5 mb-4 fw-bold text-black ms-4 mb-5'>No Search Results for “{{ $search_query }}”</h3>
+                <h3 class='mt-5 mb-4 fw-bold text-black ms-4 mb-5'>{{ __('No Search Results for') }} “{{ __($search_query) }}”</h3>
 
             @endif
 
             <section>
 
-                <div class="row row-cols-2 row-cols-lg-4 gx-4 gy-5">
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 gx-4 gy-5">
 
                     @foreach($courses as $course)
 
@@ -28,11 +28,11 @@
                                 </div>
                                 <div class='card-footer d-flex flex-column align-items-end'>
                                     <div class='course-details'>
-                                        <p>{{ $course->title }}</p>
-                                        <p>{{ $course->description }}</p>
+                                        <p>{{ __($course->title) }}</p>
+                                        <p>{{ __($course->description) }}</p>
                                     </div>
                                     
-                                    <button class='btn btn-success w-auto'>View Course</button>
+                                    <button class='btn btn-success w-auto'>{{ __('View Course') }}</button>
 
                                 </div>
                             </div>

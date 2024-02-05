@@ -17,13 +17,13 @@
         </div>
         <section>
             <div class="container">
-                <h3 class='mt-5 mb-4 fw-bold text-black ms-4 mb-5'>Account</h3>
+                <h3 class='mt-5 mb-4 fw-bold text-black ms-4 mb-5'>{{ __('Account') }}</h3>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
+                                <li>{{ __($error) }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -31,18 +31,33 @@
 
                 @if (session('status'))
                     <div class="alert alert-success">
-                        {{ session('status') }}
+                        {{ __(session('status')) }}
                     </div>
                 @endif
 
                 <div class="row mb-5 pb-5">
-                    <div class="col">
+                    <div class="col-lg-6 col-12">
                         <div class="d-flex flex-column card profile-card">
-                            <img src="/assets/img/UNDP_GH_Snails_Design_Felix_1-1-scaled.jpg" alt="human" />
+                            <div class="position-relative profile-img-wrapper">
+
+                                <img src="{{ Auth::user()->profile_img_url }}" alt="human" id="profileImg"/>
+
+                                <div class="profile-img-upload-wrapper">
+                                    
+                                    <form action="/account" method="post" id="profileImgUploadForm" enctype="multipart/form-data">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="file" accept="image/*" name="file" class="d-none" id="updateProfileImgInput" />
+                                    </form>
+
+                                    <button class="btn btn-outline-light" id="updateProfileImgBtn">{{ __('Change') }}</button>
+                                </div>
+
+                            </div>
                             <h5>{{ Auth::user()->username }}</h5>
                             <div class="w-100">
-                                <p><span>Name:</span> {{ Auth::user()->name }}</p>
-                                <p><span>Email:</span> {{ Auth::user()->email }}</p>
+                                <p>{{ __('Name') }}: {{ Auth::user()->name }}</p>
+                                <p>{{ __('Email') }}: {{ Auth::user()->email }}</p>
                             </div>
                         </div>
                     </div>
@@ -53,20 +68,20 @@
 
                 <ul class="nav nav-tabs" id="accountTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="history-tab" data-bs-target="#history-tab-pane" type="button" role="tab" aria-controls="history-tab-pane" aria-selected="true">History</button>
+                        <button class="nav-link active" id="history-tab" data-bs-target="#history-tab-pane" type="button" role="tab" aria-controls="history-tab-pane" aria-selected="true">{{ __('History') }}</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="bookmarks-tab" data-bs-target="#bookmarks-tab-pane" type="button" role="tab" aria-controls="bookmarks-tab-pane" aria-selected="false">Bookmarks</button>
+                        <button class="nav-link" id="bookmarks-tab" data-bs-target="#bookmarks-tab-pane" type="button" role="tab" aria-controls="bookmarks-tab-pane" aria-selected="false">{{ __('Bookmarks') }}</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="settings-tab" data-bs-target="#settings-tab-pane" type="button" role="tab" aria-controls="settings-tab-pane" aria-selected="false">Settings</button>
+                        <button class="nav-link" id="settings-tab" data-bs-target="#settings-tab-pane" type="button" role="tab" aria-controls="settings-tab-pane" aria-selected="false">{{ __('Settings') }}</button>
                     </li>
                 </ul>
             
                 <div class="tab-content" id="accountTabContent">
 
                     <div class="tab-pane fade show active" id="history-tab-pane" role="tabpanel" aria-labelledby="history-tab" tabindex="0">
-                        <div class="row row-cols-2 row-cols-lg-4 gx-5 gy-5 py-5">
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gx-5 gy-5 py-5">
 
 
                             @foreach($histories as $history)
@@ -84,11 +99,11 @@
                                                 </div>
                                                 <div class='card-footer d-flex flex-column align-items-end'>
                                                     <div class='course-details'>
-                                                        <p>{{ $history->course->title }}</p>
-                                                        <p>{{ $history->course->description }}</p>
+                                                        <p>{{ __($history->course->title) }}</p>
+                                                        <p>{{ __($history->course->description) }}</p>
                                                     </div>
 
-                                                    <button class='btn btn-success w-auto'>Review Course</button>
+                                                    <button class='btn btn-success w-auto'>{{ __('Review Course') }}</button>
 
                                                 </div>
                                             </div>
@@ -106,11 +121,11 @@
                                                     </div>
                                                     <div class='card-footer d-flex flex-column align-items-end'>
                                                         <div class='course-details'>
-                                                            <p>{{ $history->course->title }}</p>
-                                                            <p>{{ $history->course->description }}</p>
+                                                            <p>{{ __($history->course->title) }}</p>
+                                                            <p>{{ __($history->course->description) }}</p>
                                                         </div>
 
-                                                        <button class='btn btn-success w-auto'>Continue Learning</button>
+                                                        <button class='btn btn-success w-auto'>{{ __('Continue Learning') }}</button>
 
                                                     </div>
                                                 </div>
@@ -127,11 +142,11 @@
                                             </div>
                                             <div class='card-footer d-flex flex-column align-items-end'>
                                                 <div class='course-details'>
-                                                    <p>{{ $history->course->title }}</p>
-                                                    <p>{{ $history->course->description }}</p>
+                                                    <p>{{ __($history->course->title) }}</p>
+                                                    <p>{{ __($history->course->description) }}</p>
                                                 </div>
                                                 
-                                                <button class='btn btn-success w-auto'>Start Learning</button>
+                                                <button class='btn btn-success w-auto'>{{ __('Start Learning') }}</button>
                         
                                             </div>
                                         </div>
@@ -148,7 +163,7 @@
 
                     <div class="tab-pane fade" id="bookmarks-tab-pane" role="tabpanel" aria-labelledby="bookmarks-tab" tabindex="0">
                         
-                        <div class="row row-cols-2 row-cols-lg-4 gx-5 gy-5 py-5">
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gx-5 gy-5 py-5">
 
                             @foreach($favorite_courses as $favorite_course)
 
@@ -162,18 +177,18 @@
                                             </div>
                                             <div class='card-footer d-flex flex-column align-items-end'>
                                                 <div class='course-details'>
-                                                    <p>{{ $favorite_course->course->title }}</p>
-                                                    <p>{{ $favorite_course->course->description }}</p>
+                                                    <p>{{ __($favorite_course->course->title) }}</p>
+                                                    <p>{{ __($favorite_course->course->description) }}</p>
                                                 </div>
 
                                                 @if($favorite_course->course->lessons_count == 
-                                                $favorite_course->complete_lessons_count)
+                                                $favorite_course->course->complete_lessons_count)
                                                 
-                                                    <button class='btn btn-success w-auto'>Review Course</button>
+                                                    <button class='btn btn-success w-auto'>{{ __('Review Course') }}</button>
 
                                                 @else 
 
-                                                    <button class='btn btn-success w-auto'>Continue Learning</button>
+                                                    <button class='btn btn-success w-auto'>{{ __('Continue Learning') }}</button>
 
                                                 @endif
                         
@@ -190,11 +205,11 @@
                                             </div>
                                             <div class='card-footer d-flex flex-column align-items-end'>
                                                 <div class='course-details'>
-                                                    <p>{{ $favorite_course->course->title }}</p>
-                                                    <p>{{ $favorite_course->course->description }}</p>
+                                                    <p>{{ __($favorite_course->course->title) }}</p>
+                                                    <p>{{ __($favorite_course->course->description) }}</p>
                                                 </div>
                                                 
-                                                <button class='btn btn-success w-auto'>Start Learning</button>
+                                                <button class='btn btn-success w-auto'>{{ __('Start Learning') }}</button>
                         
                                             </div>
                                         </div>
@@ -210,31 +225,37 @@
 
                     <div class="tab-pane fade" id="settings-tab-pane" role="tabpanel" aria-labelledby="settings-tab" tabindex="0">
                         <div class="py-5">
-                            <h3 class='mb-4 fw-bold text-black ms-3 mb-5'>Update account</h3>
+                            <h3 class='mb-4 fw-bold text-black ms-3 mb-5'>{{ __('Update account') }}</h3>
                             
                             <form action="/account" method="post">
                                     @method('PUT')
                                     @csrf
-                                <div class="row g-lg-5 mb-5">
+                                <div class="row g-5 g-lg-5 mb-5">
                                     <div class="col-md-6">
-                                        <label for="username" class="form-label">Username</label>
-                                        <input type="text" class="form-control" name="username" placeholder="Username"  value="{{ Auth::user()->username }}" aria-label="Username">
+                                        <label for="username" class="form-label">{{ __('Username') }}</label>
+                                        <input type="text" class="form-control" name="username" placeholder="{{ __('Username') }}"  value="{{ Auth::user()->username }}" aria-label="Username">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input type="text" class="form-control" name="email" placeholder="Email"  value="{{ Auth::user()->email }}"  aria-label="Email" disabled>
+                                        <label for="email" class="form-label">{{ __('Email') }}</label>
+                                        <input type="text" class="form-control" name="email" placeholder="{{ __('Email') }}"  value="{{ Auth::user()->email }}"  aria-label="Email" disabled>
+                                            @if(!Auth::user()->email_verified_at)
+                                                <div class="alert alert-warning mt-3">
+                                                    {{ __('Email not verified.') }} <a href="{{ route('verification.notice') }}"><strong>{{ __('Verify email.') }}</strong></a>
+                                                </div>
+                                               
+                                            @endif
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="password" class="form-label">Password</label>
-                                        <input type="password" class="form-control" name="password" placeholder="Password" value="" aria-label="Password">
+                                        <label for="password" class="form-label">{{ __('Password') }}</label>
+                                        <input type="password" class="form-control" name="password" placeholder="{{ __('Password') }}" value="" aria-label="Password">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="confirmPassword" class="form-label">Confirm Password</label>
-                                        <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" value="" aria-label="Confirm Password">
+                                        <label for="confirmPassword" class="form-label">{{ __('Confirm Password') }}</label>
+                                        <input type="password" class="form-control" name="confirm_password" placeholder="{{ __('Confirm Password') }}" value="" aria-label="Confirm Password">
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-success d-table ms-auto">Save</button>
+                                <button type="submit" class="btn btn-success d-table ms-auto">{{ __('Save') }}</button>
 
                             </form>
 

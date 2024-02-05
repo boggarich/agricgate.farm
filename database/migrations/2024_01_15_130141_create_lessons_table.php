@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignIdFor(Topic::class);
             $table->text('title');
             $table->longText('about');
-            $table->text('video_url');
-            $table->text('featured_img_url');
+            $table->text('video_url')->nullable();
+            $table->text('featured_img_url')->nullable();
             $table->timestamps();
         });
     }

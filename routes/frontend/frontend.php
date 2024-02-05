@@ -9,6 +9,24 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\Course;
 use Illuminate\Contracts\Database\Eloquent\Builder;
+use App\Http\Controllers\CourseProgressController;
+use App\Http\Controllers\ReplyController;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
+
+Route::get('/set-locale/{locale}', function(string $locale) {
+
+        if (! in_array($locale, ['en', 'tw', 'fr'])) {
+                abort(400);
+        }
+
+        App::setLocale($locale);
+        
+        session()->put('locale', $locale);
+
+        return back();
+
+})->name('set-locale');
 
 Route::get('/', [ViewsController::class, 'index'] )->name('landing-page');
 Route::get('/course/{course_id}', [ViewsController::class, 'course'] )->name('course-page');
@@ -17,6 +35,8 @@ Route::get('/search', [ViewsController::class, 'search'])->name('search');
 
 Route::middleware('auth')->group(function () {
         
+        Route::post('/reply', [ReplyController::class, 'store'])->name('add-reply');
+        Route::get('/start-learning/course/{course_id}/lesson/{lesson_id?}', [CourseProgressController::class, 'start_learning'])->name('start-learning');
         Route::put('/account', [RegisteredUserController::class, 'update']);
         Route::get('/account/{tab?}', [ViewsController::class, 'account'])->name('account');
         Route::post('/comment', [CommentController::class, 'store'])->name('add-comment');

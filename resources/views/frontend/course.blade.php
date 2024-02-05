@@ -10,24 +10,50 @@
 
             <div class='row g-5'>
 
-                <div class='col-md-8'>
-                    <media-player title="Sprite Fight" src="{{ $course->video_url }}">
-                        <media-provider></media-provider>
-                        <media-video-layout thumbnails="https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/storyboard.vtt"></media-video-layout>
+                <div class='col-lg-8'>
+
+                    <media-player title="{{ $course->title }}" src="{{ $course->video_url }}" playsinline >
+
+                        <media-provider>
+                            
+                            @if($course->subtitles)
+
+                                @foreach($course->subtitles as $subtitle)
+
+                                    <track src="{{ $subtitle->subtitle_url }}" kind="subtitles" label="{{ $subtitle->title }}" />
+
+                                @endforeach
+
+                            @endif
+
+                        </media-provider>
+
+                        @if($course->media_tracker)
+
+                            <media-video-layout thumbnails="{{ $course->media_tracker->media_tracker_url }}"></media-video-layout>
+
+                        @else 
+
+                            <media-video-layout thumbnails=""></media-video-layout>
+
+                        @endif
+
                     </media-player>
+                    
                 </div>
-                <div class='col-md-4'>
+
+                <div class='col-lg-4'>
                     <div class='card course-card'>
                         <div class='card-body'>
-                            <h6 class='mb-4'>Course Details</h6>
-                            <p class=''>Title: {{ $course->title }}</p>
-                            <p>Description: {{ $course->description }}
+                            <h6 class='mb-4'>{{ __('Course Details') }}</h6>
+                            <p class=''>{{ __('Title') }}: {{ __($course->title) }}</p>
+                            <p>{{ __('Description') }}: {{ __($course->description) }}
                             </p>
-                            <p>Date: {{ format_date($course->created_at) }}</p>
+                            <p>{{ __('Date') }}: {{ format_date($course->created_at) }}</p>
 
                             @guest
 
-                                <button class='btn btn-primary w-100 my-3' data-bs-toggle="modal" data-bs-target="#loginModal">ENROLL NOW</button>
+                                <button class='btn btn-primary w-100 my-3' data-bs-toggle="modal" data-bs-target="#loginModal">{{ __('ENROLL NOW') }}</button>
 
                             @endguest
 
@@ -64,15 +90,17 @@
 
                                         @if($lesson_id)
 
-                                            <a href="{{ route('lesson-page', ['course_id' => $course->id, 'lesson_id' => $lesson_id ]) }}" class='btn btn-primary w-100 my-3'>Continue Learning</a>
+                                            @if($lessons_count == $complete_lessons_count)
 
-                                        @else
+                                                <a href="{{ route('lesson-page', ['course_id' => $course->id, 'lesson_id' => $lesson_id ]) }}" class='btn btn-success w-100 my-3'>{{ __('Review Course') }}</a>
 
-                                            <a href="{{ route('lesson-page', ['course_id' => $course->id]) }}" class='btn btn-primary w-100 my-3'>Continue Learning</a>
+                                            @else
+
+                                                <a href="{{ route('lesson-page', ['course_id' => $course->id, 'lesson_id' => $lesson_id ]) }}" class='btn btn-primary w-100 my-3'>{{ __('Continue Learning') }}</a>
+
+                                            @endif
 
                                         @endif
-                                      
-
 
                                     @else
 
@@ -95,11 +123,19 @@
 
                                         @if($lesson)
 
-                                            <a href="{{ route('lesson-page', ['course_id'=> $course->id , 'lesson_id' => $lesson->id ]) }}" class='btn btn-primary w-100 my-3'>Start Learning</a>
+                                            @if($lessons_count == $complete_lessons_count)
 
+                                                <a href="{{ route('start-learning', ['course_id'=> $course->id , 'lesson_id' => $lesson->id ]) }}" class='btn btn-success w-100 my-3'>{{ __('Review Course') }}</a>
+
+                                            @else 
+
+                                                <a href="{{ route('start-learning', ['course_id'=> $course->id , 'lesson_id' => $lesson->id ]) }}" class='btn btn-primary w-100 my-3'>{{ __('Start Learning') }}</a>
+
+                                            @endif
+                                            
                                         @else 
 
-                                            <a href="{{ route('lesson-page', ['course_id'=> $course->id , 'lesson_id' => $lesson ]) }}" class='btn btn-primary w-100 my-3'>Start Learning</a>
+                                            <button class='btn btn-primary w-100 my-3'>{{ __('Coming Soon') }}</a>
                                     
                                         @endif
 
@@ -110,7 +146,7 @@
                                     <form action="{{ route('enroll') }}" method="POST"> 
                                         @csrf
                                         <input type="hidden" name="course_id" value="{{ $course->id }}">
-                                        <button type="submit" class='btn btn-primary w-100 my-3'>ENROLL NOW</button>
+                                        <button type="submit" class='btn btn-primary w-100 my-3'>{{ __('ENROLL NOW') }}</button>
 
                                     </form>
 
@@ -128,7 +164,7 @@
                             @endauth -->
 
                             @guest
-                                <button class='btn my-3' data-bs-toggle="modal" data-bs-target="#loginModal">
+                                <button class='btn my-3 add-to-favorite-btn' data-bs-toggle="modal" data-bs-target="#loginModal">
                                     <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g clip-path="url(#clip0_330_18)">
                                         <path d="M17.5347 17.535V41.2069C17.5346 41.3591 17.5741 41.5088 17.6494 41.6411C17.7247 41.7734 17.8331 41.8839 17.9641 41.9616C18.095 42.0392 18.2439 42.0815 18.3962 42.0841C18.5484 42.0868 18.6987 42.0497 18.8322 41.9767L28.0555 36.9442L37.2788 41.9767C37.4123 42.0497 37.5626 42.0868 37.7148 42.0841C37.8671 42.0815 38.016 42.0392 38.1469 41.9616C38.2779 41.8839 38.3863 41.7734 38.4616 41.6411C38.5369 41.5088 38.5764 41.3591 38.5763 41.2069V17.535C38.5763 16.6049 38.2069 15.7129 37.5492 15.0552C36.8915 14.3976 35.9995 14.0281 35.0694 14.0281H21.0416C20.1115 14.0281 19.2195 14.3976 18.5618 15.0552C17.9041 15.7129 17.5347 16.6049 17.5347 17.535Z" fill="black"/>
@@ -145,7 +181,7 @@
                             @endguest
 
                             @auth
-                                <button class='btn my-3' id="addToFavoriteBtn">
+                                <button class='btn my-3 add-to-favorite-btn' id="addToFavoriteBtn">
 
                                     @php 
 
@@ -197,16 +233,16 @@
 
             <ul class="nav nav-tabs" id="course" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="course-info-tab" data-bs-toggle="tab" data-bs-target="#course-info-tab-pane" type="button" role="tab" aria-controls="course-info-tab-pane" aria-selected="true">Course Info</button>
+                    <button class="nav-link active" id="course-info-tab" data-bs-toggle="tab" data-bs-target="#course-info-tab-pane" type="button" role="tab" aria-controls="course-info-tab-pane" aria-selected="true">{{ __('Course Info') }}</button>
                 </li>
 
                 @auth
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="q-and-a-tab" data-bs-toggle="tab" data-bs-target="#q-and-a-tab-pane" type="button" role="tab" aria-controls="q-and-a-tab-pane" aria-selected="false">Q&A</button>
+                        <button class="nav-link" id="q-and-a-tab" data-bs-toggle="tab" data-bs-target="#q-and-a-tab-pane" type="button" role="tab" aria-controls="q-and-a-tab-pane" aria-selected="false">{{ __('Q&A') }}</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="announcements-tab" data-bs-toggle="tab" data-bs-target="#announcements-tab-pane" type="button" role="tab" aria-controls="announcements-tab-pane" aria-selected="false">Announcements</button>
+                        <button class="nav-link" id="announcements-tab" data-bs-toggle="tab" data-bs-target="#announcements-tab-pane" type="button" role="tab" aria-controls="announcements-tab-pane" aria-selected="false"> {{ __('Announcements') }}</button>
                     </li>
 
                 @endauth
@@ -214,14 +250,15 @@
             </ul>
 
             <div class="tab-content" id="courseTabContent">
+
                 <div class="tab-pane fade show active" id="course-info-tab-pane" role="tabpanel" aria-labelledby="course-info-tab" tabindex="0">
-                    <h5 class='mt-5 mb-4 fw-bold text-black'>About Course</h5>
+                    <h5 class='mt-5 mb-4 fw-bold text-black'>{{ __('About Course') }}</h5>
                     {!! $course->about !!}
-                    <h5 class='mt-5 mb-4 fw-bold text-black'>What will you learn?</h5>
+                    <h5 class='mt-5 mb-4 fw-bold text-black'>{{ __('What will you learn?') }}</h5>
                     <div class='row row-cols-1 row-cols-md-2 g-4 g-md-5'>
 
                             @php 
-
+                                
                                 $_what_will_you_learn = explode("\n", $course->what_will_you_learn);
 
                             @endphp
@@ -246,7 +283,7 @@
 
                     </div>
 
-                    <h5 class='mt-5 mb-4 fw-bold text-black'>Course Content</h5>
+                    <h5 class='mt-5 mb-4 fw-bold text-black'>{{ __('Course Content') }}</h5>
 
                     <div class='w-75'>
 
@@ -257,7 +294,7 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $topic->id }}" aria-expanded="true" aria-controls="collapse{{ $topic->id }}">
-                                        {{ $topic->title }}
+                                        {{ __($topic->title) }}
                                     </button>
                                     </h2>
                                     <div id="collapse{{ $topic->id }}" class="accordion-collapse collapse" data-bs-parent="#accordion-course-content-1">
@@ -271,7 +308,7 @@
                                                         <img src="/assets/img/document.png" />
 
                                                         <p>
-                                                        {{ $lesson->title }}
+                                                        {{ __($lesson->title) }}
                                                         </p>
                                                     </div>
                                                 </a>
@@ -288,107 +325,122 @@
 
                     </div>
                 </div>
-                <div class="tab-pane fade q-and-a" id="q-and-a-tab-pane" role="tabpanel" aria-labelledby="q-and-a-tab" tabindex="0">
-                    <h5 class='mt-5 mb-5 fw-bold text-black'>Question & Answer</h5>
 
-                    @session('question')
+                @auth
 
-                        {!! $value !!}
+                    <div class="tab-pane fade q-and-a" id="q-and-a-tab-pane" role="tabpanel" aria-labelledby="q-and-a-tab" tabindex="0">
+                        <h5 class='mt-5 mb-5 fw-bold text-black'>{{ __('Question & Answer') }}</h5>
 
-                        <div class="spacer"></div>
+                        @session('question')
 
-                    @endsession
+                            {!! $value !!}
 
-                    <div class='row g-5'>
+                            <div class="spacer"></div>
 
-                        <div class='col-md-8 align-items-end mb-5'>
+                        @endsession
 
-                            <div id="questionsAndAnswersWrapper">
+                        <div class='row g-5'>
 
-                                @foreach($question_and_answers as $question_and_answer)
-                                
-                                    <div class="chat-wrapper">
-                                        <img src="{{ asset('assets/img/PersonCircle.png') }}" alt="profile image">
-                                        <div class="chat-bubble">
-                                            <p>{{ $question_and_answer->user->name }}</p>
-                                            <p>{!! $question_and_answer->question !!}</p>
-                                        </div>
-                                    </div>
+                            <div class='col-md-8 align-items-end mb-5'>
 
-                                    @if($question_and_answer->answer)
+                                <div id="questionsAndAnswersWrapper">
 
-                                        <div class="chat-wrapper answer">
-                                            <img src="{{ asset('assets/img/PersonCircle.png') }}" alt="profile image">
+                                    @foreach($question_and_answers as $question_and_answer)
+                                    
+                                        <div class="chat-wrapper">
+                                            <img src="{{ $question_and_answer->user->profile_img_url }}" alt="profile image">
                                             <div class="chat-bubble">
-                                                <p>Admin</p>
-                                                <p>{!! $question_and_answer->answer !!}</p>
+                                                <p>
+                                                    {{ $question_and_answer->user->name }} 
+                                                    <span class="dot-separator"></span>
+                                                    <span>{{ time_since($question_and_answer->updated_at) }}</span>
+                                                </p>
+                                                <p>{!! $question_and_answer->question !!}</p>
                                             </div>
                                         </div>
 
-                                    @endif
+                                        @if($question_and_answer->answer)
 
-                                @endforeach
+                                            <div class="chat-wrapper answer">
+                                                <img src="{{ asset('assets/img/PersonCircle.png') }}" alt="profile image">
+                                                <div class="chat-bubble">
+                                                    <p>Admin 
+                                                        <span class="dot-separator"></span>
+                                                        <span>{{ time_since($question_and_answer->updated_at) }}</span>
+                                                    </p>
+                                                    <p>{!! $question_and_answer->answer !!}</p>
+                                                </div>
+                                            </div>
+
+                                        @endif
+
+                                    @endforeach
+
+                                </div>
+
+                                <div id="editor" class="w-100 mt-10 bg-white mb-4"></div>
+
+                                <input type="hidden" value="{{ Auth::user()->profile_img_url }}" id="profileImg">
+                                <input type="hidden" name="course_id" value="{{ $course->id }}" required id="courseId">
+                                <input type="hidden" name="question" value="" id="question" required>
+                                <button type="submit" class='btn btn-success d-table ms-auto' id="askQuestionBtn">{{ __('Ask Question') }}</button>
 
                             </div>
 
-                            <div id="editor" class="w-100 mt-10 bg-white mb-4"></div>
-
-                            <input type="hidden" name="course_id" value="{{ $course->id }}" required id="courseId">
-                            <input type="hidden" name="question" value="" id="question" required>
-                            <button type="submit" class='btn btn-success d-table ms-auto' id="askQuestionBtn">Ask Question</button>
-
-                        </div>
-
-                        <div class='col-md-4'></div>
-
-
-                    </div>
-
-                    <div class='spacer'></div>
-                </div>
-                <div class="tab-pane fade tab-content-announcements" id="announcements-tab-pane" role="tabpanel" aria-labelledby="announcements-tab" tabindex="0">
-                    <h5 class='mt-5 mb-5 fw-bold text-black'>Announcements</h5>
-
-
-                    <div class='row g-5'>
-
-                        <div class='col-md-8'>
-
-                            @if($announcements)
-
-                                @foreach($announcements as $announcement)
-                            
-                                    <div class="bullet mb-4">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                                            <g clip-path="url(#clip0_240_889)">
-                                            <path d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30Z" fill="black"/>
-                                            </g>
-                                            <defs>
-                                            <clipPath id="clip0_240_889">
-                                            <rect width="30" height="30" fill="white"/>
-                                            </clipPath>
-                                            </defs>
-                                        </svg>
-                                        <p>
-                                            {{ $announcement->announcement }}
-                                        </p>
-                                    </div>
-
-                                @endforeach
-
-                            @else 
-
-                                <p>Yay! You're all caught up.</p>
-
-                            @endif
+                            <div class='col-md-4'></div>
 
 
                         </div>
 
-                        <div class='col-md-4'></div>
-
+                        <div class='spacer'></div>
                     </div>
-                </div>
+
+                    <div class="tab-pane fade tab-content-announcements" id="announcements-tab-pane" role="tabpanel" aria-labelledby="announcements-tab" tabindex="0">
+                        <h5 class='mt-5 mb-5 fw-bold text-black'>{{ __('Announcements') }}</h5>
+
+
+                        <div class='row g-5'>
+
+                            <div class='col-md-8'>
+
+                                @if($announcements)
+
+                                    @foreach($announcements as $announcement)
+                                
+                                        <div class="bullet mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                                <g clip-path="url(#clip0_240_889)">
+                                                <path d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30Z" fill="black"/>
+                                                </g>
+                                                <defs>
+                                                <clipPath id="clip0_240_889">
+                                                <rect width="30" height="30" fill="white"/>
+                                                </clipPath>
+                                                </defs>
+                                            </svg>
+                                            <p>
+                                                {{ __($announcement->announcement) }}
+                                            </p>
+                                        </div>
+
+                                    @endforeach
+
+                                @else 
+
+                                    <p>Yay! You're all caught up.</p>
+
+                                @endif
+
+
+                            </div>
+
+                            <div class='col-md-4'></div>
+
+                        </div>
+                    </div>
+
+                @endauth
+
             </div>
 
         </section>
@@ -399,7 +451,7 @@
             <div class='container flex-column'>
 
                 <div class='position-relative recommended-courses-wrapper'>
-                    <h3 class='page-header'>Recommended Courses</h3>
+                    <h3 class='page-header'>{{ __('Recommended Courses') }}</h3>
                     <div class='swiper recommended-courses'>
 
                         <div class="swiper-wrapper">
@@ -414,11 +466,11 @@
                                             </div>
                                             <div class='card-footer d-flex flex-column align-items-end'>
                                                 <div class='course-details'>
-                                                    <p>{{ $recommended_course->title }}</p>
-                                                    <p>{{ $recommended_course->description }}</p>
+                                                    <p>{{ __($recommended_course->title) }}</p>
+                                                    <p>{{ __($recommended_course->description) }}</p>
                                                 </div>
                                                 
-                                                <button class='btn btn-success w-auto'>View Course</button>
+                                                <button class='btn btn-success w-auto'>{{ __('View Course') }}</button>
                         
                                             </div>
                                         </div>
@@ -458,9 +510,7 @@
 @section('scripts')
 
     <script>
-
-
-
+ 
         const recommendedCoursesSwiper = new Swiper('.recommended-courses', {
 
             loop: false,
@@ -471,6 +521,27 @@
                 nextEl: '.recommended-courses-wrapper .swiper-button-next',
                 prevEl: '.recommended-courses-wrapper .swiper-button-prev',
                 
+            },
+            breakpoints: {
+            // when window width is >= 320px
+                100: {
+                slidesPerView: 1,
+                spaceBetween: 20
+                },
+                // when window width is >= 480px
+                480: {
+                slidesPerView: 2,
+                spaceBetween: 30
+                },
+                // when window width is >= 640px
+                640: {
+                slidesPerView: 2,
+                spaceBetween: 40
+                },
+                1200: {
+                    spaceBetween: 26,
+                    slidesPerView: 4, 
+                }
             }
 
         });
@@ -513,6 +584,15 @@
             $(ext.jsId.question).val(quill.root.innerHTML);
 
         });
+
+        $(ext.jsId.askQuestionBtn).on('click', () => {
+
+            let userProfileImg = $(ext.jsId.profileImg).val();
+
+            commonObj.askQuestion(userProfileImg, quill);
+
+        });
+
 
 
     </script>

@@ -12,14 +12,26 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class RegisteredUserController extends Controller
 {
 
-    public function update(Request $request): RedirectResponse 
+    public function update(Request $request): RedirectResponse
     {
 
         $user = User::find(Auth::id());
+
+        if($request->hasFile('file')) {
+
+            $path = Storage::putFile('images', $request->file);
+
+            $url = Storage::url($path);
+
+            $user->profile_img_url = $url;
+
+        }
 
         if ($request->filled('username')) {
 
@@ -70,6 +82,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
+            'profile_img_url' => '/assets/img/default-profile.png',
             'password' => Hash::make($request->password),
         ]);
 

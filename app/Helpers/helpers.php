@@ -1,5 +1,27 @@
 <?php 
 
+    use Stichoza\GoogleTranslate\GoogleTranslate;
+    use Illuminate\Support\Facades\Session;
+
+    if (! function_exists('translate')) {
+
+        function translate($content) { 
+
+            $target = 'en';
+            $source = 'en';
+
+            if(Session::get('locale')) {
+
+                $target = Session::get('locale');
+
+            }
+
+            return GoogleTranslate::trans($content, $target, $source);
+
+        }
+
+    }
+
     if (! function_exists('time_since')) {
 
         function time_since($date) {

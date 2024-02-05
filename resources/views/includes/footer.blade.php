@@ -44,7 +44,7 @@
             <div class='col-lg-8'>
                 <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
                     <div class="col d-flex flex-column">
-                        <h5 class="">Products</h5>
+                        <h5 class="">{{ __('Products') }}</h5>
                         <a href="#">Snails</a>
                         <a href="#">Poultry</a>
                         <a href="#">Greenhouse</a>
@@ -53,7 +53,7 @@
                         <a href="#">Sprinkler</a>
                     </div>
                     <div class="col d-flex flex-column">
-                        <h5 class="">Services</h5>
+                        <h5 class="">{{ __('Services') }}</h5>
                         <a href="#">Video shooting</a>
                         <a href="#">Camera hiring</a>
                         <a href="#">Lorem Ipsum</a>
@@ -62,7 +62,7 @@
                         <a href="#">Lorem Ipsum</a>
                     </div>
                     <div class="col d-flex flex-column">
-                        <h5 class="">About us</h5>
+                        <h5 class="">{{ __('About us') }}</h5>
                         <a href="#">Lorem Ipsum</a>
                         <a href="#">Lorem Ipsum</a>
                         <a href="#">Lorem Ipsum</a>
@@ -76,7 +76,7 @@
         </div>
         <div class="spacer"></div>
 
-        <p class='text-left mt-5 fw-normal'>© {{ date("Y") }}, Trisolace Company Ltd. All rights reserved.</p>
+        <p class='text-left mt-5 fw-normal'>© {{ date("Y") }}, Trisolace Company Ltd. {{ __('All rights reserved') }}.</p>
 
     </div>
 </footer>

@@ -6,6 +6,109 @@ class commonClass {
 
     }
 
+    getNextLesson(event, currentLessonId, videoDuration) {
+
+        let videoProgressObj = localStorage.getItem("videoProgress");
+        let obj = JSON.parse(videoProgressObj);
+        let currentLessonProgress = 0;
+        let navigationURL;
+
+        if(videoDuration) {
+
+            obj.find( (el) => {
+
+                if(el.hasOwnProperty(currentLessonId)) {
+
+                    currentLessonProgress = el[currentLessonId];
+
+                }
+
+            });
+
+            navigationURL = $(event.target)[0].href + 
+            `?plvd=${videoDuration}&plp=${currentLessonProgress}&prev-lesson=${currentLessonId}`;
+
+            location.href = navigationURL;
+
+        }
+
+        else {
+
+            location.href = $(event.target)[0].href + `?prev-lesson=${currentLessonId}`;
+
+        }
+
+    }
+
+    initVideo(player, lessonId, videoProgressObj) {
+
+        let videoEl = player;
+
+        let obj = JSON.parse(videoProgressObj);
+
+        obj.find( (el) => {
+
+            if(el.hasOwnProperty(lessonId)) {
+                
+                videoEl.currentTime = el[lessonId];
+
+            }
+        
+        });
+
+    }
+
+    storeVideoProgress(player, lessonId, videoProgressObj ) {
+
+        let currentTime = player.currentTime;
+
+        let obj = JSON.parse(videoProgressObj);
+
+        if(obj.find((el) => el.hasOwnProperty(lessonId))) {
+
+            let _obj = obj.map( _videoProgressObj => {
+
+                if(_videoProgressObj.hasOwnProperty(lessonId)) {
+
+                    return { ..._videoProgressObj, [lessonId]: currentTime }
+
+                }
+
+                return _videoProgressObj;
+
+            });
+
+
+            localStorage.setItem("videoProgress", JSON.stringify(_obj));
+
+        }
+        else {
+
+            if(obj.length){
+                
+                localStorage.setItem("videoProgress", JSON.stringify(
+                    [ 
+                        { [lessonId] : currentTime },
+                        ...obj
+                    ]
+                ));
+
+            }
+            else {
+
+                localStorage.setItem("videoProgress", JSON.stringify(
+                    [ 
+                        { [lessonId] : currentTime } 
+                    ]
+                ));
+
+            }
+
+        }
+    
+
+    }
+
     deleteSearchHistory(key, value) {
 
         let obj = JSON.parse(localStorage.getItem(key));
@@ -139,6 +242,49 @@ class commonClass {
   
     }
 
+    addReply() {
+
+        let commentId = $(this.ext.jsId.commentId).val();
+        let reply = $(this.ext.jsId.reply).val();
+
+        this.disEnbBtn(this.ext.jsId.addReplyBtn, 'dis');
+
+        $.ajax({
+            type: "POST",
+            url: this.ext.url.addReply,
+            data: { comment_id: commentId, reply: reply },
+            success: (data) => {
+
+
+                this.disEnbBtn(this.ext.jsId.addReplyBtn, 'enb');
+
+                $(this.ext.jsId.reply).val('');
+                
+                $(this.ext.jsId.addReplyHTML).before(
+                   
+                    `
+                    <div class="reply-wrapper mb-4">
+                        <img src="/assets/img/PersonCircle.png" alt="user-profile"/>
+                        <div class="reply">
+                            <div class="d-flex reply-header">
+                                <div class="d-flex align-items-center">
+                                    <p class="mb-0 me-3">${ data.user }</p>
+                                    <span>few seconds ago</span>
+                                </div>
+                            </div>
+                            <p>${ data.data.reply }</p>
+                        </div>
+                    </div>
+                    `
+
+                );
+
+            }
+        });
+
+
+    }
+ 
     addComment() {
 
         let lessonId = $(this.ext.jsId.lessonId).val();
@@ -229,7 +375,7 @@ class commonClass {
 
     }
 
-    askQuestion () {
+    askQuestion (userProfileImg, quill) {
 
         let courseId = $(this.ext.jsId.courseId).val();
         let question = $(this.ext.jsId.question).val();
@@ -243,7 +389,7 @@ class commonClass {
             success: (data) => {
 
                 let html = `<div class="chat-wrapper">
-                                <img src="/assets/img/PersonCircle.png" alt="profile image">
+                                <img src="${userProfileImg}" alt="profile image">
                                 <div class="chat-bubble">
                                     <p>${ data.user }</p>
                                     ${ data.data.question }
@@ -251,6 +397,10 @@ class commonClass {
                             </div>`;
                 
                 $(this.ext.jsId.questionsAndAnswersWrapper).append(html);
+
+                quill.setContents([
+                    { insert: '\n' }
+                ]);
 
                 this.disEnbBtn(this.ext.jsId.askQuestionBtn, 'enb');
 

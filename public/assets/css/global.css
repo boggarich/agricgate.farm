@@ -18,11 +18,202 @@ body {
 
 body {
   min-height: 100vh;
+  position: relative;
+}
+
+.h3 {
+  margin-left: 0.75rem;
+}
+.h3 + * {
+  margin-right: 1.5rem;
+}
+
+div.table-responsive > div.dataTables_wrapper > div.row {
+  padding: 0.5rem 0;
+}
+
+.dot-separator {
+  height: 4px;
+  width: 4px;
+  border-radius: 100%;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  background-color: #555;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+table th {
+  color: black !important;
+}
+table td p {
+  margin-bottom: 0px;
+}
+table td img {
+  height: 40px;
+  width: 40px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#setLocaleBtn {
+  padding: 0.25rem !important;
+  border-radius: 100%;
+}
+#setLocaleBtn:hover {
+  background: white !important;
+}
+#setLocaleBtn img {
+  height: 25px;
+  width: 25px;
+}
+
+.backdrop-mobile {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  display: none;
+}
+
+.btn-outline-success {
+  color: black !important;
+  border-color: #1DBC77 !important;
+}
+.btn-outline-success:hover {
+  color: white !important;
+  background: #1DBC77 !important;
+  border-color: #1DBC77 !important;
+}
+
+.mobile-navs {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  background-color: white;
+  z-index: 15;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: none;
+  opacity: 0;
+}
+.mobile-navs .btn {
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.mobile-navs.active {
+  display: none !important;
+  opacity: 0 !important;
+}
+.mobile-navs ul {
+  list-style: none;
+  padding-left: 0px;
+}
+.mobile-navs ul li {
+  padding: 1rem 0 !important;
+}
+.mobile-navs ul li a {
+  padding-left: 0px !important;
+}
+
+.navs-wrapper-mobile {
+  display: none;
+}
+.navs-wrapper-mobile #showSearchBtn svg {
+  height: 24px;
+  width: 24px;
+}
+.navs-wrapper-mobile p {
+  font-size: 10px !important;
+  margin-bottom: 0px !important;
+}
+.navs-wrapper-mobile .btn:not(.custom-close-btn) {
+  box-shadow: none !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  border: 0px !important;
+  margin-right: -14px;
+}
+.navs-wrapper-mobile .btn:not(.custom-close-btn) svg {
+  height: 30px;
+  width: 30px;
+}
+
+.profile-img-wrapper:hover .profile-img-upload-wrapper {
+  opacity: 1;
+}
+.profile-img-wrapper .profile-img-upload-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 100%;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+}
+
+.user-login-alert {
+  position: absolute;
+  width: -moz-fit-content;
+  width: fit-content;
+  top: 90px;
+  z-index: 20;
+  right: 20px;
+}
+
+.dataTable .btn:not(.custom-close-btn) {
+  box-shadow: none !important;
+}
+
+span[data-dz-name] {
+  display: none;
+}
+
+.dropzone {
+  border-style: dashed !important;
+  border-radius: 20px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 36px;
+  right: 12px;
+}
+
+.select2-container--default .select2-selection--single {
+  border-color: #d1d3e2 !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 36px !important;
+}
+
+.select2-selection {
+  height: 2.425rem !important;
+}
+
+.select2-search__field:focus {
+  outline: none !important;
 }
 
 #addReplyHTML {
   display: none;
   opacity: 0;
+}
+
+.alert-danger, .alert-success {
+  animation: cssAnimation 0s ease-out 6s forwards;
+  animation-fill-mode: forwards;
 }
 
 .chat-wrapper {
@@ -31,12 +222,28 @@ body {
 .chat-wrapper.answer {
   margin-left: 4.5rem;
 }
+.chat-wrapper.answer .chat-bubble {
+  outline: #348de5 solid 3px;
+  outline-offset: 3px;
+}
+.chat-wrapper.answer .chat-bubble::after {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 20px;
+  height: 10px;
+  width: 0px;
+  border-width: 8px 10px 8px 10px;
+  border-color: transparent rgb(102, 163, 224) transparent transparent;
+  border-style: solid;
+}
 .chat-wrapper img {
   height: 50px;
   width: 50px;
   -o-object-fit: cover;
   object-fit: cover;
   margin-right: 1.5rem;
+  border-radius: 100%;
 }
 .chat-wrapper .chat-bubble {
   background: #f1f0f0;
@@ -49,13 +256,14 @@ body {
 .chat-wrapper .chat-bubble::before {
   content: "";
   position: absolute;
-  left: -18px;
+  left: -17px;
   top: 20px;
   height: 10px;
   width: 0px;
   border-width: 8px 10px 8px 10px;
   border-color: transparent #f1f0f0 transparent transparent;
   border-style: solid;
+  z-index: 2;
 }
 .chat-wrapper .chat-bubble p {
   margin-bottom: 0.5rem !important;
@@ -63,6 +271,22 @@ body {
 .chat-wrapper .chat-bubble p:first-child {
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: #555;
+}
+.chat-wrapper .chat-bubble p:first-child span {
+  font-weight: normal !important;
+}
+.chat-wrapper .chat-bubble p:first-child::before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  top: 20px;
+  height: 10px;
+  width: 0px;
+  border-width: 8px 10px 8px 10px;
+  border-color: transparent #ffffff transparent transparent;
+  border-style: solid;
+  z-index: 1;
 }
 
 #settings-tab-pane input {
@@ -113,7 +337,7 @@ body {
   margin-top: 5rem;
 }
 
-input.form-control {
+.modal input.form-control {
   background: #F7F7F7;
   border-color: #F7F7F7;
 }
@@ -204,6 +428,7 @@ input.form-control {
   -o-object-fit: cover;
      object-fit: cover;
   margin-right: 1.5rem;
+  border-radius: 100%;
 }
 .comment-wrapper .reply-btn {
   opacity: 0;
@@ -243,6 +468,7 @@ input.form-control {
   -o-object-fit: cover;
      object-fit: cover;
   margin-right: 1.5rem;
+  border-radius: 100%;
 }
 
 #toggleCourseContentBtn svg {
@@ -338,7 +564,7 @@ header .dropdown-menu .dropdown-item {
   margin: 0.5rem 0;
 }
 header .dropdown button {
-  background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #D9D9D9 100%);
+  background: linear-gradient(180deg, rgba(217, 217, 217, 0.1) 0%, #D9D9D9 100%);
   border-color: #f1f1f1 !important;
   color: #000;
   padding-left: 0.725rem !important;
@@ -352,18 +578,11 @@ header .dropdown button img {
   height: 30px;
   width: 30px;
   border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 header * {
   font-family: Inter;
-}
-header .btn-outline-success {
-  color: black !important;
-  border-color: #1DBC77 !important;
-}
-header .btn-outline-success:hover {
-  color: white !important;
-  background: #1DBC77 !important;
-  border-color: #1DBC77 !important;
 }
 header .btn {
   border-radius: 20px;
@@ -507,6 +726,12 @@ header .search-wrapper .main-search-input.focus {
 .lesson-pane {
   transition: width 250ms ease-in-out;
 }
+.lesson-pane .alert.alert-danger {
+  margin-right: 3rem;
+  margin-left: 3rem;
+  margin-bottom: 1rem;
+  padding-left: 3rem;
+}
 .lesson-pane #overview-tab-pane p {
   color: #555;
 }
@@ -543,6 +768,7 @@ header .search-wrapper .main-search-input.focus {
   color: black;
   height: 58px;
   width: inherit;
+  z-index: 100;
 }
 .lesson-pane .footer .btn {
   width: 126px;
@@ -580,7 +806,10 @@ header .search-wrapper .main-search-input.focus {
   background-color: #1392B5;
   color: white;
   height: 58px;
-  z-index: 2;
+  z-index: 100;
+}
+.lesson-pane .header .btn {
+  box-shadow: none !important;
 }
 .lesson-pane .header .btn-custom-close svg {
   height: 23px;
@@ -674,6 +903,9 @@ header .search-wrapper .main-search-input.focus {
 .bullet {
   display: -webkit-inline-box;
 }
+.bullet p {
+  text-wrap: balance;
+}
 .bullet img {
   margin-right: 12px;
   height: 20px !important;
@@ -721,7 +953,7 @@ header .search-wrapper .main-search-input.focus {
 }
 .card.profile-card span {
   font-weight: 600 !important;
-  margin-right: 8px;
+  margin-right: 6px;
 }
 .card.profile-card h5 {
   margin-top: 0.825rem;
@@ -754,10 +986,13 @@ header .search-wrapper .main-search-input.focus {
 .card.course-card .card-body button {
   font-weight: 600 !important;
   letter-spacing: 2px;
+  text-transform: uppercase;
 }
-.card.course-card .card-body button#addToFavoriteBtn {
-  margin-left: -0.625rem;
+.card.course-card .card-body button.add-to-favorite-btn {
+  margin-left: -0.65rem;
   box-shadow: none !important;
+  outline: 0 !important;
+  border: 0px !important;
 }
 .card.course-card svg {
   height: 40px;
@@ -863,6 +1098,9 @@ section.call-to-action img {
   padding-right: 14px;
   padding-bottom: 16px;
   background-color: #fff;
+}
+.course-card-wrapper .card-footer .course-details {
+  width: 100% !important;
 }
 .course-card-wrapper .card-footer .course-details p {
   margin-bottom: 0.425rem;
@@ -1127,6 +1365,95 @@ a {
   text-decoration: none;
 }
 
+.navs-wrapper {
+  display: flex;
+}
+
+#toggleCourseContentMobileViewBtn {
+  display: none;
+}
+
+@keyframes cssAnimation {
+  from {
+    opacity: 1;
+    overflow: hidden;
+  }
+  50% {
+    opacity: 0.5;
+    overflow: hidden;
+  }
+  to {
+    opacity: 0;
+    overflow: hidden;
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+@media (max-width: 1024px) {
+  .backdrop-mobile {
+    display: none;
+    opacity: 0;
+  }
+  .backdrop-mobile.active {
+    display: block;
+    opacity: 1;
+  }
+  .mobile-navs.active {
+    display: block !important;
+    opacity: 1 !important;
+  }
+  .navs-wrapper-mobile {
+    display: flex;
+  }
+  .main-content {
+    overflow-x: hidden;
+  }
+  .w-75 {
+    width: 100% !important;
+  }
+  .course-content {
+    position: absolute;
+    top: 58px;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 250ms ease-in-out;
+    z-index: 11;
+  }
+  .lesson-pane .header #toggleCourseContentBtn {
+    display: none;
+  }
+  .lesson-pane .header #toggleCourseContentMobileViewBtn {
+    display: block;
+  }
+  .lesson-pane .header > div:last-child p {
+    display: none;
+  }
+  .lesson-pane .header > div:first-child p {
+    display: none;
+  }
+  .lesson-pane #lessonContent .tab-pane {
+    padding: 20px !important;
+    margin: 0px !important;
+  }
+  .navs-wrapper .search-wrapper {
+    position: absolute !important;
+    display: none !important;
+    top: 94px;
+    left: 0;
+    width: 100%;
+  }
+  .navs-wrapper .search-wrapper.active {
+    display: block !important;
+  }
+  .navs-wrapper .search-wrapper .main-search-input {
+    background: white;
+    width: 100% !important;
+  }
+  .navs-wrapper nav {
+    display: none !important;
+  }
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

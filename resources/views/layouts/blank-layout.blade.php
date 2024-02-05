@@ -26,7 +26,7 @@
         <script src="https://cdn.jsdelivr.net/npm/vidstack@^1.0.0/cdn/with-layouts/vidstack.js" type="module"></script>
         <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="crossorigin="anonymous"></script>
-        <script src="{{ asset('assets/js/ui.js') }}"></script>
+        <script src="{{ asset('assets/js/ui.js') }}" defer></script>
         <script src="{{ asset('assets/js/common.js') }}"></script>
 
         <script>
@@ -43,6 +43,11 @@
             
             let ext = {
                 jsId: {
+                    addReplyHTML: '#addReplyHTML',
+                    addReplyBtn: '#addReplyBtn',
+                    commentId: '#commentId',
+                    reply: '#reply',
+                    nextLessonBtn: '#nextLessonBtn',
                     commentsWrapper: '#commentsWrapper',
                     comment: '#comment',
                     lessonId: '#lessonId',
@@ -52,6 +57,7 @@
                     closeLessonBtn: '.btn-custom-close',
                 },
                 url: {
+                    addReply: "{{ route('add-reply') }}",
                     addComment: "{{ route('add-comment') }}",
                 }
             }

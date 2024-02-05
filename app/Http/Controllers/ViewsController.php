@@ -142,7 +142,18 @@ class ViewsController extends Controller
 
         $course = Course::findOrFail($request->course_id);
         
-        $topics = Topic::with('lessons:id,topic_id,title')
+        $topics = Topic::with([
+
+                                'lessons' => [
+                                    'complete_status' => function(Builder $query) {
+
+                                        $query->where('user_id', Auth::id())
+                                            ->select('lesson_id', 'user_id');
+
+                                    }
+                                ]
+
+                            ])
                             ->where('course_id', $request->course_id)
                             ->select('id', 'title', 'course_id')
                             ->withCount('lessons')
@@ -153,11 +164,19 @@ class ViewsController extends Controller
                             }])
                             ->get();
 
-                            $lessons_count = Course::withCount('lessons')
+        $lessons_count = Course::withCount('lessons')
                             ->find($request->course_id)
                             ->lessons_count; 
                             
-        $complete_lessons_count = Course::withCount('complete_lessons')
+        $complete_lessons_count = Course::withCount([
+
+                                            'complete_lessons' => function(Builder $query) {
+
+                                                $query->where('user_id', Auth::id());
+
+                                            }
+
+                                    ])
                                     ->find($request->course_id)
                                     ->complete_lessons_count;
 
@@ -182,7 +201,7 @@ class ViewsController extends Controller
                             ->with([
 
                                 'comments' => [
-                                    'user:id,name',
+                                    'user:id,name,profile_img_url',
                                     'replies.user:id,name'
                                 ]
                                 
@@ -201,11 +220,31 @@ class ViewsController extends Controller
             $lesson = Course::find( $request->course_id )
                             ->lessons()
                             ->with('exercise_files')
+                            ->with([
+                                'media_tracker:media_trackerable_id,media_tracker_url',
+                                'subtitles:subtitleable_id,title,subtitle_url',
+                                'complete_status' => function(Builder $query) {
+
+                                    $query->where('user_id', Auth::id())->select('lesson_id', 'user_id');
+
+                                }
+                            
+                            ])
+                            ->with([
+
+                                'active_status' => function(Builder $query) {
+
+                                    $query->where('user_id', Auth::id())->select('lesson_id');
+
+                                }
+
+                            ])
+                            
                             ->find( $request->lesson_id );
 
         }
 
-        // return $topics;
+        // return $lesson;
 
         return view('frontend.lesson')
                 ->with('comments', $comments)
@@ -223,25 +262,47 @@ class ViewsController extends Controller
 
         $course_id = $request->course_id;
 
-        $course = Course::findOrFail($course_id);
+        $lessons_count = Course::withCount('lessons')
+                                    ->find($request->course_id)
+                                    ->lessons_count;
 
-        $topics = Topic::with('lessons:id,title,topic_id')->get();
+        $complete_lessons_count = Course::withCount([
+                                        'complete_lessons' => function(Builder $query) {
+
+                                            $query->where('user_id', Auth::id());
+
+                                        }
+                                    ])
+                                    ->find($request->course_id)
+                                    ->complete_lessons_count;
+
+        $course = Course::with('subtitles:subtitleable_id,title,subtitle_url')
+                            ->with('media_tracker:media_trackerable_id,media_tracker_url')
+                            ->findOrFail($course_id);
+
+        $topics = Topic::where('course_id', $course_id)
+                        ->with('lessons:id,title,topic_id')
+                        ->get();
 
         $recommended_courses = Course::select('id', 'title', 'description', 'featured_img_url')
                                         ->where('category_id', $course->category_id)
-                                        ->whereNot('id', $course->category_id)
+                                        ->whereNot('id', $course_id)
                                         ->inRandomOrder()
                                         ->limit(5)
                                         ->get();
 
         $announcements = Announcement::where('course_id', $course->id)->get();
 
-        $questions = QuestionAndAnswer::with('user:id,name')
+        $questions = QuestionAndAnswer::with('user:id,name,profile_img_url')
                                         ->where('course_id', $course->id)
-                                        ->select('question', 'answer', 'course_id', 'user_id')
+                                        ->select('question', 'answer', 'course_id', 'user_id', 'updated_at')
                                         ->get();
 
+        // return $course;
+
         return view('frontend.course')
+                ->with('lessons_count', $lessons_count)
+                ->with('complete_lessons_count', $complete_lessons_count)
                 ->with('course', $course)
                 ->with('topics', $topics)
                 ->with('recommended_courses', $recommended_courses)

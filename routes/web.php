@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+include 'admin/admin.php';
 include 'frontend/frontend.php';
 
 Route::get('/dashboard', function () {
