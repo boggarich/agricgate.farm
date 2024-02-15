@@ -544,6 +544,8 @@ footer .spacer + p {
 }
 footer .social-media-handles a {
   margin-right: 2rem;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
 }
 footer p {
   line-height: 20px;
