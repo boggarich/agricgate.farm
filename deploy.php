@@ -48,7 +48,7 @@ host('agricgate.farm') // Name of the server
 ->set('ssh_arguments', ['-v', '-o PubkeyAcceptedKeyTypes=+ssh-rsa
 ', '-o HostKeyAlgorithms=+ssh-rsa', '-o StrictHostKeyChecking=no'])
 ->set('branch', 'main') // Git branch
-->set('deploy_path', '/laravel'); // Deploy path
+->set('deploy_path', '/public_html'); // Deploy path
 
 after('deploy:failed', 'deploy:unlock');  // Unlock after failed deploy
 
