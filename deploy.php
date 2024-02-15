@@ -4,10 +4,6 @@ namespace Deployer;
 require 'recipe/laravel.php';
 require 'recipe/rsync.php';
 
-///////////////////////////////////    
-// Config
-///////////////////////////////////
-
 set('application', 'Agricgate.farm');
 set('repository', 'https://github.com/boggarich/agricgate.farm.git'); // Git Repository
 set('ssh_multiplexing', true);  // Speed up deployment
