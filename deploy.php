@@ -45,7 +45,7 @@ host('agricgate.farm') // Name of the server
 ->setHostname('162.0.229.248') // Hostname or IP address
 ->set('remote_user', 'agrigcwj') // SSH user
 ->set('port', '21098')
-->set('ssh_arguments', ['-o HostKeyAlgorithms=+ssh-rsa', '-o StrictHostKeyChecking=no'])
+->set('ssh_arguments', ['-o HostKeyAlgorithms=+ssh-rsa', '-o PasswordAuthentication=no','-o StrictHostKeyChecking=no'])
 ->set('branch', 'main') // Git branch
 ->set('deploy_path', '/laravel'); // Deploy path
 
