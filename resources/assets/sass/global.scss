@@ -21,6 +21,64 @@ body {
   position: relative;
 }
 
+nav {
+    > a {
+      &:first-child {
+          color: #555;
+      }
+    }
+}
+
+#payment {
+
+  svg {
+    display: table;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+
+    path {
+      fill: green;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    color: #555;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .nav-link {
+    font-weight: 600 !important;
+  }
+
+  button {
+    font-weight: 600 !important;
+  }
+
+  label {
+    font-size: 14px;
+    color: #555 !important;
+    margin-left: 4px;
+  }
+
+  .payment-wrapper {
+      width: 20rem;
+      margin: auto;
+      border: 1px solid rgba(24,28,33,0.06);
+      border-radius: 0.325rem;
+      padding: 2rem 1.5rem 2.5rem 1.5rem;
+      box-shadow: 0 1px 4px rgb(24 28 33 / 1%);
+      box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.08);
+  }
+
+}
+
+button {
+  text-wrap: nowrap !important;
+}
+
 .h3 {
   margin-left: 0.75rem;
 
@@ -54,6 +112,8 @@ table {
   }
 
   td {
+    
+    color: #555 !important;
 
     p {
       margin-bottom: 0px;
@@ -749,6 +809,9 @@ header {
 
     .search-wrapper {
         position: relative;
+        display: flex;
+        flex-grow: 1;
+        margin-right: 3rem;
 
         button {
 
@@ -836,7 +899,8 @@ header {
 
         .main-search-input {
             height: 40px;
-            width: 450px;
+            max-width: 450px;
+            flex-grow: 1;
             border-radius: 28px;
             background: #F7F7F7;
             border: none;
@@ -1810,7 +1874,58 @@ a {
   }
 }
 
+.company-info-mobile {
+  display: none;
+}
+
 @media (max-width: 1024px) { 
+
+  section.call-to-action img {
+    height: 321px !important;
+    object-fit: cover !important;
+  }
+
+  section.call-to-action p {
+    width: 100% !important;
+  }
+
+  .swiper-button-prev {
+    left: 0px !important;
+  }
+
+  .swiper-button-next {
+    right: 0px !important;
+  }
+
+  .swiper-pagination {
+    bottom: 16px !important; 
+  }
+
+  .page-hero {
+    height: 250px;
+
+    img {
+      object-fit: cover !important;
+      height: 250px !important;
+      width: 100% !important;
+    }
+  }
+
+  .page-hero-header {
+    font-size: 32px !important;
+  }
+
+  .company-info-desktop {
+    display: none;
+  }
+
+  .company-info-mobile {
+    display: block;
+  }
+
+  #localeDropdownBtn {
+    display: none;
+  }
 
   .backdrop-mobile {
     display: none;
@@ -1874,7 +1989,7 @@ a {
 
         &:first-child {
           p {
-            display: none;
+            display: block;
           }
         }
 

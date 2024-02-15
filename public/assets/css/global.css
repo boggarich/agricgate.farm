@@ -21,6 +21,50 @@ body {
   position: relative;
 }
 
+nav > a:first-child {
+  color: #555;
+}
+
+#payment svg {
+  display: table;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+}
+#payment svg path {
+  fill: green;
+}
+#payment p {
+  font-size: 14px;
+  color: #555;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+#payment .nav-link {
+  font-weight: 600 !important;
+}
+#payment button {
+  font-weight: 600 !important;
+}
+#payment label {
+  font-size: 14px;
+  color: #555 !important;
+  margin-left: 4px;
+}
+#payment .payment-wrapper {
+  width: 20rem;
+  margin: auto;
+  border: 1px solid rgba(24, 28, 33, 0.06);
+  border-radius: 0.325rem;
+  padding: 2rem 1.5rem 2.5rem 1.5rem;
+  box-shadow: 0 1px 4px rgba(24, 28, 33, 0.01);
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.08);
+}
+
+button {
+  text-wrap: nowrap !important;
+}
+
 .h3 {
   margin-left: 0.75rem;
 }
@@ -45,6 +89,9 @@ div.table-responsive > div.dataTables_wrapper > div.row {
 
 table th {
   color: black !important;
+}
+table td {
+  color: #555 !important;
 }
 table td p {
   margin-bottom: 0px;
@@ -612,6 +659,9 @@ header a {
 }
 header .search-wrapper {
   position: relative;
+  display: flex;
+  flex-grow: 1;
+  margin-right: 3rem;
 }
 header .search-wrapper button#searchBtn {
   position: absolute;
@@ -672,7 +722,8 @@ header .search-wrapper .search-results-wrapper h6 {
 }
 header .search-wrapper .main-search-input {
   height: 40px;
-  width: 450px;
+  max-width: 450px;
+  flex-grow: 1;
   border-radius: 28px;
   background: #F7F7F7;
   border: none;
@@ -1390,7 +1441,49 @@ a {
     padding: 0;
   }
 }
+.company-info-mobile {
+  display: none;
+}
+
 @media (max-width: 1024px) {
+  section.call-to-action img {
+    height: 321px !important;
+    -o-object-fit: cover !important;
+       object-fit: cover !important;
+  }
+  section.call-to-action p {
+    width: 100% !important;
+  }
+  .swiper-button-prev {
+    left: 0px !important;
+  }
+  .swiper-button-next {
+    right: 0px !important;
+  }
+  .swiper-pagination {
+    bottom: 16px !important;
+  }
+  .page-hero {
+    height: 250px;
+  }
+  .page-hero img {
+    -o-object-fit: cover !important;
+       object-fit: cover !important;
+    height: 250px !important;
+    width: 100% !important;
+  }
+  .page-hero-header {
+    font-size: 32px !important;
+  }
+  .company-info-desktop {
+    display: none;
+  }
+  .company-info-mobile {
+    display: block;
+  }
+  #localeDropdownBtn {
+    display: none;
+  }
   .backdrop-mobile {
     display: none;
     opacity: 0;
@@ -1430,7 +1523,7 @@ a {
     display: none;
   }
   .lesson-pane .header > div:first-child p {
-    display: none;
+    display: block;
   }
   .lesson-pane #lessonContent .tab-pane {
     padding: 20px !important;

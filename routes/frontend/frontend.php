@@ -13,6 +13,7 @@ use App\Http\Controllers\CourseProgressController;
 use App\Http\Controllers\ReplyController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
+use App\Http\Controllers\DonateController;
 
 Route::get('/set-locale/{locale}', function(string $locale) {
 
@@ -28,10 +29,16 @@ Route::get('/set-locale/{locale}', function(string $locale) {
 
 })->name('set-locale');
 
-Route::get('/', [ViewsController::class, 'index'] )->name('landing-page');
-Route::get('/course/{course_id}', [ViewsController::class, 'course'] )->name('course-page');
-Route::get('/explore/{course_category_id?}', [ViewsController::class, 'explore'])->name('explore');
-Route::get('/search', [ViewsController::class, 'search'])->name('search');
+Route::middleware('guest')->group(function() {
+
+        Route::post('/donate/transaction/{channel}/charge', [DonateController::class, 'charge'])
+                ->name('donate.charge');
+        Route::get('/donate', [DonateController::class, 'create'])->name('donate.create');
+        Route::get('/', [ViewsController::class, 'index'] )->name('landing-page');
+        Route::get('/course/{course_id}', [ViewsController::class, 'course'] )->name('course-page');
+        Route::get('/explore/{course_category_id?}', [ViewsController::class, 'explore'])->name('explore');
+        Route::get('/search', [ViewsController::class, 'search'])->name('search');
+});
 
 Route::middleware('auth')->group(function () {
         

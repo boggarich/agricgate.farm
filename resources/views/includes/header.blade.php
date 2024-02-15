@@ -28,7 +28,8 @@
             </div>
 
             <nav class='d-flex align-items-center'>
-                <a href='/explore' class='me-2'>{{ __('Explore') }}</a>
+                <a href="{{ route('donate.create') }}" class='me-2'>{{ __('Donate') }}</a>
+                <a href="{{ route('explore') }}" class='me-2 ms-4'>{{ __('Explore') }}</a>
 
                 @auth
                     <div class="dropdown ms-4">
@@ -77,7 +78,7 @@
 
         </div>
 
-        <div class="dropdown ms-3">
+        <div class="dropdown ms-3" id="localeDropdownBtn">
             
             <button class="btn btn-secondary dropdown-toggle" type="button" id="setLocaleBtn" data-bs-toggle="dropdown" aria-expanded="false">
                 

@@ -40,7 +40,9 @@
         
         <nav class="mobile-navs">
             <div class="container">
+
                 <ul class="">
+                    <li><a href="{{ route('donate.create') }}">{{ __('Donate') }}</a></li>
                     <li><a href="{{ route('explore') }}">Explore</a></li>
 
                     @auth
@@ -56,8 +58,13 @@
                         <button class='btn btn-success w-100' data-bs-toggle="modal" data-bs-target="#registerModal">Sign up</button>
                     @endguest
 
+                    <li><h3 class="mt-4">Choose language</h3></li>
+                    <li><a class="" href="{{ route('set-locale', ['locale' => 'en' ] ) }}">English</a></li>
+                    <li><a class="" href="{{ route('set-locale', ['locale' => 'tw' ] ) }}">Twi</a></li>
+                    <li><a class="" href="{{ route('set-locale', ['locale' => 'fr' ] ) }}">French</a></li>
 
                 </ul>
+
             </div>
         </nav>
 

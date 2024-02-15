@@ -36,22 +36,6 @@ $('#showMobileNavsBtn').on('click', () => {
 
     }
 
-})
-
-document.addEventListener('contextmenu', (event) => {
-
-    event.preventDefault();
-
-    if(event.target.localName == "video") {
-
-
-    }
-    else {
-
-      
-
-    }
-
 });
 
 $(ext.jsId.updateProfileImgInput).on('change', (e) => {
