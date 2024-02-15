@@ -2,8 +2,7 @@
 namespace Deployer;
 
 require 'recipe/laravel.php';
-require 'contrib/npm.php';
-require 'contrib/rsync.php';
+require 'recipe/rsync.php';
 
 ///////////////////////////////////    
 // Config
@@ -23,6 +22,8 @@ set('rsync_src', function () {
 add('rsync', [
     'exclude' => [
         '.git',
+        '/.env',
+        '/storage/',
         '/vendor/',
         '/node_modules/',
         '.github',
@@ -56,20 +57,24 @@ after('deploy:failed', 'deploy:unlock');  // Unlock after failed deploy
 // Tasks
 ///////////////////////////////////
 
-desc('Start of Deploy the application');
+desc('Deploy the application');
 
 task('deploy', [
+    'deploy:info',
     'deploy:prepare',
-    'rsync',                // Deploy code & built assets
-    'deploy:secrets',       // Deploy secrets
+    'deploy:lock',
+    'deploy:release',
+    'rsync',
+    'deploy:secrets',
+    'deploy:shared',
     'deploy:vendors',
-    'deploy:shared',        // 
-    'artisan:storage:link', //
-    'artisan:view:cache',   //
-    'artisan:config:cache', // Laravel specific steps
-    'artisan:migrate',      //
-    'artisan:queue:restart',//
-    'deploy:publish',       // 
+    'deploy:writable',
+    'artisan:storage:link',
+    'artisan:view:cache',
+    'artisan:config:cache',
+    'artisan:migrate',
+    'artisan:queue:restart',
+    'deploy:symlink',
+    'deploy:unlock',
+    'cleanup',
 ]);
-
-desc('End of Deploy the application');
