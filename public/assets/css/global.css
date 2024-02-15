@@ -21,10 +21,6 @@ body {
   position: relative;
 }
 
-nav > a:first-child {
-  color: #555;
-}
-
 #payment svg {
   display: table;
   margin: 0 auto;
@@ -106,6 +102,7 @@ table td img {
 #setLocaleBtn {
   padding: 0.25rem !important;
   border-radius: 100%;
+  background: rgba(217, 217, 217, 0.1) !important;
 }
 #setLocaleBtn:hover {
   background: white !important;
