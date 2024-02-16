@@ -71,6 +71,5 @@ task('deploy', [
     'artisan:config:cache',
     'artisan:migrate',
     'artisan:queue:restart',
-    'deploy:symlink',
     'deploy:unlock'
 ]);
