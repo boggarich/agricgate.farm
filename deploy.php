@@ -2,7 +2,8 @@
 namespace Deployer;
 
 require 'recipe/laravel.php';
-require 'recipe/rsync.php';
+require 'contrib/rsync.php';
+
 
 set('application', 'Agricgate.farm');
 set('repository', 'https://github.com/boggarich/agricgate.farm.git'); // Git Repository
