@@ -72,6 +72,5 @@ task('deploy', [
     'artisan:migrate',
     'artisan:queue:restart',
     'deploy:symlink',
-    'deploy:unlock',
-    'cleanup',
+    'deploy:unlock'
 ]);
