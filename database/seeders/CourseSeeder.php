@@ -58,11 +58,14 @@ class CourseSeeder extends Seeder
                 
 
             </p>",
+                'hours' => 0,
+                'mins' => 34,
+                'secs' => 0,
                 'what_will_you_learn' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => 'http://localhost:3000/assets/img/snail.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -108,11 +111,14 @@ class CourseSeeder extends Seeder
                 
 
             </p>",
+                'hours' => 0,
+                'mins' => 34,
+                'secs' => 0,
                 'what_will_you_learn' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => 'http://localhost:3000/assets/img/snail%20feed.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -158,11 +164,14 @@ class CourseSeeder extends Seeder
                 
 
             </p>",
+                'hours' => 0,
+                'mins' => 34,
+                'secs' => 0,
                 'what_will_you_learn' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => 'http://localhost:3000/assets/img/WhatsApp%20Image%202023-12-07%20at%2011.23.58%20AM%20(5).jpeg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -208,11 +217,14 @@ class CourseSeeder extends Seeder
                 
 
             </p>",
+                'hours' => 0,
+                'mins' => 34,
+                'secs' => 0,
                 'what_will_you_learn' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => 'http://localhost:3000/assets/img/greenhouse.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -258,11 +270,14 @@ class CourseSeeder extends Seeder
                 
 
             </p>",
+                'hours' => 0,
+                'mins' => 34,
+                'secs' => 0,
                 'what_will_you_learn' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => 'http://localhost:3000/assets/img/snail.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

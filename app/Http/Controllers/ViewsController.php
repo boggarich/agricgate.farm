@@ -22,31 +22,23 @@ class ViewsController extends Controller
     //
     public function index() {
 
-        $featured_courses = FeaturedCourse::with('course:id,title,description,featured_img_url')->get();
+        $featured_courses = FeaturedCourse::withWhereHas('course',
+
+            function(Builder $query) {
+
+                $query->select('id', 'title', 'description', 'featured_img_url')
+                ->whereNotNull('published_at');
+
+            }
+
+        )->get();
+
         $categories = Category::all();
 
 
         return view('frontend.landing-page')
                 ->with('featured_courses', $featured_courses)
                 ->with('categories', $categories);
-
-    }
-
-    public function search(Request $request) {
-
-        $courses = [];
-
-        if($request->search_query) {
-
-            $courses = Course::select('id', 'title', 'description', 'featured_img_url')
-                                ->where('title', 'like', '%'. $request->search_query .'%')
-                                ->get();
-
-        }
-
-        return view('frontend.search')
-                    ->with('search_query', $request->search_query)
-                    ->with('courses', $courses);
 
     }
 
@@ -115,6 +107,7 @@ class ViewsController extends Controller
 
             $courses = Course::select('id', 'title', 'description', 'featured_img_url')
                                 ->where('category_id', $request->course_category_id)
+                                ->whereNotNull('published_at')
                                 ->get();
 
         }
@@ -122,6 +115,7 @@ class ViewsController extends Controller
         else {
 
             $courses = Course::select('id', 'title', 'description', 'featured_img_url')
+                                ->whereNotNull('published_at')
                                 ->get();
 
         }
@@ -262,6 +256,11 @@ class ViewsController extends Controller
 
         $course_id = $request->course_id;
 
+        $course = Course::with('subtitles:subtitleable_id,title,subtitle_url')
+                            ->with('media_tracker:media_trackerable_id,media_tracker_url')
+                            ->whereNotNull('published_at')
+                            ->findOrFail($course_id);
+
         $lessons_count = Course::withCount('lessons')
                                     ->find($request->course_id)
                                     ->lessons_count;
@@ -276,10 +275,6 @@ class ViewsController extends Controller
                                     ->find($request->course_id)
                                     ->complete_lessons_count;
 
-        $course = Course::with('subtitles:subtitleable_id,title,subtitle_url')
-                            ->with('media_tracker:media_trackerable_id,media_tracker_url')
-                            ->findOrFail($course_id);
-
         $topics = Topic::where('course_id', $course_id)
                         ->with('lessons:id,title,topic_id')
                         ->get();
@@ -287,6 +282,7 @@ class ViewsController extends Controller
         $recommended_courses = Course::select('id', 'title', 'description', 'featured_img_url')
                                         ->where('category_id', $course->category_id)
                                         ->whereNot('id', $course_id)
+                                        ->whereNotNull('published_at')
                                         ->inRandomOrder()
                                         ->limit(5)
                                         ->get();

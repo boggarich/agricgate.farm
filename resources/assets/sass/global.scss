@@ -21,6 +21,37 @@ body {
   position: relative;
 }
 
+.vds-video-layout[data-size=sm] .vds-controls .vds-play-button {
+  background-color: #0399eb;
+}
+
+.publish-btn,
+.unpublish-btn {
+  width: 100px;
+}
+
+#paymentVerifiedHTML, 
+#paymentVerificationHTML,
+#paymentVerificationFailedHTML {
+  display: flex;
+  
+  strong {
+    font-size: .894rem !important;
+  }
+
+}
+
+.hidden {
+  display: none !important;
+}
+
+.course-featured-img {
+  max-height: 411px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 #payment {
 
   svg {
@@ -62,7 +93,7 @@ body {
       border-radius: 0.325rem;
       padding: 2rem 1.5rem 2.5rem 1.5rem;
       box-shadow: 0 1px 4px rgb(24 28 33 / 1%);
-      box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.08);
+      box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.08);
   }
 
 }
@@ -98,10 +129,6 @@ div.table-responsive>div.dataTables_wrapper>div.row {
 }
 
 table {
-
-  th {
-    color: black !important;
-  }
 
   td {
     
@@ -447,6 +474,10 @@ span[data-dz-name] {
 }
 
 .modal {
+
+    .shadow-none:not(.custom-close-btn)  {
+      box-shadow: none !important;
+    }
 
     .modal-content {
       border-radius: 20px;
@@ -806,6 +837,7 @@ header {
         display: flex;
         flex-grow: 1;
         margin-right: 3rem;
+        max-width: 360px;
 
         button {
 
@@ -893,7 +925,6 @@ header {
 
         .main-search-input {
             height: 40px;
-            max-width: 450px;
             flex-grow: 1;
             border-radius: 28px;
             background: #F7F7F7;
@@ -1351,6 +1382,14 @@ header {
         border: 1px solid #F9F9F9;
         box-shadow: 0px 4px 36px 2px rgba(189, 190, 193, 0.25);
 
+        &.admin {
+
+          .card-body {
+            padding: 1.625rem 1.625rem 4.8125rem; 
+          }
+
+        }
+
         a {
           &.btn {
             letter-spacing: 2px; 
@@ -1404,6 +1443,12 @@ header {
 section {
 
   &.course-info {
+
+      &.admin {
+        .nav-tabs .nav-link.active {
+          background-color: #f8f8fc;
+        }
+      }
 
       .accordion-collapse {
           p {

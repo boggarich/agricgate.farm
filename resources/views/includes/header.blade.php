@@ -28,8 +28,8 @@
             </div>
 
             <nav class='d-flex align-items-center'>
-                <a href="{{ route('donate.create') }}" class='me-2'>{{ __('Donate') }}</a>
-                <a href="{{ route('explore') }}" class='me-2 ms-4'>{{ __('Explore') }}</a>
+                <a href="{{ route('explore') }}" class='me-2'>{{ __('Explore') }}</a>
+                <a href="{{ route('donate.create-charge') }}" class='me-2 ms-4'>{{ __('Donate') }}</a>
 
                 @auth
                     <div class="dropdown ms-4">
@@ -47,7 +47,7 @@
                 @endauth
 
                 @guest
-                    <button class='btn btn-outline-success ms-4' data-bs-toggle="modal" data-bs-target="#loginModal">{{ __('Log in') }}</button>
+                    <button class='btn btn-outline-success ms-4' data-bs-toggle="modal" data-bs-target="#loginModal">{{ __('Login') }}</button>
                     <button class='btn btn-success ms-4' data-bs-toggle="modal" data-bs-target="#registerModal">{{ __('Sign up') }}</button>
                 @endguest
 

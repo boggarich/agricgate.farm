@@ -21,6 +21,38 @@ body {
   position: relative;
 }
 
+.vds-video-layout[data-size=sm] .vds-controls .vds-play-button {
+  background-color: #0399eb;
+}
+
+.publish-btn,
+.unpublish-btn {
+  width: 100px;
+}
+
+#paymentVerifiedHTML,
+#paymentVerificationHTML,
+#paymentVerificationFailedHTML {
+  display: flex;
+}
+#paymentVerifiedHTML strong,
+#paymentVerificationHTML strong,
+#paymentVerificationFailedHTML strong {
+  font-size: 0.894rem !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.course-featured-img {
+  max-height: 411px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+}
+
 #payment svg {
   display: table;
   margin: 0 auto;
@@ -54,7 +86,7 @@ body {
   border-radius: 0.325rem;
   padding: 2rem 1.5rem 2.5rem 1.5rem;
   box-shadow: 0 1px 4px rgba(24, 28, 33, 0.01);
-  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.08);
 }
 
 button {
@@ -83,9 +115,6 @@ div.table-responsive > div.dataTables_wrapper > div.row {
   vertical-align: middle;
 }
 
-table th {
-  color: black !important;
-}
 table td {
   color: #555 !important;
 }
@@ -374,6 +403,9 @@ span[data-dz-name] {
   color: #7F7F7F !important;
 }
 
+.modal .shadow-none:not(.custom-close-btn) {
+  box-shadow: none !important;
+}
 .modal .modal-content {
   border-radius: 20px;
 }
@@ -661,6 +693,7 @@ header .search-wrapper {
   display: flex;
   flex-grow: 1;
   margin-right: 3rem;
+  max-width: 360px;
 }
 header .search-wrapper button#searchBtn {
   position: absolute;
@@ -721,7 +754,6 @@ header .search-wrapper .search-results-wrapper h6 {
 }
 header .search-wrapper .main-search-input {
   height: 40px;
-  max-width: 450px;
   flex-grow: 1;
   border-radius: 28px;
   background: #F7F7F7;
@@ -1025,6 +1057,9 @@ header .search-wrapper .main-search-input.focus {
   border: 1px solid #F9F9F9;
   box-shadow: 0px 4px 36px 2px rgba(189, 190, 193, 0.25);
 }
+.card.course-card.admin .card-body {
+  padding: 1.625rem 1.625rem 4.8125rem;
+}
 .card.course-card a.btn {
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -1061,6 +1096,9 @@ header .search-wrapper .main-search-input.focus {
   width: max-content !important;
 }
 
+section.course-info.admin .nav-tabs .nav-link.active {
+  background-color: #f8f8fc;
+}
 section.course-info .accordion-collapse p {
   color: black !important;
   margin-bottom: 1.5rem;

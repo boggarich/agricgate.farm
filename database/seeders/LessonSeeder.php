@@ -55,7 +55,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -99,7 +99,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -143,7 +143,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -187,7 +187,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -275,7 +275,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -319,7 +319,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -363,7 +363,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -407,7 +407,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -451,7 +451,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -495,7 +495,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -539,7 +539,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -583,7 +583,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -627,7 +627,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -671,7 +671,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
@@ -715,7 +715,7 @@ class LessonSeeder extends Seeder
                 
 
                 </p>",
-                'video_url' => 'http://localhost:3000/assets/video/Trisolace%20Company%20Ghana%20snails%20projects%20and%20free%20training.mp4',
+                'video_url' => 'https://trisolace.s3.eu-north-1.amazonaws.com/videos/WkNyRoFR0H1zLfPmEisOc4MibVD1ctPVh0aGW591.mp4',
                 'featured_img_url' => '',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

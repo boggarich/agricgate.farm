@@ -10,6 +10,10 @@ class FeaturedCourse extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'course_id',
+    ];
+
     public function course(): BelongsTo
     {
 

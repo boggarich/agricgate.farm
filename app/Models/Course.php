@@ -21,9 +21,19 @@ class Course extends Model
         'description',
         'about',
         'what_will_you_learn',
+        'hours',
+        'mins',
+        'secs',
         'video_url',
         'featured_img_url'
     ];
+
+    public function featured(): HasOne 
+    {
+
+        return $this->hasOne(FeaturedCourse::class);
+
+    }
 
     public function category(): BelongsTo
     {

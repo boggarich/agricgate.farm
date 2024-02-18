@@ -42,8 +42,8 @@
             <div class="container">
 
                 <ul class="">
-                    <li><a href="{{ route('donate.create') }}">{{ __('Donate') }}</a></li>
                     <li><a href="{{ route('explore') }}">Explore</a></li>
+                    <li><a href="{{ route('donate.create-charge') }}">{{ __('Donate') }}</a></li>
 
                     @auth
                         <li><a href="{{ route('account') }}">Account</a></li>
@@ -72,7 +72,7 @@
         <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
             <div class="modal-dialog px-4">
                 <div class="modal-content">
-                    <div class="modal-body mb-5 px-5">
+                    <div class="modal-body mb-4 px-5">
                         <h5 class="text-center text-black mt-4 mb-5">{{ __('Register') }}</h5>
                         <form action="/register" method="post">
                             @csrf
@@ -93,6 +93,7 @@
                             </div>
                             <button class="btn btn-success w-100" type="submit">{{ __('Register') }}</button>
                         </form>
+                        <button class="mt-1 text-center mx-auto d-table btn mb-0 shadow-none text-small" data-bs-toggle="modal" data-bs-target="#loginModal">{{ __("Already have an account yet? Login.") }}</button>
                     </div>
                 </div>
             </div>
@@ -102,8 +103,8 @@
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
             <div class="modal-dialog px-4">
                 <div class="modal-content">
-                    <div class="modal-body mb-5 px-5">
-                        <h5 class="text-center text-black mt-4 mb-5">{{ __('Log in') }}</h5>
+                    <div class="modal-body mb-4 px-5">
+                        <h5 class="text-center text-black mt-4 mb-5">{{ __('Login') }}</h5>
                         <form action="/login" method="post">
                             @csrf
                             <div class="mb-4">
@@ -115,8 +116,9 @@
                             <div class="mb-4">
                                 <a href="{{ route('password.request') }}" class="ms-auto d-table">{{ __('Forgot password') }}?</a>
                             </div>
-                            <button type="submit" class="btn btn-success w-100">{{ __('Log in') }}</button>
+                            <button type="submit" class="btn btn-success w-100">{{ __('Login') }}</button>
                         </form>
+                        <button class="mt-1 text-center mx-auto d-table btn mb-0 shadow-none text-small" data-bs-toggle="modal" data-bs-target="#registerModal">{{ __("Don't have an account yet? Register.") }}</button>
                     </div>
                 </div>
             </div>
@@ -144,6 +146,9 @@
 
             let ext = {
                 jsId: {
+                    paymentVerificationFailedHTML: '#paymentVerificationFailedHTML',
+                    paymentVerifiedHTML: '#paymentVerifiedHTML',
+                    paymentVerificationHTML: '#paymentVerificationHTML',
                     profileImgUploadForm: '#profileImgUploadForm',
                     profileImg: '#profileImg',
                     updateProfileImgInput: '#updateProfileImgInput',
@@ -164,6 +169,7 @@
                     recentSearch: '.recent-search'
                 },
                 url: {
+                    verifyPayment: "{{ route('donate.verify') }}",
                     addFavorite: "{{ route('add-favorite') }}",
                     askQuestion: "{{ route('ask-question') }}"
                 }

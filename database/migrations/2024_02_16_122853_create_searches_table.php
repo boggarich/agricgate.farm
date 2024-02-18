@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 
 return new class extends Migration
 {
@@ -11,12 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('donates', function (Blueprint $table) {
+        Schema::create('searches', function (Blueprint $table) {
             $table->id();
-            $table->string('channel');
-            $table->string('amount');
-            $table->timestamp('verified_at');
-            $table->text('transaction_ref');
+            $table->foreignIdFor(User::class);
+            $table->text('query');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('donates');
+        Schema::dropIfExists('searches');
     }
 };

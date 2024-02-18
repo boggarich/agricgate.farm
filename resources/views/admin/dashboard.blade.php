@@ -19,7 +19,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Enrolled Courses</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ number_format($enroll_courses_count) }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -37,7 +37,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                     Pending Questions</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ number_format($pending_questions_count) }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -77,7 +77,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     Donations</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">¢ 0</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">¢ {{ number_format($total_donations) }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -138,25 +138,25 @@
                             <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
                                 aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <h4 class="small font-weight-bold">Google Adsense <span
+                        <h4 class="small font-weight-bold">Telcos VAS <span
                                 class="float-right">40%</span></h4>
                         <div class="progress mb-4">
                             <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
                                 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <h4 class="small font-weight-bold">Google Adsense <span
+                        <h4 class="small font-weight-bold">Referrals <span
                                 class="float-right">60%</span></h4>
                         <div class="progress mb-4">
                             <div class="progress-bar" role="progressbar" style="width: 60%"
                                 aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <h4 class="small font-weight-bold">Google Adsense <span
+                        <h4 class="small font-weight-bold">Youtube Videos <span
                                 class="float-right">80%</span></h4>
                         <div class="progress mb-4">
                             <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
                                 aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <h4 class="small font-weight-bold">Google Adsense <span
+                        <h4 class="small font-weight-bold">Donations <span
                                 class="float-right">Complete!</span></h4>
                         <div class="progress">
                             <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
@@ -169,5 +169,23 @@
 
         </div>
 
+
+@endsection
+
+@section('scripts')
+
+    <script>
+
+
+        $(document).ready(function() {
+
+            let monthlyUserData = <?php echo json_encode($monthly_users_count) ?>;
+
+            initMonthlyUsersChart(monthlyUserData);
+
+        });
+        
+
+    </script>
 
 @endsection

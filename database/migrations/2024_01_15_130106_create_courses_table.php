@@ -20,8 +20,11 @@ return new class extends Migration
             $table->text('description');
             $table->longText('about');
             $table->longText('what_will_you_learn');
+            $table->integer('hours');
+            $table->integer('mins');
+            $table->integer('secs');
             $table->text('video_url')->nullable();
-            $table->text('featured_img_url')->nullable();
+            $table->text('featured_img_url');
             $table->timestamps();
         });
     }

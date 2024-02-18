@@ -8,6 +8,11 @@ use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use App\Models\EnrollCourse;
+use App\Models\QuestionAndAnswer;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use App\Models\Donate;
 
 class AdminController extends Controller
 {
@@ -89,7 +94,79 @@ class AdminController extends Controller
 
     public function dashboard() {
 
-        return view('admin.dashboard');
+        $total_donations = Donate::sum('amount');
+
+        $enroll_courses_count = EnrollCourse::count();
+        $pending_questions_count = QuestionAndAnswer::where('answer', NULL)->count();
+
+        $monthly_users_count_dec = User::whereYear('created_at', date("Y"))
+                                    ->whereMonth('created_at', 12)
+                                    ->count();
+
+        $monthly_users_count_nov = User::whereYear('created_at', date("Y"))
+                                    ->whereMonth('created_at', 11)
+                                    ->count();
+
+        $monthly_users_count_oct = User::whereYear('created_at', date("Y"))
+                                    ->whereMonth('created_at', 10)
+                                    ->count();
+
+        $monthly_users_count_sep = User::whereYear('created_at', date("Y"))
+                                    ->whereMonth('created_at', 9)
+                                    ->count();
+
+        $monthly_users_count_aug = User::whereYear('created_at', date("Y"))
+                                    ->whereMonth('created_at', 8)
+                                    ->count();
+
+        $monthly_users_count_jul = User::whereYear('created_at', date("Y"))
+                                    ->whereMonth('created_at', 7)
+                                    ->count();
+
+        $monthly_users_count_jun = User::whereYear('created_at', date("Y"))
+                                    ->whereMonth('created_at', 6)
+                                    ->count();
+
+        $monthly_users_count_may = User::whereYear('created_at', date("Y"))
+                                    ->whereMonth('created_at', 5)
+                                    ->count();
+
+        $monthly_users_count_apr = User::whereYear('created_at', date("Y"))
+                                    ->whereMonth('created_at', 4)
+                                    ->count();
+
+        $monthly_users_count_mar = User::whereYear('created_at', date("Y"))
+                                    ->whereMonth('created_at', 3)
+                                    ->count();
+
+        $monthly_users_count_feb = User::whereYear('created_at', date("Y"))
+                                    ->whereMonth('created_at', 2)
+                                    ->count();
+
+        $monthly_users_count_jan = User::whereYear('created_at', date("Y"))
+                                    ->whereMonth('created_at', 1)
+                                    ->count();
+
+        $monthly_users_count = [
+                $monthly_users_count_jan, 
+                $monthly_users_count_feb,
+                $monthly_users_count_mar,
+                $monthly_users_count_apr,
+                $monthly_users_count_may,
+                $monthly_users_count_jun,
+                $monthly_users_count_jul, 
+                $monthly_users_count_aug,
+                $monthly_users_count_sep,
+                $monthly_users_count_oct,
+                $monthly_users_count_nov,
+                $monthly_users_count_dec,
+            ];
+
+        return view('admin.dashboard')
+                ->with('total_donations', $total_donations)
+                ->with('monthly_users_count', $monthly_users_count)
+                ->with('pending_questions_count', $pending_questions_count)
+                ->with('enroll_courses_count', $enroll_courses_count);
 
     }
 

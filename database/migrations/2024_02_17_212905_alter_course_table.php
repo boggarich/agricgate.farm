@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('donates', function (Blueprint $table) {
-            $table->id();
-            $table->string('channel');
-            $table->string('amount');
-            $table->timestamp('verified_at');
-            $table->text('transaction_ref');
-            $table->timestamps();
+        //
+        Schema::table('courses', function (Blueprint $table) {
+            $table->timestamp('published_at')
+                    ->nullable()
+                    ->after('featured_img_url');
         });
+
     }
 
     /**
@@ -26,6 +25,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('donates');
+        //
+        Schema::table('courses', function (Blueprint $table) {
+            $table->dropColumn('published_at');
+        });
     }
 };

@@ -60,6 +60,29 @@
                     <textarea type="text" class="form-control" id="inputEmail4" name="what_will_you_learn" placeholder="Separate each with a new line.">{{ $course->what_will_you_learn }}</textarea>
                 </div>
 
+                <div class="col-md-12">
+
+                    <label for="inputEmail4" class="form-label">Duration</label>
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-4 form-group">
+                                    <input type="text" class="form-control" id="inputEmail4" placeholder="Hours" name="hours" value="{{ $course->hours }}">
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <input type="text" class="form-control" id="inputEmail4" placeholder="Mins" name="mins" value="{{ $course->mins }}">
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <input type="text" class="form-control" id="inputEmail4" placeholder="Secs" name="secs" value="{{ $course->secs }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
                 <input type="hidden" name="video_url" value="{{ $course->video_url }}" id="videoURL"/>
                 <input type="hidden" name="featured_img_url" value="{{ $course->featured_img_url }}" id="featuredImgURL"/>
 

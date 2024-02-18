@@ -173,7 +173,57 @@
                         render: function (data, type, row) {
                             return `
                                 <div class="d-flex align-items-center">
-                                    <a href="/course/${ data.id }" class="btn btn-success btn-square mr-3">
+                                    
+                                    ${ data.published_at ? 
+                                        
+                                    `<form method="POST" action="/admin/courses/${data.id}/unpublish">
+                                        @method('PUT')
+                                        @csrf
+                                    
+                                        <button type="submit" class="btn btn-secondary btn-square mr-3 publish-btn">
+                                                Unpublish
+                                        </button>
+
+                                    </form>` : 
+                                        
+                                    `<form method="POST" action="/admin/courses/${data.id}/publish">
+                                        @method('PUT')
+                                        @csrf
+                                    
+                                        <button type="submit" class="btn btn-primary btn-square mr-3 unpublish-btn">
+                                                Publish
+                                        </button>
+
+                                    </form>` 
+
+                                    }
+
+                                    ${
+
+                                        data.featured ? 
+                                            `<form method="POST" action="/admin/featured-courses/${data.id}">
+                                                @method('DELETE')
+                                                @csrf
+                                            
+                                                <button type="submit" class="btn btn-secondary btn-square mr-3">
+                                                    <i class="fas fa-fw fa-desktop"></i>
+                                                </button>
+
+                                            </form>` :
+
+                                            `<form method="POST" action="/admin/featured-courses">
+                                                @method('POST')
+                                                @csrf
+                                                <input type="hidden" name="course_id" value="${data.id}"/>
+                                                <button type="submit" class="btn btn-info btn-square mr-3">
+                                                    <i class="fas fa-fw fa-desktop"></i>
+                                                </button>
+
+                                            </form>`
+
+                                    }
+
+                                    <a href="/admin/courses/${ data.id }" class="btn btn-success btn-square mr-3">
                                         <i class="fas fa-fw fa-eye"></i>
                                     </a>
 

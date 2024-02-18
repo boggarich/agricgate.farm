@@ -509,16 +509,16 @@
 
             const player = document.querySelector('media-player');
 
-            if(localStorage.getItem("videoProgress")) {
+            if(sessionStorage.getItem("videoProgress")) {
 
-                videoProgressObj = localStorage.getItem("videoProgress");
+                videoProgressObj = sessionStorage.getItem("videoProgress");
 
             }
             else {
 
-                localStorage.setItem('videoProgress', JSON.stringify([]));
+                sessionStorage.setItem('videoProgress', JSON.stringify([]));
 
-                videoProgressObj = localStorage.getItem("videoProgress");
+                videoProgressObj = esssionStorage.getItem("videoProgress");
             }
 
             if(player) {

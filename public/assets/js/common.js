@@ -6,9 +6,45 @@ class commonClass {
 
     }
 
+    verifyPayment(transactionRef) {
+
+        var ids = this.ext.jsId;
+        var urls = this.ext.url;
+
+        let _verifyPaymentInterval = setInterval(() => {
+
+                $.ajax({
+                    url : urls.verifyPayment,
+                    method : "post",
+                    data : {transaction_ref: transactionRef},
+                })
+                .done((response) => {
+
+                    if(response.status) {
+
+                        $(ids.paymentVerificationHTML).addClass('hidden');
+                        $(ids.paymentVerifiedHTML).removeClass('hidden');
+
+                    }
+
+                    else {
+
+                        $(ids.paymentVerificationHTML).addClass('hidden');
+                        $(ids.paymentVerificationFailedHTML).removeClass('hidden');
+
+                    }
+
+                    clearInterval(_verifyPaymentInterval);
+
+                });
+
+        }, 5000);
+
+    }
+
     getNextLesson(event, currentLessonId, videoDuration) {
 
-        let videoProgressObj = localStorage.getItem("videoProgress");
+        let videoProgressObj = sessionStorage.getItem("videoProgress");
         let obj = JSON.parse(videoProgressObj);
         let currentLessonProgress = 0;
         let navigationURL;
@@ -79,14 +115,14 @@ class commonClass {
             });
 
 
-            localStorage.setItem("videoProgress", JSON.stringify(_obj));
+            sessionStorage.setItem("videoProgress", JSON.stringify(_obj));
 
         }
         else {
 
             if(obj.length){
                 
-                localStorage.setItem("videoProgress", JSON.stringify(
+                sessionStorage.setItem("videoProgress", JSON.stringify(
                     [ 
                         { [lessonId] : currentTime },
                         ...obj
@@ -96,7 +132,7 @@ class commonClass {
             }
             else {
 
-                localStorage.setItem("videoProgress", JSON.stringify(
+                sessionStorage.setItem("videoProgress", JSON.stringify(
                     [ 
                         { [lessonId] : currentTime } 
                     ]
@@ -193,51 +229,55 @@ class commonClass {
 
     setSearchHistory(key, value) {
 
-        let obj = JSON.parse(localStorage.getItem(key));
-  
-        if(obj) {
-            
-          if(obj.find(el => el == value)) {
+        if(value) {
 
-            var _obj = obj.filter( (searchQuery) => {
+            let obj = JSON.parse(localStorage.getItem(key));
+    
+            if(obj) {
+                
+                if(obj.find(el => el == value)) {
 
-                return searchQuery !== value;
+                    var _obj = obj.filter( (searchQuery) => {
 
-            });
+                        return searchQuery !== value;
 
-            localStorage.setItem(key, JSON.stringify([value  , ..._obj]));
-  
-            return;
-          }
-  
-          else {
-  
-            if(obj.length < 10) {
-              
-              localStorage.setItem(key, JSON.stringify([value  , ...obj]));
-  
+                    });
+
+                    localStorage.setItem(key, JSON.stringify([value  , ..._obj]));
+        
+                    return;
+                }
+        
+                else {
+        
+                    if(obj.length < 10) {
+                    
+                    localStorage.setItem(key, JSON.stringify([value  , ...obj]));
+        
+                    }
+        
+                    if(obj.length == 10) {
+        
+                    let searchHistory = obj;
+        
+                    searchHistory.pop();
+        
+                    localStorage.setItem(key, JSON.stringify([value  , ...searchHistory]));
+                    
+                    }
+                    
+        
+                }
+    
             }
-  
-            if(obj.length == 10) {
-  
-              let searchHistory = obj;
-  
-              searchHistory.pop();
-  
-              localStorage.setItem(key, JSON.stringify([value  , ...searchHistory]));
-              
+            else {
+    
+                obj = [value];
+        
+                localStorage.setItem(key, JSON.stringify(obj));
+    
             }
-            
-  
-          }
-  
-        }
-        else {
-  
-          obj = [value];
-  
-          localStorage.setItem(key, JSON.stringify(obj));
-  
+
         }
   
     }
