@@ -6,8 +6,10 @@
     "license": "MIT",
     "require": {
         "php": "^8.2.15",
+        "aws/aws-sdk-php": "^3.300",
         "deployer/deployer": "^7.3",
         "deployer/recipes": "^6.2",
+        "finller/laravel-aws-mediaconvert": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",

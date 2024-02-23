@@ -518,7 +518,7 @@
 
                 sessionStorage.setItem('videoProgress', JSON.stringify([]));
 
-                videoProgressObj = esssionStorage.getItem("videoProgress");
+                videoProgressObj = sessionStorage.getItem("videoProgress");
             }
 
             if(player) {

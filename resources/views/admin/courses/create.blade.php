@@ -85,8 +85,8 @@
 
                 </div>
 
-                <input type="hidden" name="video_url" value="" id="videoURL"/>
-                <input type="hidden" name="featured_img_url" value="" id="featuredImgURL"/>
+                <input type="hidden" name="video_url" value="{{ old('video_url') }}" id="videoURL"/>
+                <input type="hidden" name="featured_img_url" value="{{ old('featured_img_url') }}" id="featuredImgURL"/>
 
             </form>
 

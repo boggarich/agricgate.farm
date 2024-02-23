@@ -22,7 +22,7 @@ class SaveCourseProgress
     public function handle(Request $request, Closure $next): Response
     {
         $video_duration = $request->query('plvd');
-        $current_lesson_progress = $request->query('plp');
+        $current_lesson_progress = round($request->query('plp'));
 
         $course = Course::findOrFail($request->course_id);
 

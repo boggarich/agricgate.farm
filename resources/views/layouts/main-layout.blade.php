@@ -59,9 +59,9 @@
                     @endguest
 
                     <li><h3 class="mt-4">Choose language</h3></li>
-                    <li><a class="" href="{{ route('set-locale', ['locale' => 'en' ] ) }}">English</a></li>
-                    <li><a class="" href="{{ route('set-locale', ['locale' => 'tw' ] ) }}">Twi</a></li>
-                    <li><a class="" href="{{ route('set-locale', ['locale' => 'fr' ] ) }}">French</a></li>
+                    <li><a class="" href="{{ route('set-locale', ['locale' => 'en' ] ) }}"><img src="{{ asset('assets/img/britain-flag.png') }}" alt="Britain flag" class="me-2"/>English</a></li>
+                    <li><a class="" href="{{ route('set-locale', ['locale' => 'tw' ] ) }}"><img src="{{ asset('assets/img/ghana-flag.png') }}" alt="Ghana flag" class="me-2"/>Twi</a></li>
+                    <li><a class="" href="{{ route('set-locale', ['locale' => 'fr' ] ) }}"><img src="{{ asset('assets/img/france-flag.png') }}" alt="France flag" class="me-2"/>French</a></li>
 
                 </ul>
 
@@ -93,7 +93,7 @@
                             </div>
                             <button class="btn btn-success w-100" type="submit">{{ __('Register') }}</button>
                         </form>
-                        <button class="mt-1 text-center mx-auto d-table btn mb-0 shadow-none text-small" data-bs-toggle="modal" data-bs-target="#loginModal">{{ __("Already have an account yet? Login.") }}</button>
+                        <button class="mt-1 text-center mx-auto d-table btn mb-0 shadow-none text-small" data-bs-toggle="modal" data-bs-target="#loginModal">{{ __("Already have an account? Login.") }}</button>
                     </div>
                 </div>
             </div>

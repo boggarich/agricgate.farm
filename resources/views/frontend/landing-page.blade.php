@@ -411,7 +411,9 @@
     const pageHeroSwiper = new Swiper('.page-hero', {
 
         // Optional parameters
-        autoplay: true,
+        autoplay: {
+            delay: 10000,
+        },
         loop: true,
         spaceBetween: 50,
         slidesPerView: 1,

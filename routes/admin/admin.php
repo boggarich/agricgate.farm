@@ -20,6 +20,8 @@ Route::post('/admin/login', [LoginController::class, 'adminLogin']);
 
 Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function () {
 
+    Route::awsMediaConvertWebhook('aws/webhooks/media-convert');
+
     Route::delete('/featured-courses/{course_id}', [FeaturedCourseController::class, 'destroy'])
             ->name('course.unfeature');
     Route::post('/featured-courses', [FeaturedCourseController::class, 'store'])

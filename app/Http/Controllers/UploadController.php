@@ -6,12 +6,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
 use Illuminate\Support\Str;
+use Finller\AwsMediaConvert\Facades\AwsMediaConvert;
+use Finller\AwsMediaConvert\Support\DefaultMediaConvertSettings;
+use Finller\AwsMediaConvert\Support\Hls\DefaultHlsMediaConvertGroup;
+use Finller\AwsMediaConvert\Support\Hls\DefaultHls1080pMediaConvertOutput;
+use Finller\AwsMediaConvert\Support\Hls\DefaultHls720pMediaConvertOutput;
+use Finller\AwsMediaConvert\Support\Hls\DefaultHls540pMediaConvertOutput;
+use Finller\AwsMediaConvert\Support\Hls\DefaultHls480pMediaConvertOutput;
+
+
 
 class UploadController extends Controller
 {
     //
     public function index(Request $request) 
     {
+
+        $destination = env('AWS_MEDIACONVERT_DESTINATION');
 
         if($request->filled('upload_type')) {
 
@@ -25,7 +36,22 @@ class UploadController extends Controller
 
                 $url = Storage::url($path);
 
-                return $url;
+                $response = AwsMediaConvert::createJob(
+                    settings: DefaultMediaConvertSettings::make($url)
+                        ->addOutputGroup(
+                            DefaultHlsMediaConvertGroup::make($destination)
+                                ->addOutputWhen(true, DefaultHls1080pMediaConvertOutput::make())
+                                ->addOutputWhen(true, DefaultHls720pMediaConvertOutput::make())
+                                ->addOutputWhen(true, DefaultHls540pMediaConvertOutput::make())
+                                ->addOutputWhen(true, DefaultHls480pMediaConvertOutput::make())
+                        )
+                        ->toArray(),
+                    metaData: []
+                );
+
+                $aws_hls_converted_media_url = Storage::url(explode('.', $path)[0].'.m3u8');
+
+                return $aws_hls_converted_media_url;
 
             }
 

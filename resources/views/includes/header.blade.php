@@ -82,13 +82,36 @@
             
             <button class="btn btn-secondary dropdown-toggle" type="button" id="setLocaleBtn" data-bs-toggle="dropdown" aria-expanded="false">
                 
-                <img src="{{ asset('assets/img/globe.png') }}" alt="globe" />
+                <img src="{{ asset('assets/img/globe.png') }}" alt="globe" class="me-1" />
+                
+                @if(App::getLocale() == 'en') 
+
+                    {{  'English'  }}
+
+                @endif
+
+                @if(App::getLocale() == 'tw') 
+
+                    {{  'Twi'  }}
+
+                @endif
+
+                @if(App::getLocale() == 'fr') 
+
+                    {{  'French'  }}
+
+                @endif
+
+                <svg aria-hidden="true" fill="none" focusable="false" height="20" viewBox="0 0 20 20" width="20" class="css-1otfn78" id="cds-react-aria-136">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 14.293L1.354 5.646l-.708.708L10 15.707l9.354-9.353-.707-.708L10 14.293z" fill="currentColor"></path>
+                </svg>
+                
 
             </button>
             <ul class="dropdown-menu pb-4">
-                <li><a class="dropdown-item" href="{{ route('set-locale', ['locale' => 'en' ] ) }}">English</a></li>
-                <li><a class="dropdown-item" href="{{ route('set-locale', ['locale' => 'tw' ] ) }}">Twi</a></li>
-                <li><a class="dropdown-item" href="{{ route('set-locale', ['locale' => 'fr' ] ) }}">French</a></li>
+                <li><a class="dropdown-item" href="{{ route('set-locale', ['locale' => 'en' ] ) }}"><img src="{{ asset('assets/img/britain-flag.png') }}" alt="Britain flag" class="me-2"/>English</a></li>
+                <li><a class="dropdown-item" href="{{ route('set-locale', ['locale' => 'tw' ] ) }}"><img src="{{ asset('assets/img/ghana-flag.png') }}" alt="Ghana flag" class="me-2"/>Twi</a></li>
+                <li><a class="dropdown-item" href="{{ route('set-locale', ['locale' => 'fr' ] ) }}"><img src="{{ asset('assets/img/france-flag.png') }}" alt="France flag" class="me-2"/>French</a></li>
             </ul>
         </div>
 
