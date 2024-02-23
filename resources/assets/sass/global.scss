@@ -166,6 +166,8 @@ table {
   padding-right: 0.5rem !important;
   padding-left: 0.5rem !important;
   border-color: #fff !important;
+  display: flex;
+  align-items: center;
 
   &[aria-expanded="true"] {
     svg {
@@ -277,7 +279,6 @@ table {
       box-shadow: none !important;
       width: fit-content !important;
       border: 0px !important;
-      margin-right: -14px;
 
       svg {
          height: 30px;
@@ -1426,7 +1427,7 @@ header {
 
         a {
           &.btn {
-            letter-spacing: 2px; 
+            letter-spacing: normal; 
             text-transform: uppercase;
             font-weight: 600 !important;
           }

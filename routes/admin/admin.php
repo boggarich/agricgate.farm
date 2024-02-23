@@ -13,7 +13,7 @@ use App\Http\Controllers\QuestionAndAnswerController;
 use App\Http\Controllers\SubtitleController;
 use App\Http\Controllers\MediaTrackerController;
 use App\Http\Controllers\FeaturedCourseController;
-
+use App\Http\Controllers\ExerciseFileController;
 
 Route::get('/admin/login', [LoginController::class, 'showAdminLoginForm'])->name('admin.login');
 Route::post('/admin/login', [LoginController::class, 'adminLogin']);
@@ -22,6 +22,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function
 
     Route::awsMediaConvertWebhook('aws/webhooks/media-convert');
 
+    Route::resource('exercise-files', ExerciseFileController::class);
     Route::delete('/featured-courses/{course_id}', [FeaturedCourseController::class, 'destroy'])
             ->name('course.unfeature');
     Route::post('/featured-courses', [FeaturedCourseController::class, 'store'])

@@ -140,6 +140,8 @@ table td img {
   padding-right: 0.5rem !important;
   padding-left: 0.5rem !important;
   border-color: #fff !important;
+  display: flex;
+  align-items: center;
 }
 #setLocaleBtn[aria-expanded=true] svg {
   transform: rotate(180deg);
@@ -234,7 +236,6 @@ table td img {
   width: -moz-fit-content !important;
   width: fit-content !important;
   border: 0px !important;
-  margin-right: -14px;
 }
 .navs-wrapper-mobile .btn:not(.custom-close-btn) svg {
   height: 30px;
@@ -1082,7 +1083,7 @@ header .search-wrapper .main-search-input.focus {
   padding: 1.625rem 1.625rem 4.8125rem;
 }
 .card.course-card a.btn {
-  letter-spacing: 2px;
+  letter-spacing: normal;
   text-transform: uppercase;
   font-weight: 600 !important;
 }

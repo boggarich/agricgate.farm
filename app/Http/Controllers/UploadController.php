@@ -105,6 +105,18 @@ class UploadController extends Controller
 
             }
 
+            if($upload_type == 'exercise_file') {
+
+                $path = Storage::putFile('exercise-files', $request->file);
+
+                $url = Storage::url($path);
+
+                return $url;
+
+            }
+
+
+
         }
 
     }

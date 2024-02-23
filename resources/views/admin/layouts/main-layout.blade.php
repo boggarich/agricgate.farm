@@ -98,6 +98,13 @@
                     <span>Questions & Answers</span></a>
             </li>
 
+             <!-- Nav Item - Tables -->
+             <li class="{{ (request()->is('admin/exercise-files*')) ? 'active' : '' }} nav-item">
+                <a class="nav-link" href="{{ route('admin.exercise-files.index') }}">
+                    <i class="fas fa-fw fa-file"></i>
+                    <span>Exercise Files</span></a>
+            </li>
+
             <!-- Nav Item - Tables -->
             <li class="{{ (request()->is('admin/announcements*')) ? 'active' : '' }} nav-item">
                 <a class="nav-link" href="{{ route('admin.announcements.index') }}">
@@ -266,6 +273,7 @@
 
             let ext = {
                 jsId: {
+                    exerciseFileURL: '#exerciseFileURL',
                     mediaTrackerURL: '#mediaTrackerURL',
                     subtitleURL: "#subtitleURL",
                     editorInput: '#editorInput',
@@ -275,6 +283,37 @@
                     videoURL: '#videoURL'
                 }
             }
+
+            Dropzone.options.exerciseFileDropzone = {
+
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "{{ route('admin.uploads') }}",
+                method: "post",
+                autoProcessQueue: true,
+                maxFiles: 1,
+                maxFilesize: 2000000000,
+                acceptedFiles: "application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                addRemoveLinks: false,
+                sending: (file, xhr, formData) => {
+
+                    formData.append("upload_type", "exercise_file");
+
+                    $(ext.jsId.submitBtn).prop('disabled', true);
+
+                },
+                success: (file, response) => {
+
+                    $(ext.jsId.exerciseFileURL).val(response);
+
+                },
+                complete: (file) => {
+
+                    $(ext.jsId.submitBtn).prop('disabled', false);
+
+                },
+            };
 
             Dropzone.options.mediaTrackerDropzone = {
 
