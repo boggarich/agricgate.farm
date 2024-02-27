@@ -16,11 +16,14 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Comment;
 use App\Models\EnrollCourse;
 use App\Models\FavoriteCourse;
+use App\Models\Blog;
 
 class ViewsController extends Controller
 {
     //
     public function index() {
+
+        $blogs = Blog::limit(5)->latest()->get();
 
         $featured_courses = FeaturedCourse::withWhereHas('course',
 
@@ -37,8 +40,25 @@ class ViewsController extends Controller
 
 
         return view('frontend.landing-page')
+                ->with('blogs', $blogs)
                 ->with('featured_courses', $featured_courses)
                 ->with('categories', $categories);
+
+    }
+
+    public function blogs(Request $request) {
+
+        $blogs = Blog::all();
+
+        return view('frontend.blogs')->with('blogs', $blogs );
+
+    }
+
+    public function blog(Request $request) {
+
+        $blog = Blog::findOrFail($request->blog_id);
+
+        return view('frontend.blog')->with('blog', $blog );
 
     }
 

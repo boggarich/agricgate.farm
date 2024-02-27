@@ -6,7 +6,7 @@
     
         <div class="row g-0">
 
-            <div class="col-lg-4 border-end course-content">
+            <div class="col-xl-4 border-end course-content">
                 <div class="header">
                     <p class="mb-0">{{ __('Course content') }}</p>
                 </div>
@@ -198,7 +198,7 @@
 
             </div>
 
-            <div class="col-lg-8 lesson-pane">
+            <div class="col-xl-8 lesson-pane">
 
                 <div class="header d-flex">
                     <div class="d-flex align-items-center flex-grow-1">
@@ -241,7 +241,9 @@
 
                         <div class="px-lg-5  py-lg-2 p-2">
 
-                            <media-player title="{{ $active_lesson->title }}" src="{{ $active_lesson->video_url }}" playsinline>
+                            <iframe src="{{ generate_youtube_embed_link($active_lesson->video_url) }}" title="Agricgate.farm free training for youth Ghana" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+                            <!-- <media-player title="{{ $active_lesson->title }}" src="{{ $active_lesson->video_url }}" playsinline>
                                 
                                 <media-provider>
 
@@ -268,7 +270,7 @@
 
                                     @endif
 
-                            </media-player> 
+                            </media-player>  -->
 
                         </div>
 

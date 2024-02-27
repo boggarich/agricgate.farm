@@ -21,6 +21,45 @@ body {
   position: relative;
 }
 
+iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px !important;
+}
+
+.blog-post-wrapper {
+
+    padding: 0 6rem;
+
+    img {
+      width: 100%;
+    }
+
+    h1 {
+      font-weight: 600;
+    }
+
+}
+
+.text-white {
+  color: white !important;
+}
+
+.text-clamp {
+  height: 1.1rem;
+  line-height: 1.1rem;
+  overflow: hidden;
+}
+
+.blog-posts-wrapper .swiper-button-next,
+.blog-posts-wrapper .swiper-button-prev  {
+  top: 57.825%;
+}
+
+.page-header.text-white {
+  color: white !important;
+}
+
 #localeDropdownBtn {
   .dropdown-menu {
     li {
@@ -1046,6 +1085,10 @@ header {
 
     transition: width 250ms ease-in-out;
 
+    iframe {
+      min-height: 65vh !important;
+    }
+
     .alert {
         &.alert-danger {
             margin-right: 3rem;
@@ -1477,6 +1520,14 @@ header {
 
 section {
 
+  .content-wrapper {
+
+     &.bg-violet {
+       background: #7F00FF !important;
+     }
+
+  }
+
   &.course-info {
 
       &.admin {
@@ -1872,6 +1923,14 @@ section {
 
 a {
   text-decoration: none !important;
+
+  &.btn-link {
+    svg {
+      height: 30px;
+      width: 30px;
+      margin-left: 0.5rem;
+    }
+  }
 }
 
 .btn:not(.custom-close-btn) {
@@ -1953,6 +2012,16 @@ a {
 }
 
 @media (max-width: 1024px) { 
+
+  .lesson-pane iframe {
+    min-height: 30vh !important;
+  }
+
+  .blog-post-wrapper {
+
+    padding: 0 0rem;
+
+  }
 
   section.call-to-action img {
     height: 321px !important;

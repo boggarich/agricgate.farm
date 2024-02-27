@@ -21,6 +21,41 @@ body {
   position: relative;
 }
 
+iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px !important;
+}
+
+.blog-post-wrapper {
+  padding: 0 6rem;
+}
+.blog-post-wrapper img {
+  width: 100%;
+}
+.blog-post-wrapper h1 {
+  font-weight: 600;
+}
+
+.text-white {
+  color: white !important;
+}
+
+.text-clamp {
+  height: 1.1rem;
+  line-height: 1.1rem;
+  overflow: hidden;
+}
+
+.blog-posts-wrapper .swiper-button-next,
+.blog-posts-wrapper .swiper-button-prev {
+  top: 57.825%;
+}
+
+.page-header.text-white {
+  color: white !important;
+}
+
 #localeDropdownBtn .dropdown-menu li img {
   height: 30px;
   width: 30px;
@@ -830,6 +865,9 @@ header .search-wrapper .main-search-input.focus {
 .lesson-pane {
   transition: width 250ms ease-in-out;
 }
+.lesson-pane iframe {
+  min-height: 65vh !important;
+}
 .lesson-pane .alert.alert-danger {
   margin-right: 3rem;
   margin-left: 3rem;
@@ -1118,6 +1156,9 @@ header .search-wrapper .main-search-input.focus {
   width: max-content !important;
 }
 
+section .content-wrapper.bg-violet {
+  background: #7F00FF !important;
+}
 section.course-info.admin .nav-tabs .nav-link.active {
   background-color: #f8f8fc;
 }
@@ -1445,6 +1486,11 @@ section.call-to-action img {
 a {
   text-decoration: none !important;
 }
+a.btn-link svg {
+  height: 30px;
+  width: 30px;
+  margin-left: 0.5rem;
+}
 
 .btn:not(.custom-close-btn) {
   font-size: 14px !important;
@@ -1505,6 +1551,12 @@ a {
 }
 
 @media (max-width: 1024px) {
+  .lesson-pane iframe {
+    min-height: 30vh !important;
+  }
+  .blog-post-wrapper {
+    padding: 0 0rem;
+  }
   section.call-to-action img {
     height: 321px !important;
     -o-object-fit: cover !important;

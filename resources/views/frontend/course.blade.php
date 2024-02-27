@@ -14,7 +14,9 @@
 
                     @if($course->video_url)
 
-                    <media-player title="{{ $course->title }}" src="{{ $course->video_url }}" playsinline >
+                    <iframe src="{{ generate_youtube_embed_link($course->video_url) }}" title="Agricgate.farm free training for youth Ghana" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+                    <!-- <media-player title="{{ $course->title }}" src="{{ $course->video_url }}" playsinline >
 
                         <media-provider>
                             
@@ -40,7 +42,7 @@
 
                         @endif
 
-                    </media-player>
+                    </media-player> -->
 
                     @else 
 

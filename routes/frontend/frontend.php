@@ -32,6 +32,8 @@ Route::get('/set-locale/{locale}', function(string $locale) {
 
 Route::middleware('guest')->group(function() {
 
+        Route::get('/blogs', [ViewsController::class, 'blogs'])->name('blogs-page');
+        Route::get('/blogs/{blog_id}', [ViewsController::class, 'blog'])->name('blog-page');
         Route::post('/donate/verify', [DonateController::class, 'verify'])
                 ->name('donate.verify');
         Route::get('/donate/verify/{transaction_ref}', [DonateController::class, 'create_verify'])->name('donate.create-verify');

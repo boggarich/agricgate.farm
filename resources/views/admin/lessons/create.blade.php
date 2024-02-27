@@ -51,18 +51,22 @@
                     <input type="hidden" value="{{ old('about') }}" id="editorInput" name="about">
                 </div>
 
-                <input type="hidden" name="video_url" value="" id="videoURL"/>
+                <div class="col-md-6 form-group">
+                    <label for="inputEmail4" class="form-label">Video URL</label>
+                    <input type="text" class="form-control" name="video_url" value="" id="videoURL"/>
+                </div>
+
                 <input type="hidden" name="featured_img_url" value="" id="featuredImgURL"/>
 
             </form>
 
             <div class="row mt-3">
-                <div class="col-md-6 form-group">
+                <!-- <div class="col-md-6 form-group">
                     <label for="inputEmail4" class="form-label">Video</label>
                     <form
                     class="dropzone"
                     id="video-dropzone"></form>
-                </div>
+                </div> -->
                 <div class="col-md-6 form-group">
                     <label for="inputEmail4" class="form-label">Featured Image</label>
                     <form

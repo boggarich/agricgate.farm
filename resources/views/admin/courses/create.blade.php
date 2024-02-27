@@ -85,18 +85,22 @@
 
                 </div>
 
-                <input type="hidden" name="video_url" value="{{ old('video_url') }}" id="videoURL"/>
+                <div class="col-md-6 form-group">
+                    <label for="inputEmail4" class="form-label">Video URL</label>
+                    <input type="text" class="form-control" name="video_url" value="{{ old('video_url') }}" id="videoURL"/>
+                </div>
+
                 <input type="hidden" name="featured_img_url" value="{{ old('featured_img_url') }}" id="featuredImgURL"/>
 
             </form>
 
             <div class="row mt-3">
-                <div class="col-md-6 form-group">
+                <!-- <div class="col-md-6 form-group">
                     <label for="inputEmail4" class="form-label">Video</label>
                     <form
                     class="dropzone"
                     id="video-dropzone"></form>
-                </div>
+                </div> -->
                 <div class="col-md-6 form-group">
                     <label for="inputEmail4" class="form-label">Featured Image</label>
                     <form

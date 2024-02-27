@@ -41,7 +41,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
                 <img src="{{ asset('assets/img/agricgate-farm-logo-3.png') }}" />
             </a>
 
@@ -111,6 +111,14 @@
                     <i class="fas fa-fw fa-bell"></i>
                     <span>Announcements</span></a>
             </li>
+
+                        <!-- Nav Item - Tables -->
+            <li class="{{ (request()->is('admin/blogs*')) ? 'active' : '' }} nav-item">
+                <a class="nav-link" href="{{ route('admin.blogs.index') }}">
+                    <i class="fas fa-fw fa-newspaper"></i>
+                    <span>Blogs</span></a>
+            </li>
+
 
             <!-- Nav Item - Tables -->
             <li class="{{ (request()->is('admin/users*')) ? 'active' : '' }} nav-item">

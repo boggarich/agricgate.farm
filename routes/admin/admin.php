@@ -14,6 +14,7 @@ use App\Http\Controllers\SubtitleController;
 use App\Http\Controllers\MediaTrackerController;
 use App\Http\Controllers\FeaturedCourseController;
 use App\Http\Controllers\ExerciseFileController;
+use App\Http\Controllers\BlogController;
 
 Route::get('/admin/login', [LoginController::class, 'showAdminLoginForm'])->name('admin.login');
 Route::post('/admin/login', [LoginController::class, 'adminLogin']);
@@ -21,6 +22,8 @@ Route::post('/admin/login', [LoginController::class, 'adminLogin']);
 Route::prefix('admin')->name('admin.')->middleware('auth:admin')->group(function () {
 
     Route::awsMediaConvertWebhook('aws/webhooks/media-convert');
+
+    Route::resource('blogs', BlogController::class);
 
     Route::resource('exercise-files', ExerciseFileController::class);
     Route::delete('/featured-courses/{course_id}', [FeaturedCourseController::class, 'destroy'])
