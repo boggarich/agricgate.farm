@@ -58,7 +58,14 @@ class ViewsController extends Controller
 
         $blog = Blog::findOrFail($request->blog_id);
 
-        return view('frontend.blog')->with('blog', $blog );
+        $recommended_blogs = Blog::whereNot('id', $request->blog_id)
+                                    ->limit(8)
+                                    ->inRandomOrder()
+                                    ->get();
+
+        return view('frontend.blog')
+                    ->with('blog', $blog )
+                    ->with('recommended_blogs', $recommended_blogs);
 
     }
 

@@ -3,14 +3,14 @@
     use Stichoza\GoogleTranslate\GoogleTranslate;
     use Illuminate\Support\Facades\Session;
 
-    if(! function_exists('generate_youtube_embed_link') ) {
+    if(! function_exists('generate_youtube_video_id') ) {
 
 
-        function generate_youtube_embed_link($youtube_url) {
+        function generate_youtube_video_id($youtube_url) {
 
             $video_id = explode('?v=', $youtube_url)[1];
 
-            return 'https://www.youtube.com/embed/' . $video_id .'?rel=0';
+            return $video_id;
 
         }
 

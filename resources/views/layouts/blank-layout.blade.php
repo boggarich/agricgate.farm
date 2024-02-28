@@ -28,6 +28,7 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="crossorigin="anonymous"></script>
         <script src="{{ asset('assets/js/ui.js') }}" defer></script>
         <script src="{{ asset('assets/js/common.js') }}"></script>
+        <script src="{{ asset('assets/js/youtube-player.js') }}" defer></script>
 
         <script>
 
@@ -43,6 +44,7 @@
             
             let ext = {
                 jsId: {
+                    videoId: '#videoId',
                     addReplyHTML: '#addReplyHTML',
                     addReplyBtn: '#addReplyBtn',
                     commentId: '#commentId',

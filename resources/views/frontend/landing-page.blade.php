@@ -53,7 +53,7 @@
 
                 <div class='position-relative featured-courses-wrapper d-flex flex-column'>
                         
-                    <h3 class='page-header'>{{ __('Featured Courses') }}</h3>
+                    <h3 class='page-header'>{{ __('Featured courses') }}</h3>
 
                         <div class='swiper featured-courses'>
 
@@ -114,7 +114,7 @@
             <div class='container flex-column'>
 
                 <div class='position-relative explore-by-category-wrapper'>
-                    <h3 class='page-header'>{{ __('Explore By Category') }}</h3>
+                    <h3 class='page-header'>{{ __('Explore by category') }}</h3>
                     <div class='swiper explore-by-category'>
 
                     <div class="swiper-wrapper">
@@ -294,9 +294,9 @@
                 <div class='position-relative blog-posts-wrapper'>
 
                     <div class="d-flex justify-content-between">
-                        <h3 class='page-header text-white'>{{ __('Blog Posts') }}</h3>
+                        <h3 class='page-header text-white'>{{ __('Blog posts') }}</h3>
                         <a href="{{ route('blogs-page') }}" class="text-white btn-link">
-                            View All
+                            {{ __('View All') }}
 
                             <svg width="88" height="58" viewBox="0 0 88 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0.25 29C0.25 28.1712 0.57924 27.3763 1.16529 26.7903C1.75134 26.2042 2.5462 25.875 3.375 25.875H77.0813L57.4125 6.2125C56.8257 5.62571 56.4961 4.82985 56.4961 4C56.4961 3.17015 56.8257 2.37429 57.4125 1.7875C57.9993 1.20071 58.7952 0.871052 59.625 0.871052C60.4548 0.871052 61.2507 1.20071 61.8375 1.7875L86.8375 26.7875C87.1285 27.0778 87.3594 27.4226 87.517 27.8023C87.6745 28.1819 87.7556 28.589 87.7556 29C87.7556 29.411 87.6745 29.818 87.517 30.1977C87.3594 30.5774 87.1285 30.9222 86.8375 31.2125L61.8375 56.2125C61.2507 56.7993 60.4548 57.1289 59.625 57.1289C58.7952 57.1289 57.9993 56.7993 57.4125 56.2125C56.8257 55.6257 56.4961 54.8298 56.4961 54C56.4961 53.1701 56.8257 52.3743 57.4125 51.7875L77.0813 32.125H3.375C2.5462 32.125 1.75134 31.7958 1.16529 31.2097C0.57924 30.6237 0.25 29.8288 0.25 29Z" fill="white"/>
@@ -320,8 +320,8 @@
                                                 </div>
                                                 <div class='card-footer d-flex flex-column align-items-end'>
                                                     <div class='course-details'>
-                                                        <p>{{ $blog->title }}</p>
-                                                        <p class="text-clamp">{{ $blog->description }}</p>
+                                                        <p>{{ __($blog->title) }}</p>
+                                                        <p class="text-clamp">{{ __($blog->description) }}</p>
                                                     </div>
                                                     
                                                     <button class='btn btn-success w-auto mb-3 me-2 mt-2'>{{ __('Read more') }}</button>
@@ -370,11 +370,11 @@
                   <div class='col d-flex flex-column justify-content-center'>
                     <h1>
                         {{
-                            __('Take the next step toward your personal and professional goals with Trisolace.')
+                            __('Take the next step toward your personal and professional goals with Agricgate.farm')
                         }}
                     </h1>
                     <p>
-                      {{ __('Join now to receive personalized recommendations from the full Trisolace catalog.') }}
+                      {{ __('Join now to receive personalized recommendations from the full Agricgate.farm catalog.') }}
                     </p>
                     <button class='btn btn-success max-content' data-bs-toggle="modal" data-bs-target="#registerModal">{{ __('Join for Free') }}</button>
                   </div>
@@ -395,9 +395,10 @@
 
 
     const blogPostsSwiper = new Swiper('.blog-posts', {
+        speed: 1000,
         autoplay: false,
         loop: false,
-        spaceBetween: 16,
+        spaceBetween: 20,
         slidesPerView: 3,
         navigation: {
                 
@@ -422,7 +423,7 @@
             spaceBetween: 40
             },
             1200: {
-                spaceBetween: 26,
+                spaceBetween: 32,
                 slidesPerView: 3, 
             }
         }
@@ -430,7 +431,10 @@
     });
 
     const testimonialsSwiper = new Swiper('.testimonials', {
-        autoplay: true,
+        speed: 1000,
+        autoplay: {
+            delay: 5000,
+        },
         loop: false,
         spaceBetween: 16,
         slidesPerView: 1,
@@ -448,7 +452,7 @@
     });
 
     const exploreByCategorySwiper = new Swiper('.explore-by-category', {
-
+        speed: 1000,
         loop: false,
         spaceBetween: 26,
         slidesPerView: 4,
@@ -475,7 +479,7 @@
             spaceBetween: 40
             },
             1200: {
-                spaceBetween: 26,
+                spaceBetween: 32,
                 slidesPerView: 4, 
             }
         }
@@ -483,7 +487,7 @@
     });
 
     const featuredCourseSwiper = new Swiper('.featured-courses', {
-
+        speed: 1000,
         loop: false,
         spaceBetween: 26,
         slidesPerView: 4,
@@ -510,7 +514,7 @@
             spaceBetween: 40
             },
             1200: {
-                spaceBetween: 26,
+                spaceBetween: 16,
                 slidesPerView: 4, 
             }
         }
@@ -518,7 +522,7 @@
     });
 
     const pageHeroSwiper = new Swiper('.page-hero', {
-
+        speed: 1000,
         // Optional parameters
         autoplay: {
             delay: 10000,

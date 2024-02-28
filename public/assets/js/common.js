@@ -49,6 +49,7 @@ class commonClass {
         let currentLessonProgress = 0;
         let navigationURL;
 
+
         if(videoDuration) {
 
             obj.find( (el) => {
@@ -76,6 +77,24 @@ class commonClass {
 
     }
 
+    initYoutubeVideo(player, lessonId, videoProgressObj) {
+
+        let videoEl = player;
+
+        let obj = JSON.parse(videoProgressObj);
+
+        obj.find( (el) => {
+
+            if(el.hasOwnProperty(lessonId)) {
+                
+                videoEl.seekTo(el[lessonId]);
+
+            }
+        
+        });
+
+    }
+
     initVideo(player, lessonId, videoProgressObj) {
 
         let videoEl = player;
@@ -91,6 +110,57 @@ class commonClass {
             }
         
         });
+
+    }
+
+    storeYoutubeVideoProgress(player, lessonId, videoProgressObj ) {
+
+        let currentTime = player.getCurrentTime();
+
+        let obj = JSON.parse(videoProgressObj);
+
+        if(obj.find((el) => el.hasOwnProperty(lessonId))) {
+
+            let _obj = obj.map( _videoProgressObj => {
+
+                if(_videoProgressObj.hasOwnProperty(lessonId)) {
+
+                    return { ..._videoProgressObj, [lessonId]: currentTime }
+
+                }
+
+                return _videoProgressObj;
+
+            });
+
+
+            sessionStorage.setItem("videoProgress", JSON.stringify(_obj));
+
+        }
+        else {
+
+            if(obj.length){
+                
+                sessionStorage.setItem("videoProgress", JSON.stringify(
+                    [ 
+                        { [lessonId] : currentTime },
+                        ...obj
+                    ]
+                ));
+
+            }
+            else {
+
+                sessionStorage.setItem("videoProgress", JSON.stringify(
+                    [ 
+                        { [lessonId] : currentTime } 
+                    ]
+                ));
+
+            }
+
+        }
+    
 
     }
 

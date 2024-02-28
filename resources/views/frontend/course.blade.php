@@ -14,8 +14,9 @@
 
                     @if($course->video_url)
 
-                    <iframe src="{{ generate_youtube_embed_link($course->video_url) }}" title="Agricgate.farm free training for youth Ghana" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div id="player"></div>
 
+                    <input type="hidden" value="{{ generate_youtube_video_id($course->video_url) }}" id="videoId" />
                     <!-- <media-player title="{{ $course->title }}" src="{{ $course->video_url }}" playsinline >
 
                         <media-provider>
@@ -532,7 +533,7 @@
     <script>
  
         const recommendedCoursesSwiper = new Swiper('.recommended-courses', {
-
+            speed: 1000,
             loop: false,
             spaceBetween: 26,
             slidesPerView: 4,
@@ -559,7 +560,7 @@
                 spaceBetween: 40
                 },
                 1200: {
-                    spaceBetween: 26,
+                    spaceBetween: 16,
                     slidesPerView: 4, 
                 }
             }

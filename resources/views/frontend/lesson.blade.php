@@ -241,7 +241,9 @@
 
                         <div class="px-lg-5  py-lg-2 p-2">
 
-                            <iframe src="{{ generate_youtube_embed_link($active_lesson->video_url) }}" title="Agricgate.farm free training for youth Ghana" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <div id="player"></div>
+
+                            <input type="hidden" value="{{ generate_youtube_video_id($active_lesson->video_url) }}" id="videoId" />
 
                             <!-- <media-player title="{{ $active_lesson->title }}" src="{{ $active_lesson->video_url }}" playsinline>
                                 
@@ -466,7 +468,7 @@
 
                             @if($next_lesson_key < sizeof($lessons_array))
 
-                                <a href="{{ route('lesson-page', ['course_id' => $course_id, 'lesson_id' => $lessons_array[$next_lesson_key == sizeof($lessons_array) ? sizeof($lessons_array) - 1 : $next_lesson_key] ]) }}" class="btn btn-next" id="nextLessonBtn">
+                                <a href="{{ route('lesson-page', ['course_id' => $course_id, 'lesson_id' => $lessons_array[ $next_lesson_key == sizeof($lessons_array) ? sizeof($lessons_array) - 1 : $next_lesson_key ] ]) }}" class="btn btn-next" id="nextLessonBtn">
                                     {{ __('Next') }}
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" viewBox="0 0 16 11" fill="none">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M0 5.14325C0 5.29479 0.0601988 5.44013 0.167356 5.54728C0.274512 5.65444 0.419849 5.71464 0.571392 5.71464L14.0482 5.71464L10.4519 9.30984C10.3988 9.36297 10.3566 9.42603 10.3279 9.49545C10.2991 9.56486 10.2843 9.63925 10.2843 9.71439C10.2843 9.78952 10.2991 9.86391 10.3279 9.93332C10.3566 10.0027 10.3988 10.0658 10.4519 10.1189C10.505 10.1721 10.5681 10.2142 10.6375 10.2429C10.7069 10.2717 10.7813 10.2865 10.8564 10.2865C10.9316 10.2865 11.006 10.2717 11.0754 10.2429C11.1448 10.2142 11.2079 10.1721 11.261 10.1189L15.8321 5.54779C15.8853 5.49472 15.9276 5.43166 15.9564 5.36224C15.9852 5.29283 16 5.21841 16 5.14325C16 5.06809 15.9852 4.99367 15.9564 4.92425C15.9276 4.85483 15.8853 4.79178 15.8321 4.7387L11.261 0.167565C11.2079 0.11444 11.1448 0.072298 11.0754 0.0435467C11.006 0.0147953 10.9316 -1.90735e-06 10.8564 -1.90735e-06C10.7813 -1.90735e-06 10.7069 0.0147953 10.6375 0.0435467C10.5681 0.072298 10.505 0.11444 10.4519 0.167565C10.3988 0.220692 10.3566 0.283761 10.3279 0.353172C10.2991 0.422585 10.2843 0.496981 10.2843 0.572111C10.2843 0.647243 10.2991 0.721639 10.3279 0.79105C10.3566 0.860462 10.3988 0.923532 10.4519 0.976657L14.0482 4.57186L0.571392 4.57186C0.419849 4.57186 0.274512 4.63206 0.167356 4.73921C0.0601988 4.84637 0 4.99171 0 5.14325Z" fill="#309FBE"/>
@@ -475,13 +477,24 @@
 
                             @else 
 
-                                <a href="{{ route('lesson-page', ['course_id' => $course_id, 'lesson_id' => $lessons_array[$next_lesson_key == sizeof($lessons_array) ? sizeof($lessons_array) - 1 : $next_lesson_key] ]) }}" class="btn btn-next" id="nextLessonBtn">
-                                <span class="me-2">🎉</span>
-                                {{ __('Finish') }}
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" viewBox="0 0 16 11" fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 5.14325C0 5.29479 0.0601988 5.44013 0.167356 5.54728C0.274512 5.65444 0.419849 5.71464 0.571392 5.71464L14.0482 5.71464L10.4519 9.30984C10.3988 9.36297 10.3566 9.42603 10.3279 9.49545C10.2991 9.56486 10.2843 9.63925 10.2843 9.71439C10.2843 9.78952 10.2991 9.86391 10.3279 9.93332C10.3566 10.0027 10.3988 10.0658 10.4519 10.1189C10.505 10.1721 10.5681 10.2142 10.6375 10.2429C10.7069 10.2717 10.7813 10.2865 10.8564 10.2865C10.9316 10.2865 11.006 10.2717 11.0754 10.2429C11.1448 10.2142 11.2079 10.1721 11.261 10.1189L15.8321 5.54779C15.8853 5.49472 15.9276 5.43166 15.9564 5.36224C15.9852 5.29283 16 5.21841 16 5.14325C16 5.06809 15.9852 4.99367 15.9564 4.92425C15.9276 4.85483 15.8853 4.79178 15.8321 4.7387L11.261 0.167565C11.2079 0.11444 11.1448 0.072298 11.0754 0.0435467C11.006 0.0147953 10.9316 -1.90735e-06 10.8564 -1.90735e-06C10.7813 -1.90735e-06 10.7069 0.0147953 10.6375 0.0435467C10.5681 0.072298 10.505 0.11444 10.4519 0.167565C10.3988 0.220692 10.3566 0.283761 10.3279 0.353172C10.2991 0.422585 10.2843 0.496981 10.2843 0.572111C10.2843 0.647243 10.2991 0.721639 10.3279 0.79105C10.3566 0.860462 10.3988 0.923532 10.4519 0.976657L14.0482 4.57186L0.571392 4.57186C0.419849 4.57186 0.274512 4.63206 0.167356 4.73921C0.0601988 4.84637 0 4.99171 0 5.14325Z" fill="#309FBE"/>
-                                    </svg>
-                                </a>
+                                @if(!($complete_lessons_count == $lessons_count)) 
+
+                                    <a href="{{ route('lesson-page', ['course_id' => $course_id, 'lesson_id' => $lessons_array[$next_lesson_key == sizeof($lessons_array) ? sizeof($lessons_array) - 1 : $next_lesson_key] ]) }}" class="btn btn-next" id="nextLessonBtn">
+                                    {{ __('Finish') }}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" viewBox="0 0 16 11" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 5.14325C0 5.29479 0.0601988 5.44013 0.167356 5.54728C0.274512 5.65444 0.419849 5.71464 0.571392 5.71464L14.0482 5.71464L10.4519 9.30984C10.3988 9.36297 10.3566 9.42603 10.3279 9.49545C10.2991 9.56486 10.2843 9.63925 10.2843 9.71439C10.2843 9.78952 10.2991 9.86391 10.3279 9.93332C10.3566 10.0027 10.3988 10.0658 10.4519 10.1189C10.505 10.1721 10.5681 10.2142 10.6375 10.2429C10.7069 10.2717 10.7813 10.2865 10.8564 10.2865C10.9316 10.2865 11.006 10.2717 11.0754 10.2429C11.1448 10.2142 11.2079 10.1721 11.261 10.1189L15.8321 5.54779C15.8853 5.49472 15.9276 5.43166 15.9564 5.36224C15.9852 5.29283 16 5.21841 16 5.14325C16 5.06809 15.9852 4.99367 15.9564 4.92425C15.9276 4.85483 15.8853 4.79178 15.8321 4.7387L11.261 0.167565C11.2079 0.11444 11.1448 0.072298 11.0754 0.0435467C11.006 0.0147953 10.9316 -1.90735e-06 10.8564 -1.90735e-06C10.7813 -1.90735e-06 10.7069 0.0147953 10.6375 0.0435467C10.5681 0.072298 10.505 0.11444 10.4519 0.167565C10.3988 0.220692 10.3566 0.283761 10.3279 0.353172C10.2991 0.422585 10.2843 0.496981 10.2843 0.572111C10.2843 0.647243 10.2991 0.721639 10.3279 0.79105C10.3566 0.860462 10.3988 0.923532 10.4519 0.976657L14.0482 4.57186L0.571392 4.57186C0.419849 4.57186 0.274512 4.63206 0.167356 4.73921C0.0601988 4.84637 0 4.99171 0 5.14325Z" fill="#309FBE"/>
+                                        </svg>
+                                    </a>
+
+                                @else 
+
+                                    <button class="btn btn-next">
+                                        <span class="me-2">🎉</span>
+                                        {{ __('Completed') }}
+                                      
+                                    </button>
+
+                                @endif
 
                             @endif
 
@@ -501,15 +514,15 @@
 
     <script>   
     
-        $(document).ready(function() {
+        $(document).ready(() => {
 
 
             let videoProgressObj;
             let _videoTimeInterval;
             let lessonId = <?php echo $active_lesson->id ?>;
-            let videoDuration;
+            // let videoDuration;
 
-            const player = document.querySelector('media-player');
+            // const player = document.querySelector('media-player');
 
             if(sessionStorage.getItem("videoProgress")) {
 

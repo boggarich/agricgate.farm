@@ -86,10 +86,6 @@
 
                             @foreach($histories as $history)
 
-                                @if($history->course_progress)
-
-                                    
-
                                     @if( $history->course->lessons_count == $history->course->complete_lessons_count  )
 
                                        <a href="{{ route('course-page', ['course_id' => $history->course_id ] ) }}" class="col">
@@ -109,7 +105,7 @@
                                             </div>
                                         </a>
                                     
-                                    @else 
+                                    @elseif($history->course_progress)
 
                                         <a href="{{ route('lesson-page', ['course_id' => $history->course_id, 
                                                     'lesson_id' => $history->course_progress->lesson_id ] ) 
@@ -131,29 +127,26 @@
                                                 </div>
                                         </a>
 
-                                    @endif
+                                    @else 
 
-                                @else 
-
-                                    <a href="{{ route('course-page', ['course_id' => $history->course->id ] ) }}" class="col">
-                                        <div class='course-card-wrapper'>
-                                            <div class='course-img'>
-                                                <img src="{{ $history->course->featured_img_url }}" alt="snail" />
-                                            </div>
-                                            <div class='card-footer d-flex flex-column align-items-end'>
-                                                <div class='course-details'>
-                                                    <p>{{ __($history->course->title) }}</p>
-                                                    <p>{{ __($history->course->description) }}</p>
+                                        <a href="{{ route('course-page', ['course_id' => $history->course->id ] ) }}" class="col">
+                                            <div class='course-card-wrapper'>
+                                                <div class='course-img'>
+                                                    <img src="{{ $history->course->featured_img_url }}" alt="snail" />
                                                 </div>
-                                                
-                                                <button class='btn btn-success w-auto'>{{ __('Start Learning') }}</button>
-                        
+                                                <div class='card-footer d-flex flex-column align-items-end'>
+                                                    <div class='course-details'>
+                                                        <p>{{ __($history->course->title) }}</p>
+                                                        <p>{{ __($history->course->description) }}</p>
+                                                    </div>
+                                                    
+                                                    <button class='btn btn-success w-auto'>{{ __('Start Learning') }}</button>
+                            
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
 
-                                @endif
-
+                                    @endif
 
 
                             @endforeach
@@ -167,7 +160,27 @@
 
                             @foreach($favorite_courses as $favorite_course)
 
-                                @if($favorite_course->course->course_progress)
+                                @if($favorite_course->course->lessons_count == 
+                                                $favorite_course->course->complete_lessons_count)
+
+                                    <a href="{{ route('course-page', [ 'course_id' => $favorite_course->course_id ]) }}" class="col">
+                                        <div class='course-card-wrapper'>
+                                            <div class='course-img'>
+                                                <img src="{{ $favorite_course->course->featured_img_url }}" alt="snail" />
+                                            </div>
+                                            <div class='card-footer d-flex flex-column align-items-end'>
+                                                <div class='course-details'>
+                                                    <p>{{ __($favorite_course->course->title) }}</p>
+                                                    <p>{{ __($favorite_course->course->description) }}</p>
+                                                </div>
+                                                
+                                                    <button class='btn btn-success w-auto'>{{ __('Review Course') }}</button>
+                        
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                @elseif($favorite_course->course->course_progress)
 
                                     <a href="{{ route('lesson-page', ['course_id' => $favorite_course->course_id, 
                                         'lesson_id' => $favorite_course->course->course_progress->lesson_id ]) }}" class="col">
@@ -181,16 +194,7 @@
                                                     <p>{{ __($favorite_course->course->description) }}</p>
                                                 </div>
 
-                                                @if($favorite_course->course->lessons_count == 
-                                                $favorite_course->course->complete_lessons_count)
-                                                
-                                                    <button class='btn btn-success w-auto'>{{ __('Review Course') }}</button>
-
-                                                @else 
-
-                                                    <button class='btn btn-success w-auto'>{{ __('Continue Learning') }}</button>
-
-                                                @endif
+                                                <button class='btn btn-success w-auto'>{{ __('Continue Learning') }}</button>
                         
                                             </div>
                                         </div>

@@ -28,7 +28,9 @@
 
                         @if($course->video_url)
 
-                        <iframe src="{{ generate_youtube_embed_link($course->video_url) }}" title="Agricgate.farm free training for youth Ghana" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <div id="player"></div>
+
+                        <input type="hidden" value="{{ generate_youtube_video_id($course->video_url) }}" id="videoId" />
 
                         <!-- <media-player title="{{ $course->title }}" src="{{ $course->video_url }}" playsinline >
 

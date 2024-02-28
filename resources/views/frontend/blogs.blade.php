@@ -8,9 +8,9 @@
 
             <div class="pt-3">
 
-                <h1 class="my-5 fw-600">Read More Blogs</h1>
+                <h3 class="page-header my-5 fw-600">{{ __('All blog posts') }}</h3>
 
-                <div class="row row-cols-2 row-cols-lg-3 gx-4 gy-5">
+                <div class="row row-cols-2 row-cols-lg-3 gx-5 gy-5">
 
                     @if($blogs)
 
@@ -23,8 +23,8 @@
                                     </div>
                                     <div class='card-footer d-flex flex-column align-items-end'>
                                         <div class='course-details'>
-                                            <p>{{ $blog->title }}</p>
-                                            <p class="text-clamp">{{ $blog->description }}</p>
+                                            <p>{{ __($blog->title) }}</p>
+                                            <p class="text-clamp">{{ __($blog->description) }}</p>
                                         </div>
                                         
                                         <button class='btn btn-success w-auto mb-3 me-2 mt-2'>{{ __('Read more') }}</button>
