@@ -5,13 +5,12 @@
 
             <div class='col-lg-4 company-info-desktop'>
                     <img src='/assets/img/agricgate-farm-logo-3.png' alt="footer-logo" />
-                    <p>TRISOLACE CO. LTD
+                    <p>Trisolace Company Ltd.
                     <br>
                     G231 Tingatinga Street
                     <br>
                     Dansoman, Accra - Ghana
                     <br>
-                    info@Agricgate.com
                     </p>
                     <div class='social-media-handles d-flex mb-5'>
 
@@ -57,9 +56,10 @@
                     <img src='/assets/img/agricgate-farm-logo-3.png' alt="footer-logo" />
                     <p>Trisolace Company Ltd.
                     <br>
-                    P.O.Box
+                    G231 Tingatinga Street
                     <br>
-                    Dansoman.
+                    Dansoman, Accra - Ghana
+                    <br>
                     </p>
                     <div class='social-media-handles mb-5'>
 
