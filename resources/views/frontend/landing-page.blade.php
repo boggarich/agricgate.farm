@@ -395,7 +395,6 @@
 
 
     const blogPostsSwiper = new Swiper('.blog-posts', {
-        speed: 1000,
         autoplay: false,
         loop: false,
         spaceBetween: 20,
@@ -431,7 +430,6 @@
     });
 
     const testimonialsSwiper = new Swiper('.testimonials', {
-        speed: 1000,
         autoplay: {
             delay: 5000,
         },
@@ -452,7 +450,6 @@
     });
 
     const exploreByCategorySwiper = new Swiper('.explore-by-category', {
-        speed: 1000,
         loop: false,
         spaceBetween: 26,
         slidesPerView: 4,
@@ -487,7 +484,6 @@
     });
 
     const featuredCourseSwiper = new Swiper('.featured-courses', {
-        speed: 1000,
         loop: false,
         spaceBetween: 26,
         slidesPerView: 4,
@@ -522,7 +518,6 @@
     });
 
     const pageHeroSwiper = new Swiper('.page-hero', {
-        speed: 1000,
         // Optional parameters
         autoplay: {
             delay: 10000,

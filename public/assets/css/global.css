@@ -23,6 +23,35 @@ body {
   position: relative;
 }
 
+svg.linkedin-logo.footer {
+  height: 34px;
+  width: 34px;
+  margin-top: -3px;
+  margin-left: -3px;
+}
+
+img.banner-img {
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.fw-600 {
+  font-weight: 600 !important;
+}
+
+.scroll-x {
+  overflow-x: scroll;
+}
+
+.scroll-x::-webkit-scrollbar {
+  display: none;
+}
+
 iframe:not([name^=paystack-checkout]) {
   aspect-ratio: 16/9;
   width: 100% !important;
@@ -644,6 +673,7 @@ footer .spacer + p {
   font-size: 14px;
 }
 footer .social-media-handles a {
+  display: inline-block;
   margin-right: 2rem;
   width: -moz-fit-content !important;
   width: fit-content !important;
@@ -655,7 +685,11 @@ footer p {
 }
 footer img {
   margin-bottom: 2rem;
-  height: 30px;
+  height: 35px;
+  width: -moz-fit-content;
+  width: fit-content;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 footer svg {
   height: 25px;
@@ -682,7 +716,7 @@ header {
   width: 100%;
   height: 60px;
   background: rgb(255, 255, 255);
-  box-shadow: 0px 5.6px 5.6px 0px rgba(189, 190, 193, 0.25);
+  box-shadow: 0px 5.6px 5.6px 0px rgba(0, 0, 0, 0.25);
   z-index: 100;
 }
 header .dropdown-menu {
@@ -1253,7 +1287,7 @@ section.call-to-action img {
 
 .course-card-wrapper {
   background: #D9D9D9;
-  box-shadow: 0px 5.6px 5.6px 0px rgba(189, 190, 193, 0.25);
+  box-shadow: 0px 5.6px 5.6px 0px rgba(0, 0, 0, 0.25);
   border-radius: 4px !important;
   overflow: hidden;
 }
@@ -1308,7 +1342,7 @@ section.call-to-action img {
   padding-bottom: 71px !important;
 }
 .testimonials-wrapper .swiper-pagination {
-  bottom: 22px !important;
+  bottom: 25px !important;
 }
 .testimonials-wrapper .swiper-pagination .swiper-pagination-bullet {
   background: rgba(217, 217, 217, 0.8) !important;
@@ -1355,7 +1389,7 @@ section.call-to-action img {
   padding-bottom: 5rem;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0px 5.6px 5.6px 0px rgba(189, 190, 193, 0.25);
+  box-shadow: 0px 5.6px 5.6px 0px rgba(0, 0, 0, 0.25);
 }
 .card-overlay.shadow-none {
   box-shadow: none;
@@ -1372,7 +1406,6 @@ section.call-to-action img {
   margin-bottom: 0 !important;
   color: #fff !important;
   font-weight: 500 !important;
-  font-size: 22px !important;
 }
 .card-overlay .overlay-bg-gradient {
   background: linear-gradient(270deg, rgba(167, 180, 228, 0) 0%, rgba(138, 158, 230, 0.55) 32.29%, #607DE8 47.92%, #1142F1 100%);
@@ -1411,7 +1444,7 @@ section.call-to-action img {
 
 .page-header {
   font-size: 26px !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   color: black !important;
   margin-bottom: 3rem !important;
 }
@@ -1567,6 +1600,10 @@ a {
 }
 
 @media (max-width: 1024px) {
+  .swiper-pagination-bullet {
+    height: 14px !important;
+    width: 14px !important;
+  }
   .blog-post-wrapper {
     padding: 0 0rem;
   }
@@ -1597,13 +1634,16 @@ a {
     width: 100% !important;
   }
   .page-hero-header {
-    font-size: 32px !important;
+    font-size: 46px !important;
   }
   .company-info-desktop {
     display: none;
   }
   .company-info-mobile {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw !important;
+    overflow: hidden !important;
   }
   #localeDropdownBtn {
     display: none;

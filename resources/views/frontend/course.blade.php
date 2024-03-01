@@ -533,7 +533,6 @@
     <script>
  
         const recommendedCoursesSwiper = new Swiper('.recommended-courses', {
-            speed: 1000,
             loop: false,
             spaceBetween: 26,
             slidesPerView: 4,

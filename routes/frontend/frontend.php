@@ -32,6 +32,30 @@ Route::get('/set-locale/{locale}', function(string $locale) {
 
 Route::middleware('guest')->group(function() {
 
+        Route::get('/contact-us', function() {
+
+                return view('frontend.contact-us');
+
+        })->name('contact-us');
+
+        Route::get('/our-vision', function() {
+
+                return view('frontend.our-vision');
+
+        })->name('our-vision');
+
+        Route::get('/our-mission', function() {
+
+                return view('frontend.our-mission');
+
+        })->name('our-mission');
+
+        Route::get('/who-we-are', function() {
+
+                return view('frontend.who-we-are');
+
+        })->name('who-we-are');
+
         Route::get('/blogs', [ViewsController::class, 'blogs'])->name('blogs-page');
         Route::get('/blogs/{blog_id}', [ViewsController::class, 'blog'])->name('blog-page');
         Route::post('/donate/verify', [DonateController::class, 'verify'])

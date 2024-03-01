@@ -10,10 +10,10 @@
 
                     <section>
 
-                        <h1 class="mt-5 mb-4 fw-600">{{ __($blog->title) }}</h1>
+                        <h1 class="mt-5 mb-5 fw-600">{{ __($blog->title) }}</h1>
 
-                        <div class="user-details-wrapper mb-4">
-                            <img src="{{ asset('assets/img/default-profile.png') }}" alt="user-profile"/>
+                        <div class="user-details-wrapper mb-5">
+                            <img src="{{ asset('assets/img/agricgate-logo.jpg') }}" alt="user-profile"/>
                             <div>
                                 <p class="mb-0">Agricgate.farm</p>
                                 <p class="mb-0 text-muted">{{ __('Published on') }}: {{ format_date($blog->updated_at) }}</p>

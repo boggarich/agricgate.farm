@@ -10,7 +10,7 @@
 
                 <h3 class="page-header my-5 fw-600">{{ __('All blog posts') }}</h3>
 
-                <div class="row row-cols-2 row-cols-lg-3 gx-5 gy-5">
+                <div class="row row-cols-1 row-cols-lg-3 gx-5 gy-5">
 
                     @if($blogs)
 

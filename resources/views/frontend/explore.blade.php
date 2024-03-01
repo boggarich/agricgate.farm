@@ -7,7 +7,7 @@
         <div class="container">
 
             <section>
-                <div class="d-flex my-5">
+                <div class="d-flex my-5 scroll-x">
 
                     <a href="{{ route('explore') }}" @class([
                         'btn',
@@ -43,7 +43,7 @@
 
             <section>
 
-                <div class="row row-cols-2 row-cols-lg-4 gx-4 gy-5">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 gx-4 gy-5">
 
                     @foreach($courses as $course)
 
