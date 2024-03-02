@@ -31,12 +31,11 @@ svg.linkedin-logo.footer {
 }
 
 img.banner-img {
-  height: 250px;
+  max-height: 250px !important;
+  height: 250px !important;
+  width: 100% !important;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-  width: 100%;
   border-radius: 4px;
 }
 
@@ -672,11 +671,14 @@ footer {
 footer .spacer + p {
   font-size: 14px;
 }
+footer .social-media-handles {
+  display: flex;
+}
 footer .social-media-handles a {
   display: inline-block;
   margin-right: 2rem;
-  width: -moz-fit-content !important;
-  width: fit-content !important;
+  width: -moz-max-content !important;
+  width: max-content !important;
 }
 footer p {
   line-height: 20px;

@@ -10,7 +10,7 @@
 
                 <h1 class="mt-5 mb-5 fw-600">{{ __('Our mission') }}</h1>
 
-                <img src="{{ asset('assets/img/banner-img.png') }}" class="banner-img" alt="farm"/>
+                <img src="{{ asset('assets/img/banner-img.png') }}" class="banner-img img-fluid" alt="farm"/>
 
                 <p class="text-large py-5">
 

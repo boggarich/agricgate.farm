@@ -10,7 +10,7 @@
 
                 <h1 class="mt-5 mb-5 fw-600">{{ __('Contact us') }}</h1>
 
-                <img src="{{ asset('assets/img/banner-img.png') }}" class="banner-img" alt="farm"/>
+                <img src="{{ asset('assets/img/banner-img.png') }}" class="banner-img img-fluid" alt="farm"/>
 
                 <div class="row g-2 py-5">
 

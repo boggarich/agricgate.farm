@@ -73,7 +73,7 @@
             <div class="modal-dialog px-4">
                 <div class="modal-content">
                     <div class="modal-body mb-4 px-5">
-                        <h5 class="text-center text-black mt-4 mb-3">{{ __('Register') }}</h5>
+                        <h5 class="text-center text-black mt-4 mb-4">{{ __('Register') }}</h5>
                         <form action="/register" method="post">
                             @csrf
                             <div class="mb-4">
@@ -104,7 +104,7 @@
             <div class="modal-dialog px-4">
                 <div class="modal-content">
                     <div class="modal-body mb-4 px-5">
-                        <h5 class="text-center text-black mt-4 mb-3">{{ __('Login') }}</h5>
+                        <h5 class="text-center text-black mt-4 mb-5">{{ __('Login') }}</h5>
                         <form action="/login" method="post">
                             @csrf
                             <div class="mb-4">
