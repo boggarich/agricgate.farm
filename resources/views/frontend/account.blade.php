@@ -8,7 +8,7 @@
     
     @endphp
 
-    <main class="main-content mt-5 account">
+    <main class="main-content pt-4 account">
         <div class="account-bgImg">
             <div class="row g-0 h-100">
                 <div class="col"></div>
@@ -16,8 +16,8 @@
             </div>
         </div>
         <section>
-            <div class="container">
-                <h3 class='mt-5 mb-4 fw-bold text-black ms-4 mb-5'>{{ __('Account') }}</h3>
+            <div class="container-xxl">
+                <h3 class='fw-bold text-black mb-4'>{{ __('Account') }}</h3>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -58,6 +58,8 @@
                             <div class="w-100">
                                 <p>{{ __('Name') }}: {{ Auth::user()->name }}</p>
                                 <p>{{ __('Email') }}: {{ Auth::user()->email }}</p>
+                                <p>{{ __('Joined on') }}: {{ format_date(Auth::user()->created_at) }}</p>
+
                             </div>
                         </div>
                     </div>
@@ -99,7 +101,7 @@
                                                         <p>{{ __($history->course->description) }}</p>
                                                     </div>
 
-                                                    <button class='btn btn-success w-auto'>{{ __('Review Course') }}</button>
+                                                    <button class='btn btn-outline-success w-auto'>{{ __('Review Course') }}</button>
 
                                                 </div>
                                             </div>
@@ -121,7 +123,7 @@
                                                             <p>{{ __($history->course->description) }}</p>
                                                         </div>
 
-                                                        <button class='btn btn-success w-auto'>{{ __('Continue Learning') }}</button>
+                                                        <button class='btn btn-outline-success w-auto'>{{ __('Continue Learning') }}</button>
 
                                                     </div>
                                                 </div>
@@ -140,7 +142,7 @@
                                                         <p>{{ __($history->course->description) }}</p>
                                                     </div>
                                                     
-                                                    <button class='btn btn-success w-auto'>{{ __('Start Learning') }}</button>
+                                                    <button class='btn btn-outline-success w-auto'>{{ __('Start Learning') }}</button>
                             
                                                 </div>
                                             </div>
@@ -174,7 +176,7 @@
                                                     <p>{{ __($favorite_course->course->description) }}</p>
                                                 </div>
                                                 
-                                                    <button class='btn btn-success w-auto'>{{ __('Review Course') }}</button>
+                                                    <button class='btn btn-outline-success w-auto'>{{ __('Review Course') }}</button>
                         
                                             </div>
                                         </div>
@@ -194,7 +196,7 @@
                                                     <p>{{ __($favorite_course->course->description) }}</p>
                                                 </div>
 
-                                                <button class='btn btn-success w-auto'>{{ __('Continue Learning') }}</button>
+                                                <button class='btn btn-outline-success w-auto'>{{ __('Continue Learning') }}</button>
                         
                                             </div>
                                         </div>
@@ -213,7 +215,7 @@
                                                     <p>{{ __($favorite_course->course->description) }}</p>
                                                 </div>
                                                 
-                                                <button class='btn btn-success w-auto'>{{ __('Start Learning') }}</button>
+                                                <button class='btn btn-outline-success w-auto'>{{ __('Start Learning') }}</button>
                         
                                             </div>
                                         </div>

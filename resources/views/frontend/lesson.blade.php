@@ -2,7 +2,7 @@
 
 @section('main-content')
 
-    <main class="main-content">
+    <main class="main-content lesson">
     
         <div class="row g-0">
 

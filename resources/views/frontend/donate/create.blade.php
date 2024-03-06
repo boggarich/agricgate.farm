@@ -2,9 +2,9 @@
 
 @section('main-content')
 
-    <main class="main-content">
+    <main class="main-content donate pt-3">
 
-        <div class="container">
+        <div class="container-xxl">
 
             <div id="payment" class="animated fadeIn mt-5">
                 
@@ -16,11 +16,10 @@
 
                         <div class="">
                             <div class="payment-form-wrapper">
-                                <p class="text-center">Please add your details below to DONATE.</p>
                                 <form id="paymentForm">
 
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
 
                                             <div class="form-group mb-3">
                                                 <label>{{ __('First name') }}</label>
@@ -29,7 +28,7 @@
 
                                         </div>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
 
                                             <div class="form-group mb-3">
                                                 <label>{{ __('Last name') }}</label>
@@ -66,9 +65,6 @@
                 </div>
                 
             </div>
-
-
-            <div class="spacer"></div>
 
         </div>
 
