@@ -97,8 +97,8 @@
                                                 </div>
                                                 <div class='card-footer d-flex flex-column align-items-end'>
                                                     <div class='course-details'>
-                                                        <p>{{ __($history->course->title) }}</p>
-                                                        <p>{{ __($history->course->description) }}</p>
+                                                        <p>{{ translate($history->course->title) }}</p>
+                                                        <p>{{ translate($history->course->description) }}</p>
                                                     </div>
 
                                                     <button class='btn btn-outline-success w-auto'>{{ __('Review Course') }}</button>
@@ -119,8 +119,8 @@
                                                     </div>
                                                     <div class='card-footer d-flex flex-column align-items-end'>
                                                         <div class='course-details'>
-                                                            <p>{{ __($history->course->title) }}</p>
-                                                            <p>{{ __($history->course->description) }}</p>
+                                                            <p>{{ translate($history->course->title) }}</p>
+                                                            <p>{{ translate($history->course->description) }}</p>
                                                         </div>
 
                                                         <button class='btn btn-outline-success w-auto'>{{ __('Continue Learning') }}</button>
@@ -138,8 +138,8 @@
                                                 </div>
                                                 <div class='card-footer d-flex flex-column align-items-end'>
                                                     <div class='course-details'>
-                                                        <p>{{ __($history->course->title) }}</p>
-                                                        <p>{{ __($history->course->description) }}</p>
+                                                        <p>{{ translate($history->course->title) }}</p>
+                                                        <p>{{ translate($history->course->description) }}</p>
                                                     </div>
                                                     
                                                     <button class='btn btn-outline-success w-auto'>{{ __('Start Learning') }}</button>
@@ -172,8 +172,8 @@
                                             </div>
                                             <div class='card-footer d-flex flex-column align-items-end'>
                                                 <div class='course-details'>
-                                                    <p>{{ __($favorite_course->course->title) }}</p>
-                                                    <p>{{ __($favorite_course->course->description) }}</p>
+                                                    <p>{{ translate($favorite_course->course->title) }}</p>
+                                                    <p>{{ translate($favorite_course->course->description) }}</p>
                                                 </div>
                                                 
                                                     <button class='btn btn-outline-success w-auto'>{{ __('Review Course') }}</button>
@@ -192,8 +192,8 @@
                                             </div>
                                             <div class='card-footer d-flex flex-column align-items-end'>
                                                 <div class='course-details'>
-                                                    <p>{{ __($favorite_course->course->title) }}</p>
-                                                    <p>{{ __($favorite_course->course->description) }}</p>
+                                                    <p>{{ translate($favorite_course->course->title) }}</p>
+                                                    <p>{{ translate($favorite_course->course->description) }}</p>
                                                 </div>
 
                                                 <button class='btn btn-outline-success w-auto'>{{ __('Continue Learning') }}</button>
@@ -211,8 +211,8 @@
                                             </div>
                                             <div class='card-footer d-flex flex-column align-items-end'>
                                                 <div class='course-details'>
-                                                    <p>{{ __($favorite_course->course->title) }}</p>
-                                                    <p>{{ __($favorite_course->course->description) }}</p>
+                                                    <p>{{ translate($favorite_course->course->title) }}</p>
+                                                    <p>{{ translate($favorite_course->course->description) }}</p>
                                                 </div>
                                                 
                                                 <button class='btn btn-outline-success w-auto'>{{ __('Start Learning') }}</button>

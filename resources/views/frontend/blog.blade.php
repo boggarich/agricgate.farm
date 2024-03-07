@@ -10,9 +10,9 @@
 
                     <section>
 
-                        <h1 class="mt-3 mb-5 fw-600">{{ __($blog->title) }}</h1>
+                        <h1 class="mt-3 mb-4 fw-600">{{ __($blog->title) }}</h1>
 
-                        <div class="user-details-wrapper mb-5">
+                        <div class="user-details-wrapper mb-4">
                             <img src="{{ asset('assets/img/agricgate-logo.jpg') }}" alt="user-profile"/>
                             <div>
                                 <p class="mb-0">Agricgate.farm</p>
@@ -21,7 +21,7 @@
                         </div>
                         
                         <div class="blog-content">
-                            {!!  $blog->blog !!}
+                            {!!  translate($blog->blog) !!}
                         </div>
 
                     </section>
@@ -50,8 +50,8 @@
                                                         </div>
                                                         <div class='card-footer d-flex flex-column align-items-end'>
                                                             <div class='course-details'>
-                                                                <p>{{ __($recommended_blog->title) }}</p>
-                                                                <p class="text-clamp">{{ __($recommended_blog->description) }}</p>
+                                                                <p>{{ translate($recommended_blog->title) }}</p>
+                                                                <p class="text-clamp">{{ translate($recommended_blog->description) }}</p>
                                                                 <p class="text-muted text-small d-flex align-items-center">
                                                                     <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <g clip-path="url(#clip0_476_18)">
@@ -139,7 +139,7 @@
                 spaceBetween: 40
                 },
                 1200: {
-                    spaceBetween: 26,
+                    spaceBetween: 20,
                     slidesPerView: 3, 
                 }
             }

@@ -4,11 +4,11 @@
 
     <main class="main-content">
 
-        <div class="container">
+        <div class="container-xxl">
 
-            <section>
+            <section class="pt-1">
 
-                <h1 class="mt-5 mb-5 fw-600">{{ __('Contact us') }}</h1>
+                <h1 class="mt-4 mb-4 fw-600">{{ __('Contact Us') }}</h1>
 
                 <img src="{{ asset('assets/img/banner-img.png') }}" class="banner-img img-fluid" alt="farm"/>
 

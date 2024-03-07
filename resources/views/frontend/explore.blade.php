@@ -4,10 +4,10 @@
 
     <main class="main-content">
 
-        <div class="container">
+        <div class="container-xxl">
 
             <section>
-                <div class="d-flex my-5 scroll-x">
+                <div class="d-flex py-5 scroll-x">
 
                     <a href="{{ route('explore') }}" @class([
                         'btn',
@@ -33,7 +33,7 @@
                             'btn-black',
                             'me-3',
                             'active' => $active
-                        ])  >{{ $course_category->title }}
+                        ])  >{{ translate($course_category->title) }}
                         </a>
 
                     @endforeach
@@ -54,11 +54,11 @@
                                 </div>
                                 <div class='card-footer d-flex flex-column align-items-end'>
                                     <div class='course-details'>
-                                        <p>{{ __($course->title) }} </p>
-                                        <p>{{ __($course->description) }}</p>
+                                        <p>{{ translate($course->title) }} </p>
+                                        <p>{{ translate($course->description) }}</p>
                                     </div>
                                     
-                                    <button class='btn btn-success w-auto'>{{ __('View Course') }}</button>
+                                    <button class='btn btn-outline-success w-auto'>{{ __('View Course') }}</button>
             
                                 </div>
                             </div>

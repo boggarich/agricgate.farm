@@ -46,7 +46,13 @@
 
                         @if(App::getLocale() == 'fr') 
 
-                            French
+                            Français
+
+                        @endif
+
+                        @if(App::getLocale() == 'ha') 
+
+                            Hausa
 
                         @endif
 
@@ -56,7 +62,7 @@
                         <li><a class="dropdown-item" href="{{ route('set-locale', ['locale' => 'en' ] ) }}">English</a></li>
                         <li><a class="dropdown-item" href="{{ route('set-locale', ['locale' => 'fr' ] ) }}">Français</a></li>
                         <li><a class="dropdown-item" href="{{ route('set-locale', ['locale' => 'tw' ] ) }}">Twi</a></li>
-                        <li><a class="dropdown-item" href="{{ route('set-locale', ['locale' => 'hs' ] ) }}">Hausa</a></li>
+                        <li><a class="dropdown-item" href="{{ route('set-locale', ['locale' => 'ha' ] ) }}">Hausa</a></li>
                     </ul>
                 </div>
                 <a href="#" class="nav-link">{{ __('E-Commerce') }}</a>

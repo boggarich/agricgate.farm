@@ -57,18 +57,18 @@
                     <div class='card course-card'>
                         <div class='card-body'>
                             <h6 class='mb-4'>{{ __('Course Details') }}</h6>
-                            <p class=''>{{ __('Title') }}: {{ __($course->title) }}</p>
-                            <p>{{ __('Description') }}: {{ __($course->description) }}
+                            <p class=''>{{ __('Title') }}: {{ translate($course->title) }}</p>
+                            <p>{{ __('Description') }}: {{ translate($course->description) }}
                             </p>
                             <p>{{ __('Duration') }}:
                                 @if($course->hours) 
-                                    {{ $course->hours . ($course->hours == 1 ? 'hr' : 'hrs') }}
+                                    {{ $course->hours . ($course->hours == 1 ? ' hr' : ' hrs') }}
                                 @endif
                                 @if($course->mins) 
-                                    {{ $course->mins . ($course->mins == 1 ? 'min' : 'mins') }}
+                                    {{ $course->mins . ($course->mins == 1 ? ' min' : ' mins') }}
                                 @endif
                                 @if($course->secs)
-                                    {{ $course->secs . ($course->secs == 1 ? 'sec' : 'secs') }}
+                                    {{ $course->secs . ($course->secs == 1 ? ' sec' : ' secs') }}
                                 @endif
                             </p>
 
@@ -274,7 +274,7 @@
 
                 <div class="tab-pane fade show active" id="course-info-tab-pane" role="tabpanel" aria-labelledby="course-info-tab" tabindex="0">
                     <h5 class='mt-5 mb-4 fw-bold text-black'>{{ __('About Course') }}</h5>
-                    {!! $course->about !!}
+                    {!! translate($course->about) !!}
                     <h5 class='mt-5 mb-4 fw-bold text-black'>{{ __('What will you learn?') }}</h5>
                     <div class='row row-cols-1 row-cols-md-2 g-4 g-md-5'>
 
@@ -295,7 +295,7 @@
                                             <path d="M11.875 10C11.875 10.4973 11.6775 10.9742 11.3258 11.3258C10.9742 11.6775 10.4973 11.875 10 11.875C9.50272 11.875 9.02581 11.6775 8.67417 11.3258C8.32254 10.9742 8.125 10.4973 8.125 10C8.125 9.50272 8.32254 9.02581 8.67417 8.67417C9.02581 8.32254 9.50272 8.125 10 8.125C10.4973 8.125 10.9742 8.32254 11.3258 8.67417C11.6775 9.02581 11.875 9.50272 11.875 10Z" fill="black"/>
                                         </svg>
                                         <p class=''>
-                                            {{ $what_will_you_learn }}
+                                            {{ translate($what_will_you_learn) }}
                                         </p>
                                     </div>
                                 </div>
@@ -315,7 +315,7 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $topic->id }}" aria-expanded="true" aria-controls="collapse{{ $topic->id }}">
-                                        {{ __($topic->title) }}
+                                        {{ translate($topic->title) }}
                                     </button>
                                     </h2>
                                     <div id="collapse{{ $topic->id }}" class="accordion-collapse collapse" data-bs-parent="#accordion-course-content-1">
@@ -329,7 +329,7 @@
                                                         <img src="/assets/img/document.png" />
 
                                                         <p>
-                                                        {{ __($lesson->title) }}
+                                                        {{ translate($lesson->title) }}
                                                         </p>
                                                     </div>
                                                 </a>
@@ -354,7 +354,7 @@
 
                         @session('question')
 
-                            {!! $value !!}
+                            {!! translate($value) !!}
 
                             <div class="spacer"></div>
 
@@ -376,7 +376,7 @@
                                                     <span class="dot-separator"></span>
                                                     <span>{{ time_since($question_and_answer->updated_at) }}</span>
                                                 </p>
-                                                <p>{!! $question_and_answer->question !!}</p>
+                                                <p>{!! translate($question_and_answer->question) !!}</p>
                                             </div>
                                         </div>
 
@@ -389,7 +389,7 @@
                                                         <span class="dot-separator"></span>
                                                         <span>{{ time_since($question_and_answer->updated_at) }}</span>
                                                     </p>
-                                                    <p>{!! $question_and_answer->answer !!}</p>
+                                                    <p>{!! translate($question_and_answer->answer) !!}</p>
                                                 </div>
                                             </div>
 
@@ -440,7 +440,7 @@
                                                 </defs>
                                             </svg>
                                             <p>
-                                                {{ __($announcement->announcement) }}
+                                                {{ translate($announcement->announcement) }}
                                             </p>
                                         </div>
 
@@ -448,7 +448,7 @@
 
                                 @else 
 
-                                    <p>Yay! You're all caught up.</p>
+                                    <p>{{ __("Yay! You're all caught up.") }}</p>
 
                                 @endif
 
@@ -490,8 +490,8 @@
                                         </div>
                                         <div class='card-footer d-flex flex-column align-items-end'>
                                             <div class='course-details'>
-                                                <p>{{ __($recommended_course->title) }}</p>
-                                                <p>{{ __($recommended_course->description) }}</p>
+                                                <p>{{ translate($recommended_course->title) }}</p>
+                                                <p>{{ translate($recommended_course->description) }}</p>
                                             </div>
                                             
                                             <button class='btn btn-outline-success w-auto'>{{ __('View Course') }}</button>
@@ -560,7 +560,7 @@
                 spaceBetween: 40
                 },
                 1200: {
-                    spaceBetween: 16,
+                    spaceBetween: 20,
                     slidesPerView: 4, 
                 }
             }

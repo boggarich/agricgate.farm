@@ -42,26 +42,28 @@
             <div class="container">
 
                 <ul class="">
-                    <li><a href="{{ route('explore') }}">Explore</a></li>
+                    <li><a href="#" class="nav-link">{{ __('E-Commerce') }}</a></li>
+                    <li><a href="{{ route('blogs-page') }}" class="nav-link">{{ __('News') }}</a></li>
                     <li><a href="{{ route('donate.create-charge') }}">{{ __('Donate') }}</a></li>
 
                     @auth
-                        <li><a href="{{ route('account') }}">Account</a></li>
-                        <li><a href="{{ route('account', [ 'tab' => 'bookmarks' ]) }}">My Bookmarks</a></li>
-                        <li><a href="{{ route('account', [ 'tab' => 'history' ]) }}">History</a></li>
+                        <li><a href="{{ route('account') }}">{{ __('Account') }}</a></li>
+                        <li><a href="{{ route('account', [ 'tab' => 'bookmarks' ]) }}">{{ __('My Bookmarks') }}</a></li>
+                        <li><a href="{{ route('account', [ 'tab' => 'history' ]) }}">{{ __('History') }}</a></li>
                         <hr class="mb-0">
-                        <li><a class="text-center pt-0 ps-3" href="/logout">Log out</a></li>
+                        <li><a class="text-center pt-0 ps-3" href="/logout">{{ __('Log out') }}</a></li>
                     @endauth
 
                     @guest
-                        <button class='btn btn-outline-success w-100 mb-4 mt-5' data-bs-toggle="modal" data-bs-target="#loginModal">Log in</button>
-                        <button class='btn btn-success w-100' data-bs-toggle="modal" data-bs-target="#registerModal">Sign up</button>
+                        <button class='btn btn-outline-success w-100 mb-4 mt-5' data-bs-toggle="modal" data-bs-target="#loginModal">{{ __('Log in') }}</button>
+                        <button class='btn btn-success w-100' data-bs-toggle="modal" data-bs-target="#registerModal">{{ __('Sign up') }}</button>
                     @endguest
 
-                    <li><h3 class="mt-4">Choose language</h3></li>
+                    <li><h5 class="mt-4">{{ __('Choose language') }}</h5></li>
                     <li><a class="" href="{{ route('set-locale', ['locale' => 'en' ] ) }}"><img src="{{ asset('assets/img/britain-flag.png') }}" alt="Britain flag" class="me-2"/>English</a></li>
+                    <li><a class="" href="{{ route('set-locale', ['locale' => 'fr' ] ) }}"><img src="{{ asset('assets/img/france-flag.png') }}" alt="France flag" class="me-2"/>Français</a></li>
                     <li><a class="" href="{{ route('set-locale', ['locale' => 'tw' ] ) }}"><img src="{{ asset('assets/img/ghana-flag.png') }}" alt="Ghana flag" class="me-2"/>Twi</a></li>
-                    <li><a class="" href="{{ route('set-locale', ['locale' => 'fr' ] ) }}"><img src="{{ asset('assets/img/france-flag.png') }}" alt="France flag" class="me-2"/>French</a></li>
+                    <li><a class="" href="{{ route('set-locale', ['locale' => 'ha' ] ) }}"><img src="{{ asset('assets/img/ghana-flag.png') }}" alt="Ghana flag" class="me-2"/>Hausa</a></li>
 
                 </ul>
 

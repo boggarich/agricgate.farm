@@ -1,4 +1,76 @@
 {
+    "About Lesson": "Ɛfa Adesua ho",
+    "Yay! You're all caught up.": "Yay! Mo nyinaa akyere mo.",
+    "Choose language": "Paw kasa",
+    "You can read our latest news here": "Wubetumi akenkan yɛn nsɛm a aba foforo wɔ ha",
+    "Don't worry, we don't spam.": "Mma ɛnhaw wo, yɛnyɛ spam.",
+    "SUBSCRIBE": "SUBSCRIBE NKYERƐKYERƐMU",
+    "Stay always in touch! Subscribe to our newsletter.": 
+    "Kɔ so di nkitaho bere nyinaa! Kyerɛw wo din wɔ yɛn nsɛmma nhoma no mu.",
+    "Newsletter Signup": "Nsɛmma Nhoma a Wɔde Di Dwuma",
+    "Helpful Links": "Nkitahodi a Ɛboa",
+    "Terms of Service": "Ɔsom Ho Nhyehyɛe",
+    "Privacy Policy": "Nsɛm a Wɔde Sie",
+    "Contact Us": "Di Yɛn Nkitahodi",
+    "About Us": "Yɛn Ho Nsɛm",
+    "About": "Fa ho",
+    "Registration number": "Nnɔmba a wɔde kyerɛw wɔn din",
+    "development": "mpuntuo",
+    "Start learning": "Fi ase sua ade",
+    "Select a course": "Paw adesua bi",
+    "How it works": "Sɛnea ɛyɛ adwuma",
+    "3 easy steps": "3 anammɔn a ɛnyɛ den",
+    "We encourage collaboration through our community forum where customers get solutions to their problems through peer-to-peer interactions.": 
+    "Yɛhyɛ adwumayɛkuo ho nkuran denam yɛn mpɔtam hɔ nhyiamu a adetɔfoɔ nya wɔn haw ano aduru denam atipɛnfoɔ ntam nkitahodiɛ so.",
+    "Community Forum": "Mpɔtam Hɔ Nhyiam",
+    "We provide you with the power of financial management to be able to take inform decisions.": 
+    "Yɛma wo tumi a ɛwɔ sikasɛm sohwɛ mu na ama woatumi asi gyinae ahorow a ɛyɛ nokware.",
+    "Financial Tools": "Sikasɛm mu Nnwinnade",
+    "We provide a platform to link your products and produces directly to customers online therefore increasing your revenue generation.":
+    "Yɛde platform a wode bɛka wo nneɛma ho na yɛyɛ no tẽẽ ma adetɔfoɔ wɔ intanɛt so ma enti ɛma wo sika a wonya no kɔ soro.",
+    "Marketplace": "Guadibea",
+    "We provide an e-learning platform to hone your craft and adopt new skills.": 
+    "Yɛde e-learning platform ma a wode bɛma wo nsaanodwuma ayɛ yiye na woagye ahokokwaw foforo atom.",
+    "E-Learning": "E-Adesua a Wɔde Di Dwuma",
+    "To connect 2,000 youths yearly to farms through internships leading to employment": 
+    "Sɛ wɔde mmerante ne mmabaa 2,000 bɛka mfuw ho afe biara denam adwumayɛ ho ntetee a ɛbɛma wɔanya adwuma so",
+    "Internships": "Nkɔso a wɔde yɛ adwuma",
+    "To resource yearly 500 youths to be able to start their own farms": 
+    "Sɛ wɔde nneɛma bɛma mmabun 500 afe biara na wɔatumi afi wɔn ankasa mfuw ase",
+    "Yearly Resource": "Afe Biara Nneɛma a Wɔde Yɛ Adwuma",
+    "To offer online practical training to African youths to stir their interest in farming": 
+    "Sɛ wɔde ntetee a mfaso wɔ so bɛma Afrika mmerante ne mmabaa wɔ Intanɛt so de akanyan wɔn anigye wɔ kuayɛ ho",
+    "Practical Training": "Ntetee a Wɔde Di Dwuma",
+    "To build a virtual online training platform that will offer training to youths in the African region": 
+    "Sɛ wɔbɛkyekyere virtual online training platform a ɛbɛma nteteeɛ ama mmabun a wɔwɔ Afrika mantam mu",
+    "Virtual Online": "Virtual Online a ɛwɔ Intanɛt so",
+    "Our mission & vision": "Yɛn asɛmpatrɛw & anisoadehu",
+    "Learn more": "Sua pii",
+    "platform to sell products created through the farms' set-up.": 
+    "platform a wɔde bɛtɔn nneɛma a wɔabɔ denam mfuw no nhyehyɛe so.",
+    "This is to help equip and excite the interest of these young ones in ": 
+    "Eyi yɛ nea ɛbɛboa ma wɔasiesie na wɔakanyan saa mmerante ne mmabaa yi anigye wɔ ",
+    "farming and at the same ": "kuayɛ ne bere koro no ara mu ",
+    "time resourcing trainees to be able to start their": 
+    "bere a wɔde ma wɔn a wɔretete wɔn no sɛnea ɛbɛyɛ a wobetumi afi wɔn",
+    "farm and or be groomed into farm managers.": 
+    "afuw ne anaasɛ wɔbɛsiesie wɔn ho ayɛ wɔn afuw so ahwɛfo.",
+    "agriculture training to African youth; with an E-commerce": 
+    "kuayɛ ho ntetee a wɔde ma Afrika mmerante ne mmabaa; ne E-commerce a wɔde di dwuma",
+    "Agricgate seeks to offer practical virtual": 
+    "Agricgate hwehwɛ sɛ ɛde virtual a mfaso wɔ so bɛma",
+    "Sell your produce directly to buyers, no middlemen, better profits": 
+    "Tɔn wo nnɔbae ma adetɔfo tẽẽ, mfimfini biara nni hɔ, mfaso a eye sen biara",
+    "Learn sustainable farming to increase yield and protect the environment": 
+    "Sua kuayɛ a ɛkɔ so daa na ama nnɔbae akɔ soro na woabɔ nneɛma a atwa yɛn ho ahyia ho ban",
+    "e-learning, market your produce, and connect with experts": 
+    "e-learning, di wo nnɔbae ho gua, na wo ne abenfo di nkitaho",
+    "free": "de ho",
+    "Join our community to access": "Kɔka yɛn mpɔtam hɔfo ho na woanya bi",
+    "Join": "Ka bom",
+    "Sign in": "Fa wo nsa hyɛ mu",
+    "News": "Kaseɛbɔ",
+
     "All blog posts": "Blog so nsɛm nyinaa",
     "Recommended from Agricgate.farm": "Wɔkamfo kyerɛ fi Agricgate.farm",
     "Published on": "Wotintimii wɔ",
@@ -78,8 +150,8 @@
     "Account": "Akawnto",
     "All": "Nyinaa",
     "Join for Free": "Kɔka ho kwa",
-    "Join now to receive personalized recommendations from the full Trisolace catalog.": "Kɔka ho mprempren na woanya nyansahyɛ ahorow a wɔayɛ ama w’ankasa firi Trisolace nhoma a wɔahyehyɛ no nyinaa mu.",
-    "Take the next step toward your personal and professional goals with Trisolace.": "Wo ne Trisolace ntu annamom na nyini wɔ w'aduma yɛ mu.",
+    "Join now to receive personalized recommendations from the full Agricgate.farm catalog": "Kɔka ho mprempren na woanya nyansahyɛ ahorow a wɔayɛ ama w’ankasa firi Agricgate.farm nhoma a wɔahyehyɛ no nyinaa mu.",
+    "Take the next step toward your personal and professional goals with Agricgate.farm": "Wo ne Agricgate.farm ntu annamom na nyini wɔ w'aduma yɛ mu.",
     "Testimonials": "Adansedi ahorow",
     "Explore by category": "Hwehwɛ mu denam Ɔfa ahorow so",
     "View Course": "Hwɛ Adesua no",

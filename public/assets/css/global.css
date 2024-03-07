@@ -22,6 +22,14 @@ body {
   position: relative;
 }
 
+.text-black {
+  color: #404145 !important;
+}
+
+.f-18 {
+  font-size: 18px !important;
+}
+
 .bg-green {
   background: #449342 !important;
 }
@@ -34,20 +42,8 @@ body {
   color: #c1f6ed;
 }
 
-.container-xxl {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
 .btn[aria-expanded=true] svg {
   transform: rotate(180deg);
-}
-
-svg.linkedin-logo.footer {
-  height: 34px;
-  width: 34px;
-  margin-top: -5px;
-  margin-left: -3px;
 }
 
 img.banner-img {
@@ -56,7 +52,8 @@ img.banner-img {
   width: 100% !important;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 4px;
+  border-radius: 0px;
+  position: relative;
 }
 
 .fw-600 {
@@ -285,7 +282,7 @@ table td img {
 
 .backdrop-mobile {
   position: absolute;
-  top: 60px;
+  top: 0px;
   left: 0;
   height: 100%;
   min-height: 100vh;
@@ -307,7 +304,7 @@ table td img {
 
 .mobile-navs {
   position: absolute;
-  top: 60px;
+  top: 0px;
   left: 0;
   width: 100%;
   min-height: 100vh;
@@ -321,6 +318,9 @@ table td img {
 }
 .mobile-navs .btn {
   border-radius: 20px;
+}
+.mobile-navs .btn:not(.custom-close-btn) {
+  box-shadow: none !important;
 }
 .mobile-navs.active {
   display: none !important;
@@ -510,8 +510,7 @@ span[data-dz-name] {
   padding-left: 1.25rem;
 }
 #settings-tab-pane label {
-  color: #000 !important;
-  margin-left: 1.5rem;
+  color: #404145 !important;
 }
 #settings-tab-pane button {
   font-size: 18px !important;
@@ -719,6 +718,16 @@ footer {
   padding-top: 5rem;
   padding-bottom: 2rem;
 }
+footer .newsletter-subscribe-form input {
+  border-radius: 4px !important;
+}
+footer .newsletter-subscribe-form button.btn {
+  background-color: #c1f6ed;
+  margin-bottom: 1.5rem;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+  color: #02353c !important;
+}
 footer hr {
   border-color: rgb(255, 255, 255) !important;
 }
@@ -731,13 +740,12 @@ footer .social-media-handles {
 footer .social-media-handles a {
   display: inline-block;
   margin-right: 2rem;
-  width: -moz-max-content !important;
-  width: max-content !important;
+  max-width: 2rem !important;
 }
 footer p {
   margin-bottom: 1.5rem;
   font-weight: 500;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.8);
 }
 footer img {
   margin-bottom: 2rem;
@@ -753,17 +761,17 @@ footer svg {
   width: fit-content;
 }
 footer svg path {
-  fill: rgb(255, 255, 255);
+  fill: rgba(255, 255, 255, 0.8);
 }
 footer a {
   margin-bottom: 0.8625rem;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
   font-size: 16px;
 }
 footer h5 {
   font-weight: 500;
-  color: rgb(255, 255, 255) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   margin-bottom: 2rem;
   font-size: 18px;
 }
@@ -905,8 +913,8 @@ header .search-wrapper .search-results-wrapper {
   min-height: 40px;
   background-color: white;
   padding: 1.5rem;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   border: 1px solid #DFDFE0;
   display: none;
 }
@@ -1185,7 +1193,7 @@ header .search-wrapper .main-search-input.focus {
   border-color: rgba(0, 0, 0, 0.5) !important;
 }
 .nav-tabs .nav-link {
-  color: black !important;
+  color: #404145 !important;
   border: none !important;
 }
 .nav-tabs .nav-link.active {
@@ -1256,11 +1264,11 @@ header .search-wrapper .main-search-input.focus {
   height: 40px;
 }
 .card.course-card p {
-  color: black !important;
+  color: #404145 !important;
   margin-bottom: 0.625rem !important;
 }
 .card.course-card h6 {
-  color: black !important;
+  color: #404145 !important;
   font-weight: 600;
 }
 
@@ -1271,7 +1279,7 @@ header .search-wrapper .main-search-input.focus {
 
 section.blogs {
   background-color: #f5f5f5;
-  padding: 7rem 0 7rem 0;
+  padding: 4rem 0 7rem 0;
 }
 section.blogs .btn-link {
   color: #446ee7 !important;
@@ -1355,6 +1363,7 @@ section.how-it-works .svg-container .step-number-container {
 section.how-it-works .svg-container .step-number-container h3 {
   color: #404145 !important;
   font-size: 32px;
+  margin-bottom: 0px !important;
 }
 section.features h5 {
   color: #404145;
@@ -1367,6 +1376,9 @@ section.our-vision-mission {
   padding: 7rem 0 7rem 0;
   color: white;
   border-radius: 12px;
+}
+section.our-vision-mission img {
+  border-radius: 4px !important;
 }
 section.our-vision-mission .btn {
   padding-left: 42px;
@@ -1391,10 +1403,14 @@ section.our-vision-mission .page-header {
 }
 section.our-vision-mission p {
   font-size: 18px;
-  width: 85%;
+}
+@media screen and (min-width: 1200px) {
+  section.our-vision-mission p {
+    width: 85%;
+  }
 }
 section.about-us {
-  padding: 7rem 0 7rem 0;
+  padding: 4rem 0 7rem 0;
 }
 section.about-us .btn {
   padding-left: 42px;
@@ -1409,9 +1425,14 @@ section.about-us .btn {
 }
 section.about-us p {
   font-size: 26px;
-  width: 82%;
   margin-bottom: 2rem;
   font-family: "Domaine Display Narrow", Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #003912;
+}
+@media screen and (min-width: 1200px) {
+  section.about-us p {
+    width: 82%;
+  }
 }
 section .content-wrapper.bg-green {
   background: #449342 !important;
@@ -1453,7 +1474,7 @@ section.call-to-action p {
 }
 section.call-to-action h1 {
   width: 80%;
-  color: black !important;
+  color: #404145 !important;
   margin-top: 2rem;
 }
 section.call-to-action img {
@@ -1470,14 +1491,14 @@ section.call-to-action img {
 
 .explore-by-category-wrapper .swiper-button-next,
 .explore-by-category-wrapper .swiper-button-prev {
-  top: 63% !important;
+  top: 55% !important;
 }
 
 .featured-courses-wrapper .swiper-button-next,
 .featured-courses-wrapper .swiper-button-prev,
 .recommended-courses-wrapper .swiper-button-next,
 .recommended-courses-wrapper .swiper-button-prev {
-  top: 59% !important;
+  top: 54.65% !important;
 }
 
 [class^=swiper-button-next], [class^=swiper-button-prev] {
@@ -1505,7 +1526,7 @@ section.call-to-action img {
 
 .course-card-wrapper {
   background: #D9D9D9;
-  box-shadow: 0px 5.6px 5.6px 0px rgba(189, 190, 193, 0.25);
+  box-shadow: 0 0.14px 2.29266px rgba(0, 0, 0, 0.032), 0 0.37px 4.42626px rgba(0, 0, 0, 0.048), 0 3px 7px rgba(0, 0, 0, 0.09);
   border-radius: 4px !important;
   overflow: hidden;
 }
@@ -1554,7 +1575,7 @@ section.call-to-action img {
   font-size: 14px !important;
 }
 .course-card-wrapper .course-img img {
-  height: 150px;
+  height: 180px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1563,6 +1584,10 @@ section.call-to-action img {
 }
 
 @media screen and (min-width: 1200px) {
+  .container-xxl {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
   .page-hero h1 {
     width: 64%;
   }
@@ -1571,6 +1596,10 @@ section.call-to-action img {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.1) 50%);
   padding: 1.5rem 1.5rem 15rem 1.5rem;
   height: 345px;
+  transition: background-color 250ms ease-in-out;
+}
+.explore-by-category-wrapper .card-overlay .overlay-content:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 .explore-by-category-wrapper .card-overlay .overlay-content .page-header {
   margin-bottom: 0px !important;
@@ -1714,6 +1743,7 @@ section.call-to-action img {
 
 .page-hero h1 {
   padding: 32px;
+  padding-left: 0px !important;
   border-radius: 0px;
   z-index: 2;
   position: absolute;
@@ -1723,7 +1753,6 @@ section.call-to-action img {
   font-size: 56px;
   font-weight: 600;
   line-height: normal;
-  letter-spacing: 2px;
   text-shadow: 0px 1.436px 0px 0px rgba(255, 255, 255, 0.15) inset, 0px 1.436px 1.436px 0px rgba(0, 0, 0, 0.08) !important;
 }
 
@@ -1900,9 +1929,11 @@ a {
   }
   .swiper-button-prev {
     left: 0px !important;
+    display: none !important;
   }
   .swiper-button-next {
     right: 0px !important;
+    display: none !important;
   }
   .swiper-pagination {
     bottom: 16px !important;
@@ -1917,7 +1948,9 @@ a {
     width: 100% !important;
   }
   .page-hero-header {
-    font-size: 46px !important;
+    font-size: 18px !important;
+    padding: 0px !important;
+    padding-bottom: 32px !important;
   }
   .company-info-desktop {
     display: none;
@@ -1982,6 +2015,8 @@ a {
     top: 94px;
     left: 0;
     width: 100%;
+    margin-right: 0px !important;
+    max-width: unset !important;
   }
   .navs-wrapper .search-wrapper.active {
     display: block !important;

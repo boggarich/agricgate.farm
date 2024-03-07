@@ -18,7 +18,7 @@ use App\Http\Controllers\SearchController;
 
 Route::get('/set-locale/{locale}', function(string $locale) {
 
-        if (! in_array($locale, ['en', 'tw', 'fr'])) {
+        if (! in_array($locale, ['en', 'tw', 'fr', 'ha'])) {
                 abort(400);
         }
 
@@ -38,23 +38,18 @@ Route::middleware('guest')->group(function() {
 
         })->name('contact-us');
 
-        Route::get('/our-vision', function() {
 
-                return view('frontend.our-vision');
+        Route::get('/our-mission-and-vision', function() {
 
-        })->name('our-vision');
+                return view('frontend.our-mission-and-vision');
 
-        Route::get('/our-mission', function() {
+        })->name('our-mission-and-vision');
 
-                return view('frontend.our-mission');
+        Route::get('/about-us', function() {
 
-        })->name('our-mission');
+                return view('frontend.about-us');
 
-        Route::get('/who-we-are', function() {
-
-                return view('frontend.who-we-are');
-
-        })->name('who-we-are');
+        })->name('about-us');
 
         Route::get('/blogs', [ViewsController::class, 'blogs'])->name('blogs-page');
         Route::get('/blogs/{blog_id}', [ViewsController::class, 'blog'])->name('blog-page');
