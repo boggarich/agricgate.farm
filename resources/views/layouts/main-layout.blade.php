@@ -13,11 +13,19 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vidstack@^1.0.0/player/styles/default/layouts/video.min.css" />
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
-        <link href="{{ asset('assets/css/global.css') }}" rel="stylesheet" />
+        <link href="{{ asset('assets/css/global.css') }}" rel="stylesheet" defer/>
 
     </head>
 
     <body class="antialiased">
+
+        @if(session('success'))
+            <div class="alert user-login-alert alert-success">
+
+                {{session('success')}}
+                
+            </div>
+        @endif
 
         @if ($errors->any())
 

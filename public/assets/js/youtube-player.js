@@ -78,6 +78,20 @@ function onYouTubeIframeAPIReady() {
         });
 
     }
+    else 
+    {
+
+        // player.addEventListener('onReady', () => {
+            
+        //     console.log($('.ytp-title-text'))
+
+        // });
+
+    }
+    
 
 }
+
+
+console.log($('.ytp-title-text'))
 

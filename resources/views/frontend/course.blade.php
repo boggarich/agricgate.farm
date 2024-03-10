@@ -57,8 +57,8 @@
                     <div class='card course-card'>
                         <div class='card-body'>
                             <h6 class='mb-4'>{{ __('Course Details') }}</h6>
-                            <p class=''>{{ __('Title') }}: {{ translate($course->title) }}</p>
-                            <p>{{ __('Description') }}: {{ translate($course->description) }}
+                            <p class='text-clamped'>{{ __('Title') }}: {{ translate($course->title) }}</p>
+                            <p class='text-clamped'>{{ __('Description') }}: {{ translate($course->description) }}
                             </p>
                             <p>{{ __('Duration') }}:
                                 @if($course->hours) 

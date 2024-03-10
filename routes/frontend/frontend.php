@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\SearchController; 
+use App\Http\Controllers\NewsletterUserController; 
 
 Route::get('/set-locale/{locale}', function(string $locale) {
 
@@ -31,6 +32,9 @@ Route::get('/set-locale/{locale}', function(string $locale) {
 })->name('set-locale');
 
 Route::middleware('guest')->group(function() {
+
+        Route::post('/newsletter-users', [NewsletterUserController::class, 'store'])
+                ->name('newsletter-users.store');
 
         Route::get('/contact-us', function() {
 

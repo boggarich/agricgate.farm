@@ -75,7 +75,8 @@
                 <h5 class=""><strong>{{ __('Newsletter Signup') }}</strong></h5>
                 <p>{{ __('Stay always in touch! Subscribe to our newsletter.') }}</p>
 
-                <form action="" method="POST" class="newsletter-subscribe-form">
+                <form action="{{ route('newsletter-users.store') }}" method="POST" class="newsletter-subscribe-form">
+                    @csrf
                     <input class="form-control" type="email" name="email" placeholder="{{ __('Email') }} *" required="">
                     <input type="hidden" name="page" value="index">
                     <button class="btn submit mt-3 w-100" name="emails">{{ __('SUBSCRIBE') }}<i class="fa fa-location-arrow"></i></button>

@@ -72,8 +72,8 @@
                         <div class='card course-card admin'>
                             <div class='card-body'>
                                 <h6 class='mb-4'>{{ 'Course Details' }}</h6>
-                                <p class=''>{{ 'Title' }}: {{ $course->title }}</p>
-                                <p>{{ 'Description' }}: {{ $course->description }}
+                                <p class='text-clamped'>{{ 'Title' }}: {{ $course->title }}</p>
+                                <p class='text-clamped'>{{ 'Description' }}: {{ $course->description }}
                                 </p>
                                 <p>{{ 'Duration' }}:
                                     @if($course->hours) 
