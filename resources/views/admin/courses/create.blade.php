@@ -85,9 +85,24 @@
 
                 </div>
 
-                <div class="col-md-6 form-group">
-                    <label for="inputEmail4" class="form-label">Video URL</label>
-                    <input type="text" class="form-control" name="video_url" value="{{ old('video_url') }}" id="videoURL"/>
+                <div class="col-lg-6 form-group">
+                    <label>Select language to add video URL</label>
+                    <select class="form-control select2" name="locale" id="locale">
+
+                        @foreach($locales as $locale)
+                            <option value="{{ $locale->shortcode }}" @selected($locale->shortcode == 'en')>{{ $locale->language }}</option>
+                        @endforeach
+
+                    </select>
+                </div>
+
+                <div id="video-url-wrapper">
+
+                    <div class="col-md-6 form-group">
+                        <label for="inputEmail4" class="form-label">Video URL (English)</label>
+                        <input type="text" class="form-control video-url" name="video_urls[]" value="{{ 'en::' }}" id="en"/>
+                    </div>
+
                 </div>
 
                 <input type="hidden" name="featured_img_url" value="{{ old('featured_img_url') }}" id="featuredImgURL"/>

@@ -237,13 +237,13 @@
 
                 @if($active_lesson)
 
-                    @if($active_lesson->video_url)
+                    @if($active_lesson->video)
 
                         <div class="px-lg-5  py-lg-2 p-2">
 
                             <div id="player"></div>
 
-                            <input type="hidden" value="{{ generate_youtube_video_id($active_lesson->video_url) }}" id="videoId" />
+                            <input type="hidden" value="{{ generate_youtube_video_id($active_lesson->video->video_url) }}" id="videoId" />
 
                             <!-- <media-player title="{{ $active_lesson->title }}" src="{{ $active_lesson->video_url }}" playsinline>
                                 

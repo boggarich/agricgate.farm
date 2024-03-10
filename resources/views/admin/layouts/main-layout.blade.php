@@ -273,6 +273,7 @@
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <script src="{{ asset('assets/js/youtube-player.js') }}" defer></script>
+    <script src="{{ asset('assets/js/ui.js') }}" defer></script>
 
 
      @yield('scripts')

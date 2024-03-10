@@ -12,11 +12,11 @@
 
                 <div class='col-lg-8'>
 
-                    @if($course->video_url)
+                    @if($course->video)
 
                     <div id="player"></div>
 
-                    <input type="hidden" value="{{ generate_youtube_video_id($course->video_url) }}" id="videoId" />
+                    <input type="hidden" value="{{ generate_youtube_video_id($course->video->video_url) }}" id="videoId" />
                     <!-- <media-player title="{{ $course->title }}" src="{{ $course->video_url }}" playsinline >
 
                         <media-provider>

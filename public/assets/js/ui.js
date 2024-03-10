@@ -1,6 +1,65 @@
 let courseContentShow = 0;
 let mobileNavsShow = 0;
 let mobileSearchShow = 0;
+let videoUrlPrefix = '';
+
+$('#locale').on('change', (e) => {
+
+    if($(`#${e.target.value}`).length) {
+
+      return;
+
+    }
+
+    let videoURLInputHTML = 
+
+    `<div class="col-md-6 form-group">
+        <label for="inputEmail4" class="form-label">Video URL ${e.target.text}</label>
+        <input type="text" class="form-control video-url" name="video_urls[]" value="${e.target.value}::" id="${e.target.value}"/>
+    </div>
+    <div class="col-md-6"></div>`;
+
+    $('#video-url-wrapper').append(videoURLInputHTML);
+
+    $(`#${e.target.value}`).on('focus', (e) => {
+
+      videoUrlPrefix = e.target.value;
+    
+    });
+
+    $(`#${e.target.value}`).on('input', (e) => {
+
+
+      if( e.target.value.length < videoUrlPrefix.length )
+      {
+    
+        $(e.target).val(videoUrlPrefix);
+    
+      };
+    
+    });
+
+});
+
+$('.video-url').on('input', (e) => {
+
+
+  if( e.target.value.split("::")[0] + '::' != videoUrlPrefix )
+  {
+
+    $(e.target).val(videoUrlPrefix);
+
+  };
+
+});
+
+$('.video-url').on('focus', (e) => {
+
+  videoUrlPrefix = e.target.value.split("::")[0] + '::';
+
+  console.log(videoUrlPrefix)
+
+});
 
 $('#showSearchBtn').on('click', () => {
 

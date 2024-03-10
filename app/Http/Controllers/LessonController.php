@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
 use App\Models\Topic;
+use App\Models\Locale;
+use App\Models\Video;
 
 class LessonController extends Controller
 {
@@ -20,8 +22,14 @@ class LessonController extends Controller
     public function create() {
 
         $topics = Topic::all();
+        $locales = Locale::all();
 
-        return view('admin.lessons.create', ['topics' => $topics] );
+        return view('admin.lessons.create', 
+                    [
+                        'topics' => $topics,
+                        'locales' => $locales
+                    ] 
+        );
 
     }
 
@@ -35,7 +43,26 @@ class LessonController extends Controller
             'featured_img_url' => ['nullable']
         ]);
 
-        Lesson::create($validated);
+        $lesson = Lesson::create($validated);
+
+        if ($request->filled('video_urls')) {
+            
+            foreach($request->video_urls as $video_url) 
+            {
+                if(!( explode("::", $video_url)[1] == '' )) {
+
+                    Video::create([
+                        'locale' => explode('::', $video_url)[0],
+                        'videoable_id' => $lesson->id,
+                        'videoable_type' => 'App\Models\Lesson',
+                        'video_url' => explode('::', $video_url)[1]
+                    ]);
+
+                }
+
+            }
+
+        }
 
         return redirect()
                 ->route('admin.lessons.index')
@@ -45,11 +72,16 @@ class LessonController extends Controller
 
     public function edit($id) {
 
-        $lesson = Lesson::findOrFail($id);
+        $lesson = Lesson::with('videos:id,videoable_id,video_url,locale')->findOrFail($id);
         $topics = Topic::all();
+        $locales = Locale::all();
 
         return view('admin.lessons.edit', 
-                    ['topics' => $topics, 'lesson' => $lesson]
+                    [
+                        'topics' => $topics, 
+                        'lesson' => $lesson,
+                        'locales' => $locales
+                    ]
                 );
 
     }
@@ -65,6 +97,30 @@ class LessonController extends Controller
         ]);
 
         Lesson::where('id', $id)->update($validated);
+
+        if ($request->filled('video_urls')) {
+            
+            foreach($request->video_urls as $video_url) 
+            {
+
+                if(!( explode("::", $video_url)[1] == '' )) {
+
+                    Video::updateOrCreate(
+                                [
+                                    'videoable_id' => $id, 
+                                    'locale' => explode('::', $video_url)[0],
+                                    'videoable_type' => 'App\Models\Lesson'
+                                ],
+                                [
+                                    'video_url' => explode('::', $video_url)[1]
+                                ]
+                            );
+
+                }
+
+            }
+
+        }
 
         return redirect()->route('admin.lessons.index')
                         ->withSuccess('Lesson updated successfully.');

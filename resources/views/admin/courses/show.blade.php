@@ -16,7 +16,7 @@
         </div>
     @endif
 
-    <main class='main-content'>
+    <main class='main-content view-course-admin'>
 
         <div class='container'>
 
@@ -26,11 +26,11 @@
 
                     <div class='col-lg-8'>
 
-                        @if($course->video_url)
+                        @if($course->video->video_url)
 
                         <div id="player"></div>
 
-                        <input type="hidden" value="{{ generate_youtube_video_id($course->video_url) }}" id="videoId" />
+                        <input type="hidden" value="{{ generate_youtube_video_id($course->video->video_url) }}" id="videoId" />
 
                         <!-- <media-player title="{{ $course->title }}" src="{{ $course->video_url }}" playsinline >
 
@@ -71,11 +71,11 @@
                     <div class='col-lg-4'>
                         <div class='card course-card admin'>
                             <div class='card-body'>
-                                <h6 class='mb-4'>{{ __('Course Details') }}</h6>
-                                <p class=''>{{ __('Title') }}: {{ __($course->title) }}</p>
-                                <p>{{ __('Description') }}: {{ __($course->description) }}
+                                <h6 class='mb-4'>{{ 'Course Details' }}</h6>
+                                <p class=''>{{ 'Title' }}: {{ $course->title }}</p>
+                                <p>{{ 'Description' }}: {{ $course->description }}
                                 </p>
-                                <p>{{ __('Duration') }}:
+                                <p>{{ 'Duration' }}:
                                     @if($course->hours) 
                                         {{ $course->hours . ($course->hours == 1 ? ' hr' : ' hrs') }}
                                     @endif
@@ -127,7 +127,7 @@
 
                 <ul class="nav nav-tabs" id="course" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="course-info-tab" data-bs-toggle="tab" data-bs-target="#course-info-tab-pane" type="button" role="tab" aria-controls="course-info-tab-pane" aria-selected="true">{{ __('Course Info') }}</button>
+                        <button class="nav-link active" id="course-info-tab" data-bs-toggle="tab" data-bs-target="#course-info-tab-pane" type="button" role="tab" aria-controls="course-info-tab-pane" aria-selected="true">{{ 'Course Info' }}</button>
                     </li>
 
                 </ul>
@@ -135,9 +135,9 @@
                 <div class="tab-content" id="courseTabContent">
 
                     <div class="tab-pane fade show active" id="course-info-tab-pane" role="tabpanel" aria-labelledby="course-info-tab" tabindex="0">
-                        <h5 class='mt-5 mb-4 fw-bold text-black'>{{ __('About Course') }}</h5>
+                        <h5 class='mt-5 mb-4 fw-bold text-black'>{{ 'About Course' }}</h5>
                         {!! $course->about !!}
-                        <h5 class='mt-5 mb-4 fw-bold text-black'>{{ __('What will you learn?') }}</h5>
+                        <h5 class='mt-5 mb-4 fw-bold text-black'>{{ 'What will you learn?' }}</h5>
                         <div class='row row-cols-1 row-cols-md-2 g-4 g-md-5'>
 
                                 @php 
@@ -166,7 +166,7 @@
 
                         </div>
 
-                        <h5 class='mt-5 mb-4 fw-bold text-black'>{{ __('Course Content') }}</h5>
+                        <h5 class='mt-5 mb-4 fw-bold text-black'>{{ 'Course Content' }}</h5>
 
                         <div class='w-75'>
 
@@ -177,7 +177,7 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $topic->id }}" aria-expanded="true" aria-controls="collapse{{ $topic->id }}">
-                                            {{ __($topic->title) }}
+                                            {{ $topic->title }}
                                         </button>
                                         </h2>
                                         <div id="collapse{{ $topic->id }}" class="accordion-collapse collapse" data-bs-parent="#accordion-course-content-1">
@@ -191,7 +191,7 @@
                                                             <img src="/assets/img/document.png" />
 
                                                             <p>
-                                                            {{ __($lesson->title) }}
+                                                            {{ $lesson->title }}
                                                             </p>
                                                         </div>
                                                     </a>

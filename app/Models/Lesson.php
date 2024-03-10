@@ -23,6 +23,20 @@ class Lesson extends Model
         'featured_img_url',
     ];
 
+    public function videos(): MorphMany
+    {
+
+        return $this->morphMany(Video::class, 'videoable');
+
+    }
+
+    public function video(): MorphOne
+    {
+
+        return $this->morphOne(Video::class, 'videoable');
+
+    }
+
     public function topic(): BelongsTo
     {
 

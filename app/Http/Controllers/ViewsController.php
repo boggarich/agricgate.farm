@@ -17,6 +17,8 @@ use App\Models\Comment;
 use App\Models\EnrollCourse;
 use App\Models\FavoriteCourse;
 use App\Models\Blog;
+use Illuminate\Support\Facades\App;
+use App\Models\Video;
 
 class ViewsController extends Controller
 {
@@ -238,30 +240,81 @@ class ViewsController extends Controller
                 $comments = [];
             };
 
-            $lesson = Course::find( $request->course_id )
-                            ->lessons()
-                            ->with('exercise_files')
-                            ->with([
-                                'media_tracker:media_trackerable_id,media_tracker_url',
-                                'subtitles:subtitleable_id,title,subtitle_url',
-                                'complete_status' => function(Builder $query) {
+            if(
+                Video::where('videoable_id', $request->lesson_id)
+                        ->where('locale', App::currentLocale())->exists()
+            ) 
+            {
 
-                                    $query->where('user_id', Auth::id())->select('lesson_id', 'user_id');
+                $lesson = Course::find( $request->course_id )
+                                ->lessons()
+                                ->with(['video' => function(Builder $query){
 
-                                }
-                            
-                            ])
-                            ->with([
+                                    $query->where('locale', App::currentLocale())
+                                            ->select('id', 'videoable_id', 'video_url');
+        
+                                }])
+                                ->with('exercise_files')
+                                ->with([
 
-                                'active_status' => function(Builder $query) {
+                                    'media_tracker:media_trackerable_id,media_tracker_url',
+                                    'subtitles:subtitleable_id,title,subtitle_url',
+                                    'complete_status' => function(Builder $query) {
 
-                                    $query->where('user_id', Auth::id())->select('lesson_id');
+                                        $query->where('user_id', Auth::id())->select('lesson_id', 'user_id');
 
-                                }
+                                    }
+                                
+                                ])
+                                ->with([
 
-                            ])
-                            
-                            ->find( $request->lesson_id );
+                                    'active_status' => function(Builder $query) {
+
+                                        $query->where('user_id', Auth::id())->select('lesson_id');
+
+                                    }
+
+                                ])
+                                
+                                ->find( $request->lesson_id );
+
+            }
+            else 
+            {
+
+                $lesson = Course::find( $request->course_id )
+                ->lessons()
+                ->with(['video' => function(Builder $query){
+
+                    $query->where('locale', 'en')
+                            ->select('id', 'videoable_id', 'video_url');
+
+                }])
+                ->with('exercise_files')
+                ->with([
+
+                    'media_tracker:media_trackerable_id,media_tracker_url',
+                    'subtitles:subtitleable_id,title,subtitle_url',
+                    'complete_status' => function(Builder $query) {
+
+                        $query->where('user_id', Auth::id())->select('lesson_id', 'user_id');
+
+                    }
+                
+                ])
+                ->with([
+
+                    'active_status' => function(Builder $query) {
+
+                        $query->where('user_id', Auth::id())->select('lesson_id');
+
+                    }
+
+                ])
+                
+                ->find( $request->lesson_id );
+
+            }
 
         }
 
@@ -282,11 +335,45 @@ class ViewsController extends Controller
     public function course(Request $request) {
 
         $course_id = $request->course_id;
+        $course = [];
 
-        $course = Course::with('subtitles:subtitleable_id,title,subtitle_url')
-                            ->with('media_tracker:media_trackerable_id,media_tracker_url')
-                            ->whereNotNull('published_at')
-                            ->findOrFail($course_id);
+        Course::findOrFail($course_id);
+
+        if(
+            Video::where('videoable_id', $course_id)
+                    ->where('locale', App::currentLocale())->exists()
+        ) 
+        {
+
+            $course = Course::with('subtitles:subtitleable_id,title,subtitle_url')
+                        ->with(['video' => function(Builder $query){
+
+                            $query->where('locale', App::currentLocale())
+                                    ->select('id', 'videoable_id', 'video_url');
+
+                        }])
+                        ->with('media_tracker:media_trackerable_id,media_tracker_url')
+                        ->whereNotNull('published_at')
+                        ->findOrFail($course_id);
+        }
+
+        else 
+        {
+
+            $course = Course::with('subtitles:subtitleable_id,title,subtitle_url')
+                        ->with(['video' => function(Builder $query){
+
+                            $query->where('locale', 'en')
+                                    ->select('id', 'videoable_id', 'video_url');
+
+                        }])
+                        ->with('media_tracker:media_trackerable_id,media_tracker_url')
+                        ->whereNotNull('published_at')
+                        ->findOrFail($course_id);
+
+        }
+
+
 
         $lessons_count = Course::withCount('lessons')
                                     ->find($request->course_id)
@@ -320,8 +407,6 @@ class ViewsController extends Controller
                                         ->where('course_id', $course->id)
                                         ->select('question', 'answer', 'course_id', 'user_id', 'updated_at')
                                         ->get();
-
-        // return $course;
 
         return view('frontend.course')
                 ->with('lessons_count', $lessons_count)

@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
+            LocaleSeeder::class,
             BlogSeeder::class,
             AdminSeeder::class,
             AnnouncementSeeder::class,

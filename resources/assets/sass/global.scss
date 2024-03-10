@@ -2322,6 +2322,10 @@ section {
 .main-content {
   margin-top: 80px !important;
 
+  &.view-course-admin {
+    margin-top: 0px !important;
+  }
+
   &.lesson {
     margin-top: 0px !important;
   }

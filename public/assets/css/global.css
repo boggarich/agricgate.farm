@@ -1788,6 +1788,9 @@ section.call-to-action img {
 .main-content {
   margin-top: 80px !important;
 }
+.main-content.view-course-admin {
+  margin-top: 0px !important;
+}
 .main-content.lesson {
   margin-top: 0px !important;
 }

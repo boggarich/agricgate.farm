@@ -9,6 +9,9 @@ use Carbon\Carbon;
 use App\Models\Topic;
 use App\Models\Announcement;
 use App\Models\QuestionAndAnswer;
+use App\Models\Locale;
+use App\Models\Video;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class CourseController extends Controller
 {
@@ -30,6 +33,12 @@ class CourseController extends Controller
         $course_id = $course;
 
         $course = Course::with('subtitles:subtitleable_id,title,subtitle_url')
+                            ->with(['video' => function(Builder $query){
+
+                                $query->where('locale', 'en')
+                                        ->select('id', 'videoable_id', 'video_url');
+
+                            }])
                             ->with('media_tracker:media_trackerable_id,media_tracker_url')
                             ->findOrFail($course);
 
@@ -43,7 +52,6 @@ class CourseController extends Controller
                                         ->where('course_id', $course->id)
                                         ->select('question', 'answer', 'course_id', 'user_id', 'updated_at')
                                         ->get();
-
 
         return view('admin.courses.show')
                 ->with('course', $course)
@@ -96,27 +104,49 @@ class CourseController extends Controller
     public function create() {
 
         $categories = Category::all();
+        $locales = Locale::all();
 
-        return view('admin.courses.create', ['categories' => $categories]);
+        return view('admin.courses.create', [
+            'categories' => $categories,
+            'locales' => $locales
+        ]);
 
     }
 
     public function store(Request $request) {
 
-        $validated = $request->validate([
+        $validated_course_details = $request->validate([
             'category_id' => ['required'],
             'title' => ['required'],
             'description' => ['required'],
             'about' => ['required'],
             'what_will_you_learn' => ['required'],
-            'video_url' => ['nullable'],
             'featured_img_url' => ['required'],
             'hours' => ['required'],
             'mins' => ['required'],
             'secs' => ['required'],
         ]);
 
-        Course::create($validated);
+        $course = Course::create($validated_course_details);
+
+        if ($request->filled('video_urls')) {
+            
+            foreach($request->video_urls as $video_url) 
+            {
+                if(!( explode("::", $video_url)[1] == '' )) {
+
+                    Video::create([
+                        'locale' => explode('::', $video_url)[0],
+                        'videoable_id' => $course->id,
+                        'videoable_type' => 'App\Models\Course',
+                        'video_url' => explode('::', $video_url)[1]
+                    ]);
+
+                }
+
+            }
+
+        }
 
         return redirect()
                 ->route('admin.courses.index')
@@ -126,11 +156,16 @@ class CourseController extends Controller
 
     public function edit($id) {
 
-        $course = Course::findOrFail($id);
+        $course = Course::with('videos:id,videoable_id,video_url,locale')->findOrFail($id);
         $categories = Category::all();
+        $locales = Locale::all();
 
         return view('admin.courses.edit', 
-                    ['categories' => $categories, 'course' => $course]
+                    [
+                        'categories' => $categories, 
+                        'course' => $course,
+                        'locales' => $locales
+                    ]
                 );
 
     }
@@ -143,7 +178,6 @@ class CourseController extends Controller
             'description' => ['required'],
             'about' => ['required'],
             'what_will_you_learn' => ['required'],
-            'video_url' => ['nullable'],
             'featured_img_url' => ['nullable'],
             'hours' => ['required'],
             'mins' => ['required'],
@@ -151,6 +185,30 @@ class CourseController extends Controller
         ]);
 
         Course::where('id', $id)->update($validated);
+
+        if ($request->filled('video_urls')) {
+            
+            foreach($request->video_urls as $video_url) 
+            {
+
+                if(!( explode("::", $video_url)[1] == '' )) {
+
+                    Video::updateOrCreate(
+                                [
+                                    'videoable_id' => $id, 
+                                    'locale' => explode('::', $video_url)[0],
+                                    'videoable_type' => 'App\Models\Course'
+                                ],
+                                [
+                                    'video_url' => explode('::', $video_url)[1]
+                                ]
+                            );
+
+                }
+
+            }
+
+        }
 
         return redirect()->route('admin.courses.index')
                         ->withSuccess('Course updated successfully.');

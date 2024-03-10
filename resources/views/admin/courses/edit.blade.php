@@ -83,9 +83,34 @@
 
                 </div>
 
-                <div class="col-md-6 form-group">
-                    <label for="inputEmail4" class="form-label">Video URL</label>
-                    <input type="text" class="form-control" name="video_url" value="{{ $course->video_url }}" id="videoURL"/>
+                <div class="col-lg-6 form-group">
+                    <label>Select language to add video URL</label>
+                    <select class="form-control select2" name="locale" id="locale">
+                            <option @selected(true)>Select language</option>
+                        @foreach($locales as $locale)
+                            <option value="{{ $locale->shortcode }}">{{ $locale->language }}</option>
+                        @endforeach
+
+                    </select>
+                </div>
+
+                <div id="video-url-wrapper">
+
+                    @if($course->videos)
+
+                        @foreach($course->videos as $video)
+
+                            <div class="col-md-6 form-group">
+                                <label for="inputEmail4" class="form-label">Video URL ({{  App\Models\Locale::where('shortcode', $video->locale)->first()->language }})</label>
+                                <input type="text" class="form-control video-url" name="video_urls[]" value="{{ $video->locale . '::' . $video->video_url }}" id="{{ $video->locale }}"/>
+                            </div>
+                            <div class="col-md-6 form-group"></div>
+
+                        @endforeach
+
+                    @endif
+
+
                 </div>
 
                 <input type="hidden" name="featured_img_url" value="{{ $course->featured_img_url }}" id="featuredImgURL"/>
