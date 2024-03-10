@@ -246,7 +246,9 @@ class ViewsController extends Controller
             ) 
             {
 
-                $lesson = Course::find( $request->course_id )
+                $lesson = Course::whereNotNull('published_at')
+                                ->where('id', $request->course_id)
+                                ->firstOrFail()
                                 ->lessons()
                                 ->with(['video' => function(Builder $query){
 
@@ -282,37 +284,39 @@ class ViewsController extends Controller
             else 
             {
 
-                $lesson = Course::find( $request->course_id )
-                ->lessons()
-                ->with(['video' => function(Builder $query){
+                $lesson = Course::whereNotNull('published_at')
+                                ->where('id', $request->course_id)
+                                ->firstOrFail()
+                                ->lessons()
+                                ->with(['video' => function(Builder $query){
 
-                    $query->where('locale', 'en')
-                            ->select('id', 'videoable_id', 'video_url');
+                                    $query->where('locale', 'en')
+                                            ->select('id', 'videoable_id', 'video_url');
 
-                }])
-                ->with('exercise_files')
-                ->with([
+                                }])
+                                ->with('exercise_files')
+                                ->with([
 
-                    'media_tracker:media_trackerable_id,media_tracker_url',
-                    'subtitles:subtitleable_id,title,subtitle_url',
-                    'complete_status' => function(Builder $query) {
+                                    'media_tracker:media_trackerable_id,media_tracker_url',
+                                    'subtitles:subtitleable_id,title,subtitle_url',
+                                    'complete_status' => function(Builder $query) {
 
-                        $query->where('user_id', Auth::id())->select('lesson_id', 'user_id');
+                                        $query->where('user_id', Auth::id())->select('lesson_id', 'user_id');
 
-                    }
-                
-                ])
-                ->with([
+                                    }
+                                
+                                ])
+                                ->with([
 
-                    'active_status' => function(Builder $query) {
+                                    'active_status' => function(Builder $query) {
 
-                        $query->where('user_id', Auth::id())->select('lesson_id');
+                                        $query->where('user_id', Auth::id())->select('lesson_id');
 
-                    }
+                                    }
 
-                ])
-                
-                ->find( $request->lesson_id );
+                                ])
+                                
+                                ->find( $request->lesson_id );
 
             }
 
