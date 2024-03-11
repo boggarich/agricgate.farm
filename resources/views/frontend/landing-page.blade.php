@@ -32,7 +32,7 @@
                     <div class="swiper-slide">
                         <div class="text-bg-gradient gradient-1"></div>
                         <div class='position-relative'>
-                            <img src='/assets/img/UNDP_GH_Snails_Design_Felix_1-1-scaled.jpg' alt="snail-feeding"/>
+                            <img src="{{ asset('assets/img/WhatsApp Image 2024-03-10 at 5.24.48 PM.jpeg') }}" alt="snail-feeding"/>
                             <div class='container-xxl'>
                                 <h1 class='page-hero-header'>{{ __('Sell your produce directly to buyers, no middlemen, better profits') }}</h1>
                             </div>

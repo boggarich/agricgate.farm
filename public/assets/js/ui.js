@@ -5,16 +5,20 @@ let videoUrlPrefix = '';
 
 $('#locale').on('change', (e) => {
 
+    console.log(e.target.text)
+
     if($(`#${e.target.value}`).length) {
 
       return;
 
     }
 
+    console.log(e.target)
+
     let videoURLInputHTML = 
 
     `<div class="col-md-6 form-group">
-        <label for="inputEmail4" class="form-label">Video URL ${e.target.text}</label>
+        <label for="inputEmail4" class="form-label">Video URL (${ $('#locale option:selected').text() })</label>
         <input type="text" class="form-control video-url" name="video_urls[]" value="${e.target.value}::" id="${e.target.value}"/>
     </div>
     <div class="col-md-6"></div>`;
@@ -56,8 +60,6 @@ $('.video-url').on('input', (e) => {
 $('.video-url').on('focus', (e) => {
 
   videoUrlPrefix = e.target.value.split("::")[0] + '::';
-
-  console.log(videoUrlPrefix)
 
 });
 

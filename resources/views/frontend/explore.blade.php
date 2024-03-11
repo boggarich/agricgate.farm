@@ -13,6 +13,7 @@
                         'btn',
                         'btn-black',
                         'me-3',
+                        'text-nowrap',
                         'active' => !Route::current()->hasParameter('course_category_id')
                     ])>{{ __('All') }}</a>
 
@@ -32,6 +33,7 @@
                             'btn',
                             'btn-black',
                             'me-3',
+                            'text-nowrap',
                             'active' => $active
                         ])  >{{ translate($course_category->title) }}
                         </a>

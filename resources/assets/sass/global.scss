@@ -23,9 +23,30 @@ body {
   position: relative;
 }
 
+.lesson-pane {
+  .course-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    max-height: 3.3rem;
+    max-width: 300px !important;
+  }
+}
+
+#course-info-tab-pane,
+#lessonContent {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .featured-courses-wrapper {
   .btn-link {
     color: #446ee7 !important;
+    margin-bottom: 2rem;
 
     svg {
       path {
@@ -101,6 +122,10 @@ iframe:not([name^=paystack-checkout]) {
   max-width: 900px;
   max-height: 400px;
   height: 100%;
+
+  video {
+    object-fit: fill !important;
+  }
 }
 
 .user-details-wrapper {
@@ -1710,6 +1735,7 @@ section {
 
     .btn-link {
       color: #446ee7 !important;
+      margin-bottom: 2rem;
 
       svg {
         path {
