@@ -334,7 +334,7 @@
                                             <div class='col g-0'>
                                             </div>
                                             <div class='col g-0'>
-                                            <img src="/assets/img/UNDP_GH_Snails_Design_Felix_1-1-scaled.jpg" />
+                                            <img src="{{ asset('assets/img/abigail.jpeg') }}"class="img-fluid"/>
                                             </div>
                                         </div>
                                         <div class='overlay-content'>
@@ -342,11 +342,9 @@
 
                                             <div class='d-flex justify-content-center flex-column px-5 w-75 mx-auto mb-5'>
                                                 <p class='text-white text-center font-domaine'>
-                                                    <i>{{ translate("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                                do eiusmod tempor incididunt ut labore et dolore
-                                                magna aliqua") }}</i>
+                                                    <i>{{ translate("Discovering Agricgate has been a game-changer for me. As a teacher passionate about sustainable living, the courses on this platform have equipped me with invaluable knowledge on sustainable farming practices. The content is well-structured, engaging, and easy to understand, making learning a joy. I've implemented several techniques in my small garden, and I'm seeing remarkable results. Agricgate is a treasure trove of agricultural wisdom.") }}</i>
                                                 </p>
-                                                <p class='text-white text-center'>C.E.O., Trisolace</p>
+                                                <p class='text-white text-center'>Abigail, 32, Trained Teacher</p>
                                             </div>
                                         </div>
 
@@ -359,18 +357,16 @@
                                             <div class='col g-0'>
                                             </div>
                                             <div class='col g-0'>
-                                            <img src="/assets/img/UNDP_GH_Snails_Design_Felix_1-1-scaled.jpg" />
+                                            <img src="{{ asset('assets/img/WhatsApp Image 2024-03-11 at 8.29.38 PM.jpeg') }}" />
                                             </div>
                                         </div>
                                         <div class='overlay-content'>
                                             <img src="{{ asset('assets/img/leaves.png') }}" class="">
 
                                             <div class='d-flex justify-content-center flex-column px-5 w-75 mx-auto mb-5'>
-                                                <p class='text-white text-center font-domaine'><i>{{ translate("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                                do eiusmod tempor incididunt ut labore et dolore
-                                                magna aliqua") }}</i>
+                                                <p class='text-white text-center font-domaine'><i>{{ translate("Agricgate has opened a new world of opportunities for me. Initially, my knowledge of farming was minimal, but thanks to Agricgate, I've learned so much about catfish farming and greenhouse management. The practical tips and hands-on approaches shared through the courses are directly applicable, and I'm currently setting up my own small-scale farm. This platform is a must-visit for anyone looking to diversify their skills.") }}</i>
                                                 </p>
-                                                <p class='text-white text-center'>C.E.O., Trisolace</p>
+                                                <p class='text-white text-center'>Mohammed, 29, Welding Technician</p>
                                             </div>
                                         </div>
 
@@ -383,24 +379,44 @@
                                             <div class='col g-0'>
                                             </div>
                                             <div class='col g-0'>
-                                            <img src="/assets/img/UNDP_GH_Snails_Design_Felix_1-1-scaled.jpg" />
+                                            <img src="{{ asset('assets/img/WhatsApp Image 2024-03-11 at 8.29.40 PM (1).jpeg') }}" />
                                             </div>
                                         </div>
                                         <div class='overlay-content'>
                                             <img src="{{ asset('assets/img/leaves.png') }}" class="">
 
                                             <div class='d-flex justify-content-center flex-column px-5 w-75 mx-auto mb-5'>
-                                                <p class='text-white text-center font-domaine'><i>{{ translate("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                                do eiusmod tempor incididunt ut labore et dolore
-                                                magna aliqua") }}</i>
+                                                <p class='text-white text-center font-domaine'><i>{{ translate("As a university student studying environmental science, Agricgate has been an invaluable resource for my studies and personal interest in agriculture. The platform's courses on organic farming and pest management have not only supplemented my academic knowledge but also inspired me to start a community garden project. The depth of content and the ease of access make Agricgate an exceptional learning tool.") }}</i>
                                                 </p>
-                                                <p class='text-white text-center'>C.E.O., Trisolace</p>
+                                                <p class='text-white text-center'>Yeboah, 31, University Student</p>
                                             </div>
                                         </div>
 
                                     </div>
                             </div>
-                        
+                            <div class="swiper-slide">
+                                    <div class='card-overlay shadow-none'>
+
+                                        <div class='overlay-img row g-0'>
+                                            <div class='col g-0'>
+                                            </div>
+                                            <div class='col g-0'>
+                                            <img src="{{ asset('assets/img/WhatsApp Image 2024-03-11 at 8.29.39 PM.jpeg') }}" />
+                                            </div>
+                                        </div>
+                                        <div class='overlay-content'>
+                                            <img src="{{ asset('assets/img/leaves.png') }}" class="">
+
+                                            <div class='d-flex justify-content-center flex-column px-5 w-75 mx-auto mb-5'>
+                                                <p class='text-white text-center font-domaine'><i>{{ translate("Exploring Agricgate has been an enlightening experience. As a videographer with a keen interest in documenting sustainable farming practices, the platform provided me with the foundational knowledge needed to understand the subjects of my documentaries better. The variety of courses available, coupled with the expertise of the instructors, has enriched my content, allowing me to share more informed and compelling stories.") }}</i>
+                                                </p>
+                                                <p class='text-white text-center'>Selasie, 24, Videographer</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                            </div>
+
                         </div>
 
                         <div class="swiper-pagination"></div>
@@ -559,9 +575,9 @@
 
     const testimonialsSwiper = new Swiper('.testimonials', {
         autoplay: {
-            delay: 5000,
+            delay: 10000,
         },
-        loop: false,
+        loop: true,
         spaceBetween: 16,
         slidesPerView: 1,
         navigation: {
