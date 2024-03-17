@@ -50,7 +50,7 @@
             <div class="container">
 
                 <ul class="">
-                    <li><a href="#" class="nav-link">{{ __('E-Commerce') }}</a></li>
+                    <li><a href="{{ route('e-commerce') }}" class="nav-link">{{ __('E-Commerce') }}</a></li>
                     <li><a href="{{ route('blogs-page') }}" class="nav-link">{{ __('News') }}</a></li>
                     <li><a href="{{ route('donate.create-charge') }}">{{ __('Donate') }}</a></li>
 

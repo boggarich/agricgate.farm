@@ -3,15 +3,15 @@
 @section('main-content')
 
     <main class="main-content">
-        <div class="container">
+        <div class="container-xxl">
 
             @if( !empty($courses[0] ))
 
-                <h3 class='mt-5 mb-4 fw-bold text-black ms-4 mb-5'>{{ __('Search Results for') }} “{{ __($search_query) }}”</h3>
+                <h3 class='pt-5 mt-3 mb-4 fw-bold text-black mb-5'>{{ __('Search Results for') }} “{{ __($search_query) }}”</h3>
 
             @else
 
-                <h3 class='mt-5 mb-4 fw-bold text-black ms-4 mb-5'>{{ __('No Search Results for') }} “{{ __($search_query) }}”</h3>
+                <h3 class='pt-5 mt-3 mb-4 fw-bold text-black mb-5'>{{ __('No Search Results for') }} “{{ __($search_query) }}”</h3>
 
             @endif
 
@@ -32,7 +32,7 @@
                                         <p>{{ __($course->description) }}</p>
                                     </div>
                                     
-                                    <button class='btn btn-success w-auto'>{{ __('View Course') }}</button>
+                                    <button class='btn btn-outline-success w-auto'>{{ __('View Course') }}</button>
 
                                 </div>
                             </div>

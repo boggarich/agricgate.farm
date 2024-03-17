@@ -33,6 +33,12 @@ Route::get('/set-locale/{locale}', function(string $locale) {
 
 Route::middleware('guest')->group(function() {
 
+        Route::get('/e-commerce', function() {
+
+                return redirect()->away('https://shop.agricgate.farm');
+
+        })->name('e-commerce');
+
         Route::post('/newsletter-users', [NewsletterUserController::class, 'store'])
                 ->name('newsletter-users.store');
 

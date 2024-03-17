@@ -62,13 +62,13 @@
                             </p>
                             <p>{{ __('Duration') }}:
                                 @if($course->hours) 
-                                    {{ $course->hours . ($course->hours == 1 ? ' hr' : ' hrs') }}
+                                    {{ $course->hours . ($course->hours == 1 ? 'hr' : 'hrs') }}
                                 @endif
                                 @if($course->mins) 
-                                    {{ $course->mins . ($course->mins == 1 ? ' min' : ' mins') }}
+                                    {{ $course->mins . ($course->mins == 1 ? 'min' : 'mins') }}
                                 @endif
                                 @if($course->secs)
-                                    {{ $course->secs . ($course->secs == 1 ? ' sec' : ' secs') }}
+                                    {{ $course->secs . ($course->secs == 1 ? 'sec' : 'secs') }}
                                 @endif
                             </p>
 

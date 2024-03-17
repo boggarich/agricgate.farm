@@ -65,7 +65,7 @@
                         <li><a class="dropdown-item" href="{{ route('set-locale', ['locale' => 'ha' ] ) }}">Hausa</a></li>
                     </ul>
                 </div>
-                <a href="#" class="nav-link">{{ __('E-Commerce') }}</a>
+                <a href="{{ route('e-commerce') }}" class="nav-link">{{ __('E-Commerce') }}</a>
                 <a href="{{ route('blogs-page') }}" class="nav-link">{{ __('News') }}</a>
                 <!-- <a href="{{ route('explore') }}" class='me-2'>{{ __('Explore') }}</a> -->
                 <a href="{{ route('donate.create-charge') }}" class="nav-link">{{ __('Donate') }}</a>

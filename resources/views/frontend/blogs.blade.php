@@ -9,7 +9,7 @@
             <div class="pt-3">
 
                 <h3 class="mt-3 fw-600 mb-0">{{ __('Latest Blog Posts') }}</h3>
-                <p class="text-muted mb-5">{{ __('You can read our latest news here') }}</p>
+                <p class="text-muted mb-4">{{ __('You can read our latest news here') }}</p>
 
                 <div class="row row-cols-1 row-cols-lg-4 gx-4 gy-4">
 
