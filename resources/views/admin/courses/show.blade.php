@@ -26,39 +26,50 @@
 
                     <div class='col-lg-8'>
 
-                        @if($course->video->video_url)
+                        @if($course->video)
 
-                        <div id="player"></div>
+                            <iframe
+                                width="774" height="438"
+                                src="{{ $course->video->video_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;" 
+                                frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                                title="{{ $course->title }}">
+                            </iframe>
 
-                        <input type="hidden" value="{{ generate_youtube_video_id($course->video->video_url) }}" id="videoId" />
+                        {{--
 
-                        <!-- <media-player title="{{ $course->title }}" src="{{ $course->video_url }}" playsinline >
+                            <div id="player"></div>
 
-                            <media-provider>
-                                
-                                @if($course->subtitles)
+                            <input type="hidden" value="{{ generate_youtube_video_id($course->video->video_url) }}" id="videoId" />
 
-                                    @foreach($course->subtitles as $subtitle)
+                            <media-player title="{{ $course->title }}" src="{{ $course->video_url }}" playsinline >
 
-                                        <track src="{{ $subtitle->subtitle_url }}" kind="subtitles" label="{{ $subtitle->title }}" />
+                                <media-provider>
+                                    
+                                    @if($course->subtitles)
 
-                                    @endforeach
+                                        @foreach($course->subtitles as $subtitle)
+
+                                            <track src="{{ $subtitle->subtitle_url }}" kind="subtitles" label="{{ $subtitle->title }}" />
+
+                                        @endforeach
+
+                                    @endif
+
+                                </media-provider>
+
+                                @if($course->media_tracker)
+
+                                    <media-video-layout thumbnails="{{ $course->media_tracker->media_tracker_url }}"></media-video-layout>
+
+                                @else 
+
+                                    <media-video-layout thumbnails=""></media-video-layout>
 
                                 @endif
 
-                            </media-provider>
+                            </media-player>
 
-                            @if($course->media_tracker)
-
-                                <media-video-layout thumbnails="{{ $course->media_tracker->media_tracker_url }}"></media-video-layout>
-
-                            @else 
-
-                                <media-video-layout thumbnails=""></media-video-layout>
-
-                            @endif
-
-                        </media-player> -->
+                        --}}
 
                         @else 
 

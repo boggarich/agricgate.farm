@@ -14,10 +14,18 @@
 
                     @if($course->video)
 
-                    <div id="player"></div>
+                        <iframe
+                            width="774" height="438"
+                            src="{{ $course->video->video_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;" 
+                            frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                            title="{{ $course->title }}">
+                        </iframe>
+
+                    {{-- 
+                        <div id="player"></div> 
 
                     <input type="hidden" value="{{ generate_youtube_video_id($course->video->video_url) }}" id="videoId" />
-                    <!-- <media-player title="{{ $course->title }}" src="{{ $course->video_url }}" playsinline >
+                    <media-player title="{{ $course->title }}" src="{{ $course->video_url }}" playsinline >
 
                         <media-provider>
                             
@@ -43,7 +51,9 @@
 
                         @endif
 
-                    </media-player> -->
+                    </media-player>
+
+                    --}}
 
                     @else 
 

@@ -141,7 +141,8 @@
         <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
         <script src="{{ asset('assets/js/ui.js') }}" defer></script>
         <script src="{{ asset('assets/js/common.js') }}"></script>
-        <script src="{{ asset('assets/js/youtube-player.js') }}" defer></script>
+        <!-- <script src="{{ asset('assets/js/youtube-player.js') }}" defer></script> -->
+        <script src="https://player.vimeo.com/api/player.js"></script>
 
         <script>
 

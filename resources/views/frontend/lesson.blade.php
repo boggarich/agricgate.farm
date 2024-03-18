@@ -241,11 +241,19 @@
 
                         <div class="px-lg-5  py-lg-2 p-2">
 
+                            <iframe
+                                width="774" height="438"
+                                src="{{ $active_lesson->video->video_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;" 
+                                frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+                                title="{{ $active_lesson->title }}">
+                            </iframe>
+
+                            {{--
                             <div id="player"></div>
 
                             <input type="hidden" value="{{ generate_youtube_video_id($active_lesson->video->video_url) }}" id="videoId" />
 
-                            <!-- <media-player title="{{ $active_lesson->title }}" src="{{ $active_lesson->video_url }}" playsinline>
+                            <media-player title="{{ $active_lesson->title }}" src="{{ $active_lesson->video_url }}" playsinline>
                                 
                                 <media-provider>
 
@@ -272,7 +280,9 @@
 
                                     @endif
 
-                            </media-player>  -->
+                            </media-player>
+                            
+                            --}}
 
                         </div>
 
