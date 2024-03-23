@@ -205,7 +205,7 @@
                                                 @method('DELETE')
                                                 @csrf
                                             
-                                                <button type="submit" class="btn btn-secondary btn-square mr-3">
+                                                <button type="submit" class="btn btn-secondary btn-square mr-3" title="Unfeature">
                                                     <i class="fas fa-fw fa-desktop"></i>
                                                 </button>
 
@@ -215,7 +215,7 @@
                                                 @method('POST')
                                                 @csrf
                                                 <input type="hidden" name="course_id" value="${data.id}"/>
-                                                <button type="submit" class="btn btn-info btn-square mr-3">
+                                                <button type="submit" class="btn btn-info btn-square mr-3" title="Feature">
                                                     <i class="fas fa-fw fa-desktop"></i>
                                                 </button>
 

@@ -94,6 +94,7 @@ class AdminController extends Controller
 
     public function dashboard() {
 
+        $total_users = User::count();
         $total_donations = Donate::sum('amount');
 
         $enroll_courses_count = EnrollCourse::count();
@@ -163,6 +164,7 @@ class AdminController extends Controller
             ];
 
         return view('admin.dashboard')
+                ->with('total_users', $total_users)
                 ->with('total_donations', $total_donations)
                 ->with('monthly_users_count', $monthly_users_count)
                 ->with('pending_questions_count', $pending_questions_count)

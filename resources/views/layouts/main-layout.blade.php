@@ -139,10 +139,7 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vidstack@^1.0.0/cdn/with-layouts/vidstack.js" type="module"></script>
         <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-        <script src="{{ asset('assets/js/ui.js') }}" defer></script>
         <script src="{{ asset('assets/js/common.js') }}"></script>
-        <!-- <script src="{{ asset('assets/js/youtube-player.js') }}" defer></script> -->
-        <script src="https://player.vimeo.com/api/player.js"></script>
 
         <script>
 
@@ -209,6 +206,8 @@
             });
 
         </script>
+        <script src="{{ asset('assets/js/ui.js') }}"></script>
+
 
         @yield('scripts')
 

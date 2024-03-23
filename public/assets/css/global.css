@@ -33,7 +33,7 @@ body {
 }
 
 #course-info-tab-pane img,
-#lessonContent img {
+#overview-tab-pane img {
   width: 100%;
   height: auto;
 }
@@ -300,6 +300,12 @@ table td img {
   margin-right: 24px;
   font-weight: 600 !important;
 }
+#setLocaleBtn:hover {
+  color: #2eaf7d !important;
+}
+#setLocaleBtn:hover svg path {
+  fill: #2eaf7d !important;
+}
 #setLocaleBtn[aria-expanded=true] svg {
   transform: rotate(180deg);
 }
@@ -310,6 +316,7 @@ table td img {
 }
 #setLocaleBtn svg path {
   fill: #74767e !important;
+  transition: fill 250ms ease-in-out;
 }
 #setLocaleBtn img {
   height: 18px;

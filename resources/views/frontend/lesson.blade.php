@@ -243,7 +243,7 @@
 
                             <iframe
                                 width="774" height="438"
-                                src="{{ $active_lesson->video->video_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;" 
+                                src="{{ $active_lesson->video->video_url }}" 
                                 frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
                                 title="{{ $active_lesson->title }}">
                             </iframe>
@@ -530,7 +530,7 @@
             let videoProgressObj;
             let _videoTimeInterval;
             let lessonId = <?php echo $active_lesson->id ?>;
-            // let videoDuration;
+            let videoDuration = undefined;
 
             // const player = document.querySelector('media-player');
 
@@ -546,41 +546,41 @@
                 videoProgressObj = sessionStorage.getItem("videoProgress");
             }
 
-            if(player) {
+            // if(player) {
 
-                player.addEventListener('loaded-data', (event) => {
+            //     player.addEventListener('loaded-data', (event) => {
 
-                    videoDuration = player.state.duration;
+            //         videoDuration = player.state.duration;
 
-                    commonObj.initVideo(player, lessonId, videoProgressObj);
+            //         commonObj.initVideo(player, lessonId, videoProgressObj);
 
-                })
+            //     })
 
-                player.addEventListener('ended', (event) => {
+            //     player.addEventListener('ended', (event) => {
 
-                    _clearVideoTimeInterval = clearInterval(_videoTimeInterval);
+            //         _clearVideoTimeInterval = clearInterval(_videoTimeInterval);
 
-                    commonObj.storeVideoProgress(player, lessonId, videoProgressObj);
+            //         commonObj.storeVideoProgress(player, lessonId, videoProgressObj);
 
-                });
+            //     });
 
-                player.addEventListener('pause', (event) => {
+            //     player.addEventListener('pause', (event) => {
 
-                    _clearVideoTimeInterval = clearInterval(_videoTimeInterval);
+            //         _clearVideoTimeInterval = clearInterval(_videoTimeInterval);
 
-                });
+            //     });
 
-                player.addEventListener('playing', (event) => {
+            //     player.addEventListener('playing', (event) => {
 
-                    _videoTimeInterval = setInterval(() => {
+            //         _videoTimeInterval = setInterval(() => {
 
-                        commonObj.storeVideoProgress(player, lessonId, videoProgressObj);
+            //             commonObj.storeVideoProgress(player, lessonId, videoProgressObj);
 
-                    }, 5000);
+            //         }, 5000);
 
-                });
+            //     });
 
-            }
+            // }
 
             $(ext.jsId.nextLessonBtn).on('click', (e) => {
 

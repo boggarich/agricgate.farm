@@ -3,6 +3,16 @@
     use Stichoza\GoogleTranslate\GoogleTranslate;
     use Illuminate\Support\Facades\Session;
 
+    function initGoogleTranslate() 
+    {
+
+        $GLOBALS["tr"] =  new GoogleTranslate();
+
+    }
+
+    initGoogleTranslate();
+
+    
     if(! function_exists('generate_youtube_video_id') ) {
 
 
@@ -20,16 +30,22 @@
 
         function translate($content) { 
 
+            $tr = $GLOBALS["tr"];
+
             $target = 'en';
             $source = 'en';
+
+            $tr->setSource($source);
+            $tr->setTarget($target);
 
             if(Session::get('locale')) {
 
                 $target = Session::get('locale');
+                $tr->setTarget($target);
 
             }
 
-            return GoogleTranslate::trans($content, $target, $source);
+            return $tr->translate($content);
 
         }
 
