@@ -14,6 +14,8 @@
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
         <link href="{{ asset('assets/css/global.css') }}" rel="stylesheet"/>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5465270578277771"
+     crossorigin="anonymous"></script>
 
     </head>
 
