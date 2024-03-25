@@ -61,7 +61,7 @@
                             {{ __("Agricgate seeks to offer practical virtual") }}
                             {{ __("agriculture training to African youth; with an E-commerce") }} 
                             {{ __("platform to sell products created through the farms' set-up.") }}
-                            {{ __("This is to help equip and excite the interest of these young ones in ") }}
+                            {{ __("This is to help equip and excite the interest of Africans in ") }}
                             {{ __("farming and at the same ") }}
                             {{ __("time resourcing trainees to be able to start their") }}
                             {{ __("farm and or be groomed into farm managers.") }}
@@ -160,7 +160,7 @@
 
                     <div class="col-md-6">
                         <div class="d-flex flex-column justify-content-center h-100">
-                        <h3 class='page-header'>{{ __('Our mission & vision') }}</h3>
+                        <h3 class='page-header'>{{ __('Our Mission & Vision') }}</h3>
                         <div class="d-flex align-items-center mb-3">
                                 <svg width="24" height="24" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" fill="#B1ABFF"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.203.432a1.891 1.891 0 0 0-2.406 0l-1.113.912a1.904 1.904 0 0 1-.783.384l-1.395.318c-.88.2-1.503.997-1.5 1.915l.007 1.456c0 .299-.065.594-.194.863L.194 7.59a1.978 1.978 0 0 0 .535 2.388l1.12.903c.231.185.417.422.543.692l.615 1.314a1.908 1.908 0 0 0 2.166 1.063l1.392-.33c.286-.068.584-.068.87 0l1.392.33a1.908 1.908 0 0 0 2.166-1.063l.615-1.314c.126-.27.312-.507.542-.692l1.121-.903c.707-.57.93-1.563.535-2.388l-.625-1.309a1.983 1.983 0 0 1-.194-.863l.006-1.456a1.947 1.947 0 0 0-1.5-1.915L10.1 1.728a1.904 1.904 0 0 1-.784-.384L8.203.432Zm2.184 5.883a.742.742 0 0 0 0-1.036.71.71 0 0 0-1.018 0L6.565 8.135 5.095 6.73a.71.71 0 0 0-1.018.032.742.742 0 0 0 .032 1.036L6.088 9.69a.71.71 0 0 0 1.001-.016l3.297-3.359Z"></path></svg>
                                 <div>
@@ -207,6 +207,9 @@
 
         <section class="features">
             <div class="container-xxl">
+
+                <h3 class='page-header'>{{ __("You need it, we've got it") }}</h3>
+
                 <div class="row">
                     <div class="col-md-3 d-flex flex-column align-items-center text-center">
                         <img src="{{ asset('assets/img/3974104.jpg') }}" class="img-fluid"/>
@@ -336,12 +339,12 @@
                                             </div>
                                         </div>
                                         <div class='overlay-content'>
-                                            <img src="{{ asset('assets/img/leaves.png') }}" class="">
 
                                             <div class='d-flex justify-content-center flex-column px-5 w-75 mx-auto mb-5'>
                                                 <p class='text-white text-center font-domaine'>
-                                                    <i>{{ translate("Discovering Agricgate has been a game-changer for me. As a teacher passionate about sustainable living, the courses on this platform have equipped me with invaluable knowledge on sustainable farming practices. The content is well-structured, engaging, and easy to understand, making learning a joy. I've implemented several techniques in my small garden, and I'm seeing remarkable results. Agricgate is a treasure trove of agricultural wisdom.") }}</i>
+                                                    <i>{{ translate("\"Discovering Agricgate has been a game-changer for me. As a teacher passionate about sustainable living, the courses on this platform have equipped me with invaluable knowledge on sustainable farming practices. The content is well-structured, engaging, and easy to understand, making learning a joy. I've implemented several techniques in my small garden, and I'm seeing remarkable results. Agricgate is a treasure trove of agricultural wisdom.") }}</i>
                                                 </p>
+                                                <img src="{{ asset('assets/img/abigail.jpeg') }}" class="testimonial-img">
                                                 <p class='text-white text-center'>Abigail, 32, Trained Teacher</p>
                                             </div>
                                         </div>
@@ -359,11 +362,11 @@
                                             </div>
                                         </div>
                                         <div class='overlay-content'>
-                                            <img src="{{ asset('assets/img/leaves.png') }}" class="">
 
                                             <div class='d-flex justify-content-center flex-column px-5 w-75 mx-auto mb-5'>
                                                 <p class='text-white text-center font-domaine'><i>{{ translate("Agricgate has opened a new world of opportunities for me. Initially, my knowledge of farming was minimal, but thanks to Agricgate, I've learned so much about catfish farming and greenhouse management. The practical tips and hands-on approaches shared through the courses are directly applicable, and I'm currently setting up my own small-scale farm. This platform is a must-visit for anyone looking to diversify their skills.") }}</i>
                                                 </p>
+                                                <img src="{{ asset('assets/img/WhatsApp Image 2024-03-11 at 8.29.38 PM.jpeg') }}" class="testimonial-img">
                                                 <p class='text-white text-center'>Mohammed, 29, Welding Technician</p>
                                             </div>
                                         </div>
@@ -381,11 +384,10 @@
                                             </div>
                                         </div>
                                         <div class='overlay-content'>
-                                            <img src="{{ asset('assets/img/leaves.png') }}" class="">
-
                                             <div class='d-flex justify-content-center flex-column px-5 w-75 mx-auto mb-5'>
                                                 <p class='text-white text-center font-domaine'><i>{{ translate("As a university student studying environmental science, Agricgate has been an invaluable resource for my studies and personal interest in agriculture. The platform's courses on organic farming and pest management have not only supplemented my academic knowledge but also inspired me to start a community garden project. The depth of content and the ease of access make Agricgate an exceptional learning tool.") }}</i>
                                                 </p>
+                                                <img src="{{ asset('assets/img/WhatsApp Image 2024-03-11 at 8.29.40 PM (1).jpeg') }}" class="testimonial-img">
                                                 <p class='text-white text-center'>Yeboah, 31, University Student</p>
                                             </div>
                                         </div>
@@ -403,11 +405,10 @@
                                             </div>
                                         </div>
                                         <div class='overlay-content'>
-                                            <img src="{{ asset('assets/img/leaves.png') }}" class="">
-
                                             <div class='d-flex justify-content-center flex-column px-5 w-75 mx-auto mb-5'>
                                                 <p class='text-white text-center font-domaine'><i>{{ translate("Exploring Agricgate has been an enlightening experience. As a videographer with a keen interest in documenting sustainable farming practices, the platform provided me with the foundational knowledge needed to understand the subjects of my documentaries better. The variety of courses available, coupled with the expertise of the instructors, has enriched my content, allowing me to share more informed and compelling stories.") }}</i>
                                                 </p>
+                                                <img src="{{ asset('assets/img/WhatsApp Image 2024-03-11 at 8.29.39 PM.jpeg') }}" class="testimonial-img">
                                                 <p class='text-white text-center'>Selasie, 24, Videographer</p>
                                             </div>
                                         </div>
